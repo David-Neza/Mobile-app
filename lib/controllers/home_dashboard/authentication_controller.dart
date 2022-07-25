@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 import '../../services/authentication/authentication_states.dart';
 
 class AuthenticationController extends GetxController {
+  Rx<TextEditingController> username = TextEditingController().obs;
   Rx<TextEditingController> email = TextEditingController().obs;
   Rx<TextEditingController> password = TextEditingController().obs;
   RxBool obscure = true.obs;
   RxBool isLoading = false.obs;
+  RxBool isLoginLoading = false.obs;
   // ignore: prefer_const_constructors
   final _authenticationStateStream = AuthenticationState().obs;
   AuthenticationState get state => _authenticationStateStream.value;
@@ -32,6 +34,13 @@ class AuthenticationController extends GetxController {
     super.onInit();
   }
 
+  String? usernameValidator(String value) {
+    if (value.isEmpty) {
+      return 'Please, Input a username';
+    }
+    return null;
+  }
+
   String? emailValidator(String value) {
     if (value.isEmpty || !value.contains('@')) {
       return 'Please, Input a correct email';
@@ -46,7 +55,7 @@ class AuthenticationController extends GetxController {
     return null;
   }
 
-  void submitLogin({required GlobalKey<FormState> key}) async {
+  void submitRegister({required GlobalKey<FormState> key}) async {
     isLoading.value = true;
     final isValid = key.currentState!.validate();
     Get.focusScope!.unfocus();
@@ -60,6 +69,36 @@ class AuthenticationController extends GetxController {
       _authenticationStateStream.value = Authenticated(user: user);
     }
     isLoading.value = false;
+  }
+
+  void submitLogin({required GlobalKey<FormState> key}) async {
+    isLoginLoading.value = true;
+    final isValid = key.currentState!.validate();
+   if(isValid){
+     var user = await DatabaseHelper.instance.getUser();
+    if(await checkUser(user: user.object!, username: username.value.text, passsword: password.value.text)){
+       _authenticationStateStream.value = Authenticated(user: user.object!);
+    }else{
+      _authenticationStateStream.value = UnAuthenticated();
+    }
+
+   }
+    isLoginLoading.value = false;
+  }
+
+  Future<bool> checkUser(
+      {required User user,
+      required String username,
+      required String passsword}) async {
+    bool status = false;
+
+    // check if user exists and check if the passsword corresponds
+
+     if (user.name.toLowerCase() == username.toLowerCase() && user.password == passsword) {
+        status = true;
+      }
+
+    return status;
   }
 
   void changePasswordView() {

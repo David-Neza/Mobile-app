@@ -5,9 +5,8 @@ import 'package:clds/services/bindings/binding.dart';
 import 'package:clds/services/wrapper.dart';
 import 'package:clds/widgets/home_dashboard/home_dashboard.dart';
 import 'package:clds/widgets/login_page/login_page.dart';
+import 'package:clds/widgets/registration_page/register_page.dart';
 import 'package:get/get.dart';
-
-import '../widgets/on_boarding/on_Boarding.dart';
 
 class AppRouter {
   static final pages = [
@@ -24,5 +23,9 @@ class AppRouter {
     GetPage(
         name: RouteLinks.loginPage,
         page: () => LoginPage()),    
+    
+     GetPage(
+        name: RouteLinks.registerPage,
+        page: () => RegisterPage()),    
   ];
 }

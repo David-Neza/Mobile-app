@@ -76,7 +76,7 @@ class HomeOnBoarding extends StatelessWidget {
                           style: TextAppStyles.simpleText),
                     ),
                     GestureDetector(
-                      onTap: () => Get.toNamed(RouteLinks.homeDashboard),
+                      onTap: () => Get.toNamed(RouteLinks.registerPage),
                       child: Text("SignUp",
                           textAlign: TextAlign.center,
                           style: TextAppStyles.simpleText),
