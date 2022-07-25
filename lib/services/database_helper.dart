@@ -40,14 +40,15 @@ class DatabaseHelper {
     var io = await db.insert('user', user.toMap());
     return io;
   }
-   // read user tbl
-  Future<Response<User>> getUser() async {
+ 
+  // get users table
+  Future<List<User>> getUser() async {
     Database db = await instance.database;
-    var res = await db.query("user", where: "id = ?", whereArgs: [1]);
-    return Response(
-        object: res.isNotEmpty ? User.fromMap(res.first) : null,
-        message: 'success',
-        error: false);
+    var response = await db.query('user', orderBy: 'id');
+    List<User> users = response.isNotEmpty
+        ? response.map((c) => User.fromMap(c)).toList()
+        : [];
+    return users;
   }
 
   // drop table

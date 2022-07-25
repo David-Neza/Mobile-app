@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:clds/models/user_models.dart';
 import 'package:clds/services/database_helper.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,12 @@ class AuthenticationController extends GetxController {
   void _getAuthenticatedUser() async {
     _authenticationStateStream.value = AuthenticationLoading();
 
-    final user = await DatabaseHelper.instance.getUser();
+    final users = await DatabaseHelper.instance.getUser();
+
+    var user = await  getUser(
+        users: users,
+        username: username.value.text,
+        passsword: password.value.text);
 
     if (user.object == null) {
       _authenticationStateStream.value = UnAuthenticated();
@@ -74,31 +81,60 @@ class AuthenticationController extends GetxController {
   void submitLogin({required GlobalKey<FormState> key}) async {
     isLoginLoading.value = true;
     final isValid = key.currentState!.validate();
-   if(isValid){
-     var user = await DatabaseHelper.instance.getUser();
-    if(await checkUser(user: user.object!, username: username.value.text, passsword: password.value.text)){
-       _authenticationStateStream.value = Authenticated(user: user.object!);
-    }else{
-      _authenticationStateStream.value = UnAuthenticated();
+    if (isValid) {
+      var user = await DatabaseHelper.instance.getUser();
+      if (await checkUser(
+          users: user,
+          username: username.value.text,
+          passsword: password.value.text)) {
+        _authenticationStateStream.value = Authenticated(
+            user: await getUser(
+                users: user,
+                username: username.value.text,
+                passsword: password.value.text));
+      } else {
+        Get.snackbar('Error', 'Invalid password or email',
+              snackPosition: SnackPosition.TOP,
+              backgroundColor: Colors.red,
+              colorText: Colors.white,
+              borderRadius: 10,
+              margin: EdgeInsets.all(10));
+        _authenticationStateStream.value = UnAuthenticated();
+      }
     }
-
-   }
     isLoginLoading.value = false;
   }
 
   Future<bool> checkUser(
-      {required User user,
+      {required List<User> users,
       required String username,
       required String passsword}) async {
     bool status = false;
 
     // check if user exists and check if the passsword corresponds
-
-     if (user.name.toLowerCase() == username.toLowerCase() && user.password == passsword) {
+    for (var user in users) {
+      if (user.name.toLowerCase() == username.toLowerCase() &&
+          user.password == passsword) {
         status = true;
       }
+    }
 
     return status;
+  }
+
+  getUser(
+      {required List<User> users,
+      required String username,
+      required String passsword}) async {
+    // check if user exists and check if the passsword corresponds
+    for (var user in users) {
+      if (user.name.toLowerCase() == username.toLowerCase() &&
+          user.password == passsword) {
+        return user;
+      }
+    }
+
+    return null;
   }
 
   void changePasswordView() {
