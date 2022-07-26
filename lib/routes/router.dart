@@ -8,6 +8,9 @@ import 'package:clds/widgets/login_page/login_page.dart';
 import 'package:clds/widgets/registration_page/register_page.dart';
 import 'package:get/get.dart';
 
+import '../widgets/learn_kinyarwanda/home_learn_kinyarwanda.dart';
+import '../widgets/learn_kinyarwanda/home_vocabulary.dart';
+
 class AppRouter {
   static final pages = [
     // GetPage(name: RouteLinks.homeOnBoarding, page: () => HomeOnBoarding()),
@@ -26,6 +29,14 @@ class AppRouter {
     
      GetPage(
         name: RouteLinks.registerPage,
-        page: () => RegisterPage()),    
+        page: () => RegisterPage()),   
+
+        GetPage(
+        name: RouteLinks.learnKinyarwandaPage,
+        page: () => HomeLearnKinyarwanda()),  
+       GetPage(
+        binding: GamesBinding(),
+        name: RouteLinks.learnKinyarwandaPage_1,
+        page: () => HomeVocabulary()),    
   ];
 }

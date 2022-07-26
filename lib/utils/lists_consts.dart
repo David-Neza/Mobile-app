@@ -1,11 +1,12 @@
 import 'package:clds/constants/images.dart';
+import 'package:clds/routes/route_link.dart';
 
 const List dashboardCategoriesList = [
   {
     "image": Images.inkinyImage,
     "text_1": "Kinyarwanda",
     "text_2": "Learn",
-    "route": ""
+    "route": RouteLinks.learnKinyarwandaPage
   },
   {
     "image": Images.inkonoImage,

@@ -1,3 +1,4 @@
+import 'package:clds/controllers/gmae_controllers/game_controller.dart';
 import 'package:clds/controllers/home_dashboard/home_dashboard_controller.dart';
 import 'package:get/get.dart';
 
@@ -16,5 +17,13 @@ class HomeWrapperBinding extends Bindings {
   void dependencies() {
     Get.lazyPut(() => AuthenticationController());
      Get.lazyPut(() => HomeDashboardController());
+  }
+}
+
+
+class GamesBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => GameController());
   }
 }

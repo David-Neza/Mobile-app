@@ -12,7 +12,14 @@ class Images {
   static const String inkinyImage = "$baseImages/images.jpeg";
   static const String flagImage = "$baseImages/rw.png";
   static const String flag2Image = "$baseImages/rw2.png";
+  static const String grammarImage = "$baseImages/grammar.jpeg";
+  static const String oderImage = "$baseImages/order.jpeg";
   
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";
+  static const String backIcon = "$baseIcons/Back ICon.svg";
+  static const String ballIcon = "$baseIcons/ball.svg";
+  static const String bikeIcon = "$baseIcons/bike.svg";
+  static const String chickenIcon = "$baseIcons/chicken.svg";
+  static const String closedbookIcon = "$baseIcons/closed_book.svg";
 }
