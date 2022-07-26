@@ -14,92 +14,132 @@ class LoginPage extends GetWidget<AuthenticationController>{
      final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context){
+         Size size = MediaQuery.of(context).size;
      return Scaffold(
         body: SafeArea(
       child: Form(
         key: _formKey,
-        child: ListView(
+      child: ListView(
           children: [
-            SizedBox(height: SizeConfig.heightMultiplier * 8),
-            Container(
-              child: Column(
-                children: 
-                [  
-                  SizedBox(height: SizeConfig.heightMultiplier * 4),
-                  Text(
-                    "Login",
-                    style: TextAppStyles.titleHyeon,
+             SizedBox(height: SizeConfig.heightMultiplier * 4),
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*4),
+                child: CircleAvatar(
+                    radius: SizeConfig.widthMultiplier * 6,
+                    backgroundColor: const Color(0xfff5f6fa),
+                   child: Center(child: IconButton(onPressed: ()=>Get.back() ,icon: Icon(Icons.arrow_back_ios,color: Colors.black,))),
                   ),
-                  SizedBox(height: SizeConfig.heightMultiplier * 4),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 253,
-                    width: 253,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: AssetImage(Images.welcomeImg),
-                        fit: BoxFit.cover),
-                        color: greyLight,
-                      ),
+              ),
+             SizedBox(height: SizeConfig.heightMultiplier * 4),
+            Center(
+              child: Text(
+                "Login",
+                style: TextAppStyles.titleHyeon,
+              ),
+            ),
+            SizedBox(height: SizeConfig.heightMultiplier * 2),
+            Center(
+              child: Container(
+                alignment: Alignment.center,
+                height: SizeConfig.heightMultiplier*24,
+                width: SizeConfig.widthMultiplier*42,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(Images.welcomeImg),
+                    fit: BoxFit.cover),
+                    color: greyLight,
                   ),
-                  Container(
-                    height: 60,
-                    width: 350,
-                    margin: const EdgeInsets.only(top: 50.0),
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: TextFormField(
-                      controller: controller.email.value,
-                      validator: (value)=>controller.emailValidator(value!),
-                       decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Email',
-                        ), 
-                    ) 
-                  ,),
-                  Container(
-                    height: 60,
-                    width: 350,
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: TextFormField(
-                      obscureText: true,
-                      controller: controller.password.value,
-                      validator: (value)=>controller.passwordValidator(value!),
-                       decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Password',
-                        ), 
-                    ) 
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(5),
-                    child: 
-                    Text(
-                      'Forgot Password?',
-                      style: TextAppStyles.simpleText,
-                    ), 
-                  ),
-              controller.isLoading.value?Center(child: CircularProgressIndicator()):    Container(
-                      height: 40,
-                      width: 350,
-                      padding: const EdgeInsets.fromLTRB(10,0,10,0),
-                      child: 
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.black),
-                        ),
-                        child: const Text('Login'),
-                        onPressed: ()=> controller.submitLogin(key: _formKey),
-                        ),
-                  )       
-                ],),
-            )
+              ),
+            ),
+             SizedBox(height: SizeConfig.heightMultiplier*4,),
+                Padding(
+               padding:  EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*8),
+               child: TextFormField(
+              controller: controller.email.value,
+                   validator: (value)=>controller.emailValidator(value!),
+              keyboardType: TextInputType.emailAddress,
+              autocorrect: false,
+            
+              decoration: InputDecoration(
+            hintText: "Enter your email",
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+            ),
+            fillColor: const Color(0xfff5f6fa),
+            filled: true,
+            contentPadding: EdgeInsets.symmetric(
+                  vertical: 12, horizontal: SizeConfig.widthMultiplier*4),
+            hintStyle: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w300,
+                fontFamily: "Muli",
+            ),
+            disabledBorder: InputBorder.none,
+              ),
+            ),
+             ),
+              SizedBox(height: SizeConfig.heightMultiplier*4,),
+                        Padding(
+               padding:  EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*8),
+               child: TextFormField(
+              controller: controller.password.value,
+                   validator: (value)=>controller.passwordValidator(value!),
+              obscureText: true,
+
+              decoration: InputDecoration(
+            hintText: "Enter your password",
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+            ),
+            fillColor: const Color(0xfff5f6fa),
+            filled: true,
+            contentPadding: EdgeInsets.symmetric(
+                  vertical: 12, horizontal: SizeConfig.widthMultiplier*4),
+            hintStyle: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w300,
+                fontFamily: "Muli",
+            ),
+            disabledBorder: InputBorder.none,
+              ),
+            ),
+             ),
+      SizedBox(height: SizeConfig.heightMultiplier*6,),
+          controller.isLoading.value?Center(child: CircularProgressIndicator()):    Center(
+            child: Container(
+                  width: size.width * 0.9,
+                      height: size.height * 0.07,
+                  padding: const EdgeInsets.fromLTRB(10,0,10,0),
+                  child: 
+                  ElevatedButton(
+                    style: ButtonStyle(
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.black)),
+                    child: const Text('Login'),
+                    onPressed: ()=> controller.submitLogin(key: _formKey),
+                    ),
+              ),
+          ),
+             SizedBox(height: SizeConfig.heightMultiplier * 4),
           ],
         ),
-      ),    
+        ),    
     ));
   }
 }

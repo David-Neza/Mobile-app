@@ -5,6 +5,7 @@ import 'package:clds/routes/route_link.dart';
 import 'package:clds/services/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:localstorage/localstorage.dart';
 
 import '../../services/authentication/authentication_states.dart';
 
@@ -18,20 +19,43 @@ class AuthenticationController extends GetxController {
   final _authenticationStateStream = AuthenticationState().obs;
   AuthenticationState get state => _authenticationStateStream.value;
 
+  final userStorage = LocalStorage('user');
+
+  // save user
+  void saveUser({required User user}) async {
+    await userStorage.ready;
+    userStorage.setItem("user", user);
+  }
+
+  // read user object
+  Future<User> getUserDetails() async {
+    await userStorage.ready;
+    var data = userStorage.getItem('user');
+    if (data == null || data.isEmpty) {
+      return User(name: "", password: "");
+    }
+    User user = User.fromMap(data);
+    return user;
+  }
+
+  // remove user object
+  Future<void> deleteUserObject() async {
+    await userStorage.ready;
+    await userStorage.clear();
+    await userStorage.deleteItem('user');
+  }
+
   void _getAuthenticatedUser() async {
     _authenticationStateStream.value = AuthenticationLoading();
 
-    final users = await DatabaseHelper.instance.getUser();
+    final user = await getUserDetails();
 
-    var user = await getUser(
-        users: users,
-        username: username.value.text,
-        passsword: password.value.text);
+   
 
-    if (user == null) {
+    if (user.name =="" || user.password=="") {
       _authenticationStateStream.value = UnAuthenticated();
     } else {
-      _authenticationStateStream.value = Authenticated(user: user.object!);
+      _authenticationStateStream.value = Authenticated(user: user);
     }
   }
 
@@ -73,11 +97,11 @@ class AuthenticationController extends GetxController {
 
       await DatabaseHelper.instance.addUser(user);
       Get.snackbar('success', 'User Registered succesfully',
-            snackPosition: SnackPosition.TOP,
-            backgroundColor: Colors.green,
-            colorText: Colors.white,
-            borderRadius: 10,
-            margin: EdgeInsets.all(10));
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
       username.value.clear();
       email.value.clear();
       password.value.clear();
@@ -95,13 +119,15 @@ class AuthenticationController extends GetxController {
       var user = await DatabaseHelper.instance.getUser();
       if (await checkUser(
           users: user,
-          username: username.value.text,
+          email: email.value.text,
           passsword: password.value.text)) {
         _authenticationStateStream.value = Authenticated(
             user: await getUser(
                 users: user,
-                username: username.value.text,
+                email: email.value.text,
                 passsword: password.value.text));
+        saveUser(
+            user: User(name: email.value.text, password: password.value.text));
         Get.offAllNamed(RouteLinks.wrapper);
       } else {
         Get.snackbar('Error', 'Invalid password or email',
@@ -114,22 +140,23 @@ class AuthenticationController extends GetxController {
         _authenticationStateStream.value = UnAuthenticated();
       }
     }
-     email.value.clear();
-      password.value.clear();
+    email.value.clear();
+    password.value.clear();
 
     isLoginLoading.value = false;
   }
 
   Future<bool> checkUser(
       {required List<User> users,
-      required String username,
+      required String email,
       required String passsword}) async {
     bool status = false;
-
+    print("checking user");
     // check if user exists and check if the passsword corresponds
     for (var user in users) {
-      if (user.name.toLowerCase() == username.toLowerCase() &&
+      if (user.name.toLowerCase() == email.toLowerCase() &&
           user.password == passsword) {
+        print("user found");
         status = true;
       }
     }
@@ -139,13 +166,12 @@ class AuthenticationController extends GetxController {
 
   getUser(
       {required List<User> users,
-      required String username,
+      required String email,
       required String passsword}) async {
     // check if user exists and check if the passsword corresponds
     for (var user in users) {
-      if (user.name.toLowerCase() == username.toLowerCase() &&
+      if (user.name.toLowerCase() == email.toLowerCase() &&
           user.password == passsword) {
-        print("found");
         return user;
       }
     }
@@ -159,6 +185,7 @@ class AuthenticationController extends GetxController {
 
   void signOut() async {
     await DatabaseHelper.instance.drop();
+    await deleteUserObject();
     _authenticationStateStream.value = UnAuthenticated();
   }
 }
