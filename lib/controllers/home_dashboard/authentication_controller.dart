@@ -15,7 +15,6 @@ class AuthenticationController extends GetxController {
   RxBool obscure = true.obs;
   RxBool isLoading = false.obs;
   RxBool isLoginLoading = false.obs;
-  // ignore: prefer_const_constructors
   final _authenticationStateStream = AuthenticationState().obs;
   AuthenticationState get state => _authenticationStateStream.value;
 
@@ -29,7 +28,7 @@ class AuthenticationController extends GetxController {
         username: username.value.text,
         passsword: password.value.text);
 
-    if (user.object == null) {
+    if (user == null) {
       _authenticationStateStream.value = UnAuthenticated();
     } else {
       _authenticationStateStream.value = Authenticated(user: user.object!);
@@ -73,6 +72,15 @@ class AuthenticationController extends GetxController {
           name: email.value.text.trim(), password: password.value.text.trim());
 
       await DatabaseHelper.instance.addUser(user);
+      Get.snackbar('success', 'User Registered succesfully',
+            snackPosition: SnackPosition.TOP,
+            backgroundColor: Colors.green,
+            colorText: Colors.white,
+            borderRadius: 10,
+            margin: EdgeInsets.all(10));
+      username.value.clear();
+      email.value.clear();
+      password.value.clear();
       Get.offAllNamed(RouteLinks.wrapper);
       // _getAuthenticatedUser();
       // _authenticationStateStream.value = Authenticated(user: user);
@@ -94,7 +102,7 @@ class AuthenticationController extends GetxController {
                 users: user,
                 username: username.value.text,
                 passsword: password.value.text));
-                Get.offAllNamed(RouteLinks.wrapper);
+        Get.offAllNamed(RouteLinks.wrapper);
       } else {
         Get.snackbar('Error', 'Invalid password or email',
             snackPosition: SnackPosition.TOP,
@@ -102,10 +110,13 @@ class AuthenticationController extends GetxController {
             colorText: Colors.white,
             borderRadius: 10,
             margin: EdgeInsets.all(10));
+
         _authenticationStateStream.value = UnAuthenticated();
       }
     }
-    
+     email.value.clear();
+      password.value.clear();
+
     isLoginLoading.value = false;
   }
 
@@ -134,6 +145,7 @@ class AuthenticationController extends GetxController {
     for (var user in users) {
       if (user.name.toLowerCase() == username.toLowerCase() &&
           user.password == passsword) {
+        print("found");
         return user;
       }
     }
