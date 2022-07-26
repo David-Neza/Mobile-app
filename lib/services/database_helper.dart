@@ -51,10 +51,10 @@ class DatabaseHelper {
     return users;
   }
 
-  // drop table
-  drop() async {
-    Database db = await instance.database;
-    await db.execute("DROP TABLE IF EXISTS user");
-  }
+  // // drop table
+  // drop() async {
+  //   Database db = await instance.database;
+  //   await db.execute("DROP TABLE IF EXISTS user");
+  // }
 
 }

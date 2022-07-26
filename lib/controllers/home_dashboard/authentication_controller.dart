@@ -24,17 +24,17 @@ class AuthenticationController extends GetxController {
   // save user
   void saveUser({required User user}) async {
     await userStorage.ready;
-    userStorage.setItem("user", user);
+    userStorage.setItem("user", user.toMap());
   }
 
   // read user object
   Future<User> getUserDetails() async {
     await userStorage.ready;
-    var data = userStorage.getItem('user');
+    var data = await userStorage.getItem('user');
     if (data == null || data.isEmpty) {
-      return User(name: "", password: "");
+      return User(name: '', password: '');
     }
-    User user = User.fromMap(data);
+  User user = User.fromMap(data);
     return user;
   }
 
@@ -50,9 +50,7 @@ class AuthenticationController extends GetxController {
 
     final user = await getUserDetails();
 
-   
-
-    if (user.name =="" || user.password=="") {
+    if (user.name == "" || user.password == "") {
       _authenticationStateStream.value = UnAuthenticated();
     } else {
       _authenticationStateStream.value = Authenticated(user: user);
@@ -184,7 +182,6 @@ class AuthenticationController extends GetxController {
   }
 
   void signOut() async {
-    await DatabaseHelper.instance.drop();
     await deleteUserObject();
     _authenticationStateStream.value = UnAuthenticated();
   }
