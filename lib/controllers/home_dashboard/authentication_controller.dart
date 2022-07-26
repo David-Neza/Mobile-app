@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:clds/models/user_models.dart';
+import 'package:clds/routes/route_link.dart';
 import 'package:clds/services/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,7 @@ class AuthenticationController extends GetxController {
 
     final users = await DatabaseHelper.instance.getUser();
 
-    var user = await  getUser(
+    var user = await getUser(
         users: users,
         username: username.value.text,
         passsword: password.value.text);
@@ -72,8 +73,9 @@ class AuthenticationController extends GetxController {
           name: email.value.text.trim(), password: password.value.text.trim());
 
       await DatabaseHelper.instance.addUser(user);
-      _getAuthenticatedUser();
-      _authenticationStateStream.value = Authenticated(user: user);
+      Get.offAllNamed(RouteLinks.wrapper);
+      // _getAuthenticatedUser();
+      // _authenticationStateStream.value = Authenticated(user: user);
     }
     isLoading.value = false;
   }
@@ -92,16 +94,18 @@ class AuthenticationController extends GetxController {
                 users: user,
                 username: username.value.text,
                 passsword: password.value.text));
+                Get.offAllNamed(RouteLinks.wrapper);
       } else {
         Get.snackbar('Error', 'Invalid password or email',
-              snackPosition: SnackPosition.TOP,
-              backgroundColor: Colors.red,
-              colorText: Colors.white,
-              borderRadius: 10,
-              margin: EdgeInsets.all(10));
+            snackPosition: SnackPosition.TOP,
+            backgroundColor: Colors.red,
+            colorText: Colors.white,
+            borderRadius: 10,
+            margin: EdgeInsets.all(10));
         _authenticationStateStream.value = UnAuthenticated();
       }
     }
+    
     isLoginLoading.value = false;
   }
 

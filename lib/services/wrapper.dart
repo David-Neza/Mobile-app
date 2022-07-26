@@ -16,7 +16,7 @@ class Wrapper extends GetWidget<AuthenticationController> {
   Widget build(BuildContext context) {
     return Obx(() {
       if (controller.state is UnAuthenticated) {
-        return LoginPage();
+        return HomeOnBoarding();
       }
 
       if (controller.state is Authenticated) {
