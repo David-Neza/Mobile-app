@@ -1,18 +1,21 @@
 import 'package:clds/routes/route_link.dart';
 import 'package:clds/routes/router.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'constants/sizeConfig.dart';
 import 'constants/theme.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+   MyApp({Key? key}) : super(key: key);
+  final Future<FirebaseApp>  _fbApp = Firebase.initializeApp(); 
 
   // This widget is the root of your application.
   @override
