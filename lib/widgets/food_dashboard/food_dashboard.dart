@@ -43,7 +43,7 @@ class FoodDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(git 
+    return Scaffold(
       body: Padding(
         padding:  EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*4),
         child: SafeArea(
