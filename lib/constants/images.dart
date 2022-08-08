@@ -14,7 +14,8 @@ class Images {
   static const String flag2Image = "$baseImages/rw2.png";
   static const String grammarImage = "$baseImages/grammar.jpeg";
   static const String oderImage = "$baseImages/order.jpeg";
-  
+  static const String mountains = "$baseImages/mountains.jpeg";
+
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";
   static const String backIcon = "$baseIcons/Back ICon.svg";

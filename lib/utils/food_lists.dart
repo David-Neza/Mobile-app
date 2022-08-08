@@ -2,16 +2,16 @@ import 'package:clds/constants/images.dart';
 import 'package:clds/routes/route_link.dart';
 import 'package:flutter/material.dart';
 
-const List dashboardCategoriesList = [
+const List foodCategoriesList = [
   {
     "image": Images.inkinyImage,
-    "text_1": "Kinyarwanda",
+    "text_1": "Isombe",
     "text_2": "Learn",
     "route": RouteLinks.learnKinyarwandaPage
   },
   {
     "image": Images.inkonoImage,
-    "text_1": "Artifacts",
+    "text_1": "Imvange",
     "text_2": "pots,baskets ..",
     "route": ""
   },
@@ -26,17 +26,5 @@ const List dashboardCategoriesList = [
     "text_1": "Rwandan Foods",
     "text_2": "Recipes",
     "route": RouteLinks.foodDashboard
-  },
-  {
-    "image": Images.danceImage,
-    "text_1": "Kinyarwanda",
-    "text_2": "Learn",
-    "route": ""
-  },
-  {
-    "image": Images.mountains,
-    "text_1": "Visit Rwanda",
-    "text_2": "Menya u Rwanda",
-    "route": RouteLinks.visitRwanda
   },
 ];

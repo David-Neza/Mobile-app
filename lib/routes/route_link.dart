@@ -5,4 +5,6 @@ class RouteLinks {
   static const registerPage = '/register_page';
   static const learnKinyarwandaPage = '/learn_kiny_page';
   static const learnKinyarwandaPage_1 = '/learn_kiny_page_1';
+  static const foodDashboard = '/foodDashboard';
+  static const visitRwanda = '/visitRwanda';
 }

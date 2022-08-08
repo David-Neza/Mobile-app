@@ -3,9 +3,11 @@
 import 'package:clds/routes/route_link.dart';
 import 'package:clds/services/bindings/binding.dart';
 import 'package:clds/services/wrapper.dart';
+import 'package:clds/widgets/food_dashboard/food_dashboard.dart';
 import 'package:clds/widgets/home_dashboard/home_dashboard.dart';
 import 'package:clds/widgets/login_page/login_page.dart';
 import 'package:clds/widgets/registration_page/register_page.dart';
+import 'package:clds/widgets/visit_rwanda/visit_rwanda.dart';
 import 'package:get/get.dart';
 
 import '../widgets/learn_kinyarwanda/home_learn_kinyarwanda.dart';
@@ -37,6 +39,15 @@ class AppRouter {
        GetPage(
         binding: GamesBinding(),
         name: RouteLinks.learnKinyarwandaPage_1,
-        page: () => HomeVocabulary()),    
+        page: () => HomeVocabulary()),     
+         
+      GetPage(
+        name: RouteLinks.foodDashboard,
+        page: () => FoodDashboard()),  
+      
+      GetPage(
+        name: RouteLinks.visitRwanda,
+        page: () => VisitRwanda()),  
+           
   ];
 }
