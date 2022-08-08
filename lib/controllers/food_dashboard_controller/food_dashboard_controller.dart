@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 import '../../constants/images.dart';
@@ -5,7 +6,12 @@ import '../../models/new_models.dart';
 
 class FoodDashboardController extends GetxController {
   RxList<CategoriesModel> categories = <CategoriesModel>[].obs;
+  final FirebaseFirestore _firestore= FirebaseFirestore.instance;
 
+  void getUsers()async{
+    var response = await _firestore.collection("Users").get();
+    print("herse is the response --- ${response.docs.length}");
+  }
   static const List foodCategoriesList = [
     {
       "image": Images.inkinyImage,
@@ -44,6 +50,7 @@ class FoodDashboardController extends GetxController {
   @override
   void onInit() {
     getCAtegories();
+    getUsers();
     super.onInit();
   }
 }
