@@ -16,7 +16,7 @@ import '../widgets/learn_kinyarwanda/home_vocabulary.dart';
 class AppRouter {
   static final pages = [
     // GetPage(name: RouteLinks.homeOnBoarding, page: () => HomeOnBoarding()),
-       GetPage(
+    GetPage(
         binding: HomeWrapperBinding(),
         name: RouteLinks.wrapper,
         page: () => Wrapper()),
@@ -25,29 +25,23 @@ class AppRouter {
         name: RouteLinks.homeDashboard,
         page: () => HomeDashboard()),
     GetPage(name: RouteLinks.loginPage, page: () => LoginPage()),
-    GetPage(
-        name: RouteLinks.loginPage,
-        page: () => LoginPage()),    
-    
-     GetPage(
-        name: RouteLinks.registerPage,
-        page: () => RegisterPage()),   
+    GetPage(name: RouteLinks.loginPage, page: () => LoginPage()),
 
-        GetPage(
+    GetPage(name: RouteLinks.registerPage, page: () => RegisterPage()),
+
+    GetPage(
         name: RouteLinks.learnKinyarwandaPage,
-        page: () => HomeLearnKinyarwanda()),  
-       GetPage(
+        page: () => HomeLearnKinyarwanda()),
+    GetPage(
         binding: GamesBinding(),
         name: RouteLinks.learnKinyarwandaPage_1,
-        page: () => HomeVocabulary()),     
-         
-      GetPage(
+        page: () => HomeVocabulary()),
+
+    GetPage(
+        binding: HomeFoodBinding(),
         name: RouteLinks.foodDashboard,
-        page: () => FoodDashboard()),  
-      
-      GetPage(
-        name: RouteLinks.visitRwanda,
-        page: () => VisitRwanda()),  
-           
+        page: () => FoodDashboard()),
+
+    GetPage(name: RouteLinks.visitRwanda, page: () => VisitRwanda()),
   ];
 }
