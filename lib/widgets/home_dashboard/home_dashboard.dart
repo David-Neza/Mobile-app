@@ -1,5 +1,5 @@
 import 'package:clds/constants/sizeConfig.dart';
-import 'package:clds/controllers/home_dashboard/authentication_controller.dart';
+import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:clds/controllers/home_dashboard/home_dashboard_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

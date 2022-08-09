@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../controllers/home_dashboard/authentication_controller.dart';
 import '../widgets/home_dashboard/home_dashboard.dart';
 import '../widgets/on_boarding/on_Boarding.dart';
 // import 'authentication/authentication_states.dart';

@@ -4,10 +4,9 @@ import 'package:clds/constants/colors.dart';
 import 'package:clds/constants/images.dart';
 import 'package:clds/constants/sizeConfig.dart';
 import 'package:clds/constants/text_styles.dart';
+import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../controllers/home_dashboard/authentication_controller.dart';
 
 class RegisterPage extends GetWidget<AuthenticationController> {
   RegisterPage({Key? key}) : super(key: key);

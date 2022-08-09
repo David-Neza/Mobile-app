@@ -14,6 +14,9 @@ class HomeDashboardController extends GetxController {
     categories.value = categoriesResponse;
   }
 
+  
+
+
   @override
   void onInit() {
     getCAtegories();

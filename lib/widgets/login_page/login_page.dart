@@ -1,13 +1,12 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:clds/constants/colors.dart';
 import 'package:clds/constants/images.dart';
 import 'package:clds/constants/sizeConfig.dart';
 import 'package:clds/constants/text_styles.dart';
+import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/home_dashboard/authentication_controller.dart';
 
 class LoginPage extends GetWidget<AuthenticationController> {
   LoginPage({Key? key}) : super(key: key);

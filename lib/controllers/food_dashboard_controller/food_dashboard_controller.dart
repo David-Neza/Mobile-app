@@ -1,4 +1,5 @@
 import 'package:clds/models/user.dart';
+import 'package:clds/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,7 @@ class FoodDashboardController extends GetxController {
   RxBool isLoading = false.obs;
   RxList<CategoriesModel> categories = <CategoriesModel>[].obs;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final _databaseService = DatabaseService();
 
   List<UserModel> _usersListFromSnaphot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
@@ -60,6 +62,10 @@ class FoodDashboardController extends GetxController {
     },
   ];
 
+  getIbisakuzo() async{
+    var response = await _databaseService.getIbisakuzo();
+    print("ibisakuzo byacu ${response.length}");
+  }
   getCAtegories() async {
     // check user position and display categories according to their positions
     List<CategoriesModel> categoriesResponse = foodCategoriesList
@@ -72,6 +78,7 @@ class FoodDashboardController extends GetxController {
     isLoading.value = true;
     await getCAtegories();
     await getSampleUsers();
+    // await getIbisakuzo();
     isLoading.value = false;
   }
 

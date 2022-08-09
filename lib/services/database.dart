@@ -1,3 +1,4 @@
+import 'package:clds/models/ibisakuzo_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/user.dart';
@@ -25,4 +26,19 @@ class DatabaseService {
     return _firestore.collection("users").doc(uid).snapshots().map(
         (event) => UserModel.fromDocumentSnapshot(documentSnapshot: event));
   }
+
+
+  List<IbisakuzoModel> _ibisakuzoListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return IbisakuzoModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<IbisakuzoModel>> getIbisakuzo() async{
+    return await _firestore
+      .collection("IbisakuzoList")
+      .get()
+      .then(_ibisakuzoListFromSnaphot);
+  }
+
 }
