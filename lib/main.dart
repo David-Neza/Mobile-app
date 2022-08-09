@@ -9,19 +9,19 @@ import 'constants/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({Key? key}) : super(key: key);
-  final Future<FirebaseApp>  _fbApp = Firebase.initializeApp(); 
+  MyApp({Key? key}) : super(key: key);
+  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      return OrientationBuilder (builder: (builder, orientation) {
+      return OrientationBuilder(builder: (builder, orientation) {
         SizeConfig().init(constraints, orientation);
         return GetMaterialApp(
           initialRoute: RouteLinks.wrapper,

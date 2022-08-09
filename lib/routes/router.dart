@@ -20,6 +20,7 @@ class AppRouter {
         binding: HomeWrapperBinding(),
         name: RouteLinks.wrapper,
         page: () => Wrapper()),
+
     GetPage(
         binding: HomeDashboardBinding(),
         name: RouteLinks.homeDashboard,

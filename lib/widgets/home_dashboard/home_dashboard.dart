@@ -11,7 +11,7 @@ import '../../constants/images.dart';
 import '../../constants/text_styles.dart';
 
 class HomeDashboard extends GetWidget<HomeDashboardController> {
-   HomeDashboard({Key? key}) : super(key: key);
+  HomeDashboard({Key? key}) : super(key: key);
   final authenticationController = Get.find<AuthenticationController>();
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class HomeDashboard extends GetWidget<HomeDashboardController> {
                 Text(DateFormat('EEEE, d MMM').format(DateTime.now()),
                     style: TextAppStyles.titleBoldText),
                 GestureDetector(
-                  onTap: ()=>authenticationController.signOut(),
+                  onTap: () => authenticationController.signOut(),
                   child: Container(
                     padding: EdgeInsets.symmetric(
                         horizontal: SizeConfig.widthMultiplier * 2.5),
