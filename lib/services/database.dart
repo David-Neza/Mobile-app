@@ -1,3 +1,4 @@
+import 'package:clds/models/artifacts_model.dart';
 import 'package:clds/models/ibisakuzo_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -39,6 +40,19 @@ class DatabaseService {
       .collection("IbisakuzoList")
       .get()
       .then(_ibisakuzoListFromSnaphot);
+  }
+
+  List<ArtifactsModel> _artifactsFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return ArtifactsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<ArtifactsModel>> getArtifacts() async{
+    return await _firestore
+      .collection("artifacts")
+      .get()
+      .then(_artifactsFromSnaphot);
   }
 
 }

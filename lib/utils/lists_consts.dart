@@ -10,10 +10,10 @@ const List dashboardCategoriesList = [
     "route": RouteLinks.learnKinyarwandaPage
   },
   {
-    "image": Images.inkonoImage,
+    "image": Images.inkooko,
     "text_1": "Artifacts",
-    "text_2": "pots,baskets ..",
-    "route": ""
+    "text_2": "traditional tools",
+    "route": RouteLinks.artifactsPage
   },
   {
     "image": Images.danceImage,
@@ -28,15 +28,15 @@ const List dashboardCategoriesList = [
     "route": RouteLinks.foodDashboard
   },
   {
-    "image": Images.danceImage,
-    "text_1": "Kinyarwanda",
-    "text_2": "Learn",
-    "route": ""
+    "image": Images.entertainment,
+    "text_1": "Entertainment",
+    "text_2": "Ruhuka",
+    "route": RouteLinks.entertainment
   },
   {
     "image": Images.mountains,
-    "text_1": "Visit Rwanda",
-    "text_2": "Menya u Rwanda",
+    "text_1": "Historical Places",
+    "text_2": "Sura u Rwanda",
     "route": RouteLinks.visitRwanda
   },
 ];

@@ -39,7 +39,8 @@ class HomeDashboard extends GetWidget<HomeDashboardController> {
                   onTap: () => authenticationController.signOut(),
                   child: Container(
                     padding: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.widthMultiplier * 2.5),
+                        horizontal: SizeConfig.widthMultiplier * 2.5, 
+                        vertical: SizeConfig.heightMultiplier * 1.2),
                     height: SizeConfig.heightMultiplier * 6,
                     width: SizeConfig.widthMultiplier * 12,
                     decoration: const BoxDecoration(
@@ -47,8 +48,8 @@ class HomeDashboard extends GetWidget<HomeDashboardController> {
                       color: greyLight,
                     ),
                     child: SvgPicture.asset(
-                      Images.bellIcon,
-                      height: SizeConfig.imageSizeMultiplier * 3,
+                      Images.logout,
+                      height: SizeConfig.imageSizeMultiplier * 1.5,
                     ),
                   ),
                 ),
@@ -97,11 +98,11 @@ class HomeDashboard extends GetWidget<HomeDashboardController> {
                             ),
                             Text(
                               controller.categories[index].text1!,
-                              style: TextAppStyles.simpleBoldText,
+                              style: TextAppStyles.dashboardText,
                             ),
                             Text(
                               controller.categories[index].text2!,
-                              style: TextAppStyles.simpleMediumText,
+                              style: TextAppStyles.dashboardSubText,
                             )
                           ],
                         ),

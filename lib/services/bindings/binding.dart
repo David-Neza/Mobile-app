@@ -1,8 +1,11 @@
+import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart';
 import 'package:clds/controllers/gmae_controllers/game_controller.dart';
 import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:clds/controllers/home_dashboard/home_dashboard_controller.dart';
+import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/food_dashboard_controller/food_dashboard_controller.dart';
 
 class HomeDashboardBinding extends Bindings {
   @override
@@ -11,15 +14,13 @@ class HomeDashboardBinding extends Bindings {
   }
 }
 
-
 class HomeWrapperBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => AuthenticationController());
-     Get.lazyPut(() => HomeDashboardController());
+    Get.lazyPut(() => HomeDashboardController());
   }
 }
-
 
 class GamesBinding extends Bindings {
   @override
@@ -27,3 +28,24 @@ class GamesBinding extends Bindings {
     Get.lazyPut(() => GameController());
   }
 }
+
+class HomeFoodBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => FoodDashboardController());
+  }
+}
+
+class SakweSakweBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => SakweController());
+  }
+}
+  class ArtifactsBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => ArtifactsController());
+  }
+}
+

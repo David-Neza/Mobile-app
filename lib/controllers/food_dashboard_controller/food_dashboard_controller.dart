@@ -77,8 +77,8 @@ class FoodDashboardController extends GetxController {
   void getData() async {
     isLoading.value = true;
     await getCAtegories();
-    await getSampleUsers();
-    // await getIbisakuzo();
+    // await getSampleUsers();
+    await getIbisakuzo();
     isLoading.value = false;
   }
 

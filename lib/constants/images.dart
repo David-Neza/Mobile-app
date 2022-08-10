@@ -15,6 +15,10 @@ class Images {
   static const String grammarImage = "$baseImages/grammar.jpeg";
   static const String oderImage = "$baseImages/order.jpeg";
   static const String mountains = "$baseImages/mountains.jpeg";
+  static const String entertainment = "$baseImages/entertainment.jpeg";
+  static const String sakwesakwe = "$baseImages/sakwesakwe.png";
+  static const String inkooko = "$baseImages/inkooko.jpg";
+
 
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";
@@ -23,4 +27,5 @@ class Images {
   static const String bikeIcon = "$baseIcons/bike.svg";
   static const String chickenIcon = "$baseIcons/chicken.svg";
   static const String closedbookIcon = "$baseIcons/closed_book.svg";
+  static const String logout = "$baseIcons/Log out.svg";
 }

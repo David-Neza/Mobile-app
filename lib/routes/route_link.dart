@@ -8,4 +8,7 @@ class RouteLinks {
   static const learnKinyarwandaPage_1 = '/learn_kiny_page_1';
   static const foodDashboard = '/foodDashboard';
   static const visitRwanda = '/visitRwanda';
+  static const entertainment = '/Entertainment';
+  static const sakwesakwe = '/sakwesakwe';
+  static const artifactsPage = '/artifactsPage';
 }

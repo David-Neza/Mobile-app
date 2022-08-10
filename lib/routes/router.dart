@@ -3,6 +3,10 @@
 import 'package:clds/routes/route_link.dart';
 import 'package:clds/services/bindings/binding.dart';
 import 'package:clds/services/wrapper.dart';
+import 'package:clds/widgets/Artifacts/artifacts_page.dart';
+import 'package:clds/widgets/Entertainment/entertainment_page.dart';
+import 'package:clds/widgets/Entertainment/sakwesakwe.dart';
+import 'package:clds/widgets/food_dashboard/food_dashboard.dart';
 import 'package:clds/widgets/home_dashboard/home_dashboard.dart';
 import 'package:clds/widgets/login_page/login_page.dart';
 import 'package:clds/widgets/registration_page/register_page.dart';
@@ -39,9 +43,28 @@ class AppRouter {
         binding: GamesBinding(),
         name: RouteLinks.learnKinyarwandaPage_1,
         page: () => HomeVocabulary()),   
+
+      GetPage(
+        binding: HomeFoodBinding(),
+        name: RouteLinks.foodDashboard,
+        page: () => FoodDashboard()),
+
        
       GetPage(
         name: RouteLinks.visitRwanda,
-        page: () => VisitRwanda()),      
+        page: () => VisitRwanda()), 
+
+      GetPage(
+        name: RouteLinks.entertainment,
+        page: () => EntertainmentPage()),  
+
+      GetPage(
+        binding: SakweSakweBinding(),
+        name: RouteLinks.sakwesakwe,
+        page: () => SakweSakwe()), 
+      GetPage(
+        binding: ArtifactsBinding(),
+        name: RouteLinks.artifactsPage,
+        page: () => ArtifactsPage()),            
   ];
 }
