@@ -17,11 +17,13 @@ class HomeDashboardController extends GetxController {
         await _dbService.getUser(uid: _authController.userr.value.uid).first;
 
     if (user.isAdmin!) {
+      print("is Adminnnnnnn");
       List<CategoriesModel> categoriesResponse = dashboardCategoriesList
           .map((item) => CategoriesModel.fromJson(item))
           .toList();
       categories.value = categoriesResponse;
     } else {
+      print("is nottttttttttttt Adminnnnnnn");
       List<CategoriesModel> categoriesResponse = userDashboardCategoriesList
           .map((item) => CategoriesModel.fromJson(item))
           .toList();
