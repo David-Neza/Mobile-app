@@ -8,6 +8,8 @@ import 'package:clds/widgets/Entertainment/entertainment_page.dart';
 import 'package:clds/widgets/Entertainment/sakwesakwe.dart';
 import 'package:clds/widgets/food_dashboard/food_dashboard.dart';
 import 'package:clds/widgets/home_dashboard/home_dashboard.dart';
+import 'package:clds/widgets/learn_kinyarwanda/food.dart';
+import 'package:clds/widgets/learn_kinyarwanda/greetings.dart';
 import 'package:clds/widgets/login_page/login_page.dart';
 import 'package:clds/widgets/registration_page/register_page.dart';
 import 'package:clds/widgets/visit_rwanda/visit_rwanda.dart';
@@ -65,6 +67,17 @@ class AppRouter {
       GetPage(
         binding: ArtifactsBinding(),
         name: RouteLinks.artifactsPage,
-        page: () => ArtifactsPage()),            
+        page: () => ArtifactsPage()),  
+
+      GetPage(
+        binding: GreetingsBinding(),
+        name: RouteLinks.greetings,
+        page: () => Greetings()),  
+
+       GetPage(
+        binding: LearnFoodsBinding(),
+        name: RouteLinks.learnFoods,
+        page: () => LearnFoods()),   
+             
   ];
 }

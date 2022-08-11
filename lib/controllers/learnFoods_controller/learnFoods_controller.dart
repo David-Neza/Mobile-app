@@ -1,23 +1,22 @@
 // ignore_for_file: unnecessary_new
 
 import 'dart:math';
-import 'package:clds/models/ibisakuzo_model.dart';
+import 'package:clds/models/learnFoods_model.dart';
 import 'package:clds/services/database.dart';
 import 'package:get/get.dart';
 
-import '../../utils/game_questoin.dart';
 
-class SakweController extends GetxController {
-  RxList<IbisakuzoModel> allSakwes = <IbisakuzoModel>[].obs;
-  RxList<IbisakuzoModel> sakwes = <IbisakuzoModel>[].obs;
-  RxList<IbisakuzoModel> sakwe2 = <IbisakuzoModel>[].obs;
+class LearnFoodsController extends GetxController {
+  RxList<LearnFoodsModel> allFoods = <LearnFoodsModel>[].obs;
+  RxList<LearnFoodsModel> foods = <LearnFoodsModel>[].obs;
+  RxList<LearnFoodsModel> food2 = <LearnFoodsModel>[].obs;
   RxInt selectedUpIndex = 0.obs;
    RxBool isLoading = false.obs;
 
 
   final _databaseService = DatabaseService();
 
-  void getSakwes() async {
+  void getFoods() async {
     isLoading.value = true;
     Random random = new Random();
     int randomNumber = random.nextInt(4);
@@ -28,14 +27,14 @@ class SakweController extends GetxController {
   //   print("ibisakuzo byacu ${response.length}");
   // }
 
-    List<IbisakuzoModel> ibisakuzoResponse = await _databaseService.getIbisakuzo();
+    List<LearnFoodsModel> foodsResponse = await _databaseService.getLearnFoods();
       
-      print("ibisakuzo --->> ${ibisakuzoResponse.length}");
+      print("foods list --->> ${foodsResponse.length}");
 
-    allSakwes.value = ibisakuzoResponse;
-    sakwes.value = ibisakuzoResponse.getRange(0, 3).toList();
-    sakwes.shuffle();
-    sakwe2.value = sakwes;
+    allFoods.value = foodsResponse;
+    foods.value = foodsResponse.getRange(0, 4).toList();
+    foods.shuffle();
+    food2.value = foods;
       isLoading.value = false;
   }
 
@@ -43,14 +42,14 @@ class SakweController extends GetxController {
      Random random = new Random();
     int randomNumber = random.nextInt(3);
     selectedUpIndex.value = randomNumber;
-    sakwes.value = allSakwes.getRange(4, 8).toList();
-    sakwes.shuffle();
-    sakwe2.value = sakwes;
+    foods.value = allFoods.getRange(4, 8).toList();
+    foods.shuffle();
+    food2.value = foods;
   }
 
   @override
   void onInit() {
-    getSakwes();
+    getFoods();
     super.onInit();
   }
 }

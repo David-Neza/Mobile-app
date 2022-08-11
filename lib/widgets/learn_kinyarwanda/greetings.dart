@@ -1,27 +1,25 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
+import 'package:clds/controllers/greetings_controller/greetings_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
 import '../../constants/shake_widget.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
-import '../../controllers/gmae_controllers/game_controller.dart';
 
-class SakweSakwe extends GetWidget<SakweController> {
-  SakweSakwe({Key? key}) : super(key: key);
+class Greetings extends GetWidget<GreetingsController> {
+  Greetings({Key? key}) : super(key: key);
   final List<GlobalKey<ShakeWidgetState>> shakeKey =
       List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Obx(
-      () => controller.isLoading.value
-       ? Center(
-       child: CircularProgressIndicator())
-      :      
+      () =>  controller.isLoading.value
+                  ? Center(
+                    child: CircularProgressIndicator())
+                  :       
        SafeArea(
           child: Padding(
         padding:
@@ -58,7 +56,7 @@ class SakweSakwe extends GetWidget<SakweController> {
             ),
             Center(
               child: Text(
-                  "${controller.sakwe2[controller.selectedUpIndex.value].question}",
+                  "${controller.greeting2[controller.selectedUpIndex.value].question}",
                   style: TextAppStyles.titleBoldText),
             ),
             SizedBox(height: SizeConfig.heightMultiplier * 4),
@@ -67,7 +65,7 @@ class SakweSakwe extends GetWidget<SakweController> {
                   horizontal: SizeConfig.widthMultiplier * 8),
               child: GridView.builder(
                   shrinkWrap: true,
-                  itemCount: controller.sakwes.length,
+                  itemCount: controller.greetings.length,
                   physics: NeverScrollableScrollPhysics(),
                   gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
                       mainAxisSpacing: SizeConfig.heightMultiplier * 4,
@@ -77,9 +75,9 @@ class SakweSakwe extends GetWidget<SakweController> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        if (controller.sakwes[index].id !=
+                        if (controller.greetings[index].id !=
                             controller
-                                .sakwe2[controller.selectedUpIndex.value].id) {
+                                .greeting2[controller.selectedUpIndex.value].id) {
                           Get.snackbar('oohps', 'try again',
                               snackPosition: SnackPosition.BOTTOM,
                               backgroundColor: Colors.red,
@@ -128,12 +126,12 @@ class SakweSakwe extends GetWidget<SakweController> {
                                       BorderRadius.all(Radius.circular(20)),
                                 ),
                                 child: Center(
-                                  child:controller.sakwes[index].answer1!.isEmpty?
+                                  child:controller.greetings[index].answer1!.isEmpty?
                                   Text(
-                  "${controller.sakwes[index].answer2}",
+                  "${controller.greetings[index].answer2}",
                   style: TextAppStyles.titleBoldText)
                                   : Text(
-                                    controller.sakwes[index].correct_answer!,
+                                    controller.greetings[index].correct_answer!,
                                    
                                   ),
                                 ),

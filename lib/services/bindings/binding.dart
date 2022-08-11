@@ -1,7 +1,9 @@
 import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart';
 import 'package:clds/controllers/gmae_controllers/game_controller.dart';
+import 'package:clds/controllers/greetings_controller/greetings_controller.dart';
 import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:clds/controllers/home_dashboard/home_dashboard_controller.dart';
+import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dart';
 import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
 import 'package:get/get.dart';
 
@@ -49,3 +51,16 @@ class SakweSakweBinding extends Bindings {
   }
 }
 
+class GreetingsBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => GreetingsController());
+  }
+}
+
+class LearnFoodsBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => LearnFoodsController());
+  }
+}

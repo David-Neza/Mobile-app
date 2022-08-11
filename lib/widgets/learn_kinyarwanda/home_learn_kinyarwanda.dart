@@ -40,13 +40,13 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                       ),
                     ),
             SizedBox(width: SizeConfig.widthMultiplier*12,),
-                  Text("Learn kinyarwanda",
-                      style: TextAppStyles.titleBoldText),
+                  Text("Learn Kinyarwanda",
+                      style: TextAppStyles.dashboardText),
                 ],
               ),
            Spacer(),
               GestureDetector(
-                onTap: ()=>Get.toNamed(RouteLinks.learnKinyarwandaPage_1),
+                onTap: ()=>Get.toNamed(RouteLinks.greetings),
                 child: Container(
                   decoration: BoxDecoration(
                  color: greyLight,
@@ -69,7 +69,7 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                                 ),
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
-                              Text("Vocabulary & Grammar",
+                              Text("Greetings",
                         style: TextAppStyles.titleBoldText), 
                     ],
                   ),
@@ -95,15 +95,48 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     image: AssetImage(
-                                        Images.oderImage),
+                                        Images.dog),
                                     fit: BoxFit.fill),
                               
                               ),
                             ),
                           SizedBox(width: SizeConfig.widthMultiplier*6,),   
-                            Text("Conversation",
+                            Text("Animals",
                       style: TextAppStyles.titleBoldText), 
                   ],
+                ),
+              ),
+               SizedBox(
+                height: SizeConfig.heightMultiplier * 6,
+              ),
+              GestureDetector(
+                onTap: ()=>Get.toNamed(RouteLinks.learnFoods),
+                child: Container(
+                  decoration: BoxDecoration(
+                 color: greyLight,
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*6,vertical: SizeConfig.heightMultiplier*1.2),
+                                height: SizeConfig.heightMultiplier * 12,
+                                width: SizeConfig.widthMultiplier * 24,
+                                decoration:const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          Images.tastyChicken),
+                                      fit: BoxFit.fill),
+                                
+                                ),
+                              ),
+                            SizedBox(width: SizeConfig.widthMultiplier*6,),   
+                              Text("Food",
+                        style: TextAppStyles.titleBoldText), 
+                    ],
+                  ),
                 ),
               ),
 

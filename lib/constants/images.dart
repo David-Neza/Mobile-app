@@ -18,7 +18,8 @@ class Images {
   static const String entertainment = "$baseImages/entertainment.jpeg";
   static const String sakwesakwe = "$baseImages/sakwesakwe.png";
   static const String inkooko = "$baseImages/inkooko.jpg";
-
+  static const String tastyChicken = "$baseImages/tasy-chicken.jpeg";
+  static const String dog = "$baseImages/dog.jpeg";
 
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";

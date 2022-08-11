@@ -1,5 +1,8 @@
 import 'package:clds/models/artifacts_model.dart';
+import 'package:clds/models/greetings_modal.dart';
 import 'package:clds/models/ibisakuzo_model.dart';
+import 'package:clds/models/learnFoods_model.dart';
+import 'package:clds/widgets/learn_kinyarwanda/food.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/user.dart';
@@ -53,6 +56,32 @@ class DatabaseService {
       .collection("artifacts")
       .get()
       .then(_artifactsFromSnaphot);
+  }
+
+  List<GreetingsModel> _greetingsListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return GreetingsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<GreetingsModel>> getGreetings() async{
+    return await _firestore
+      .collection("greetings")
+      .get()
+      .then(_greetingsListFromSnaphot);
+  }
+
+   List<LearnFoodsModel> _leanFoodsListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return LearnFoodsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<LearnFoodsModel>> getLearnFoods() async{
+    return await _firestore
+      .collection("IbisakuzoList")
+      .get()
+      .then(_leanFoodsListFromSnaphot);
   }
 
 }

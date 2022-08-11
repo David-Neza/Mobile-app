@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
+import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -8,21 +8,16 @@ import '../../constants/colors.dart';
 import '../../constants/shake_widget.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
-import '../../controllers/gmae_controllers/game_controller.dart';
 
-class SakweSakwe extends GetWidget<SakweController> {
-  SakweSakwe({Key? key}) : super(key: key);
+class LearnFoods extends GetWidget<LearnFoodsController> {
+  LearnFoods({Key? key}) : super(key: key);
   final List<GlobalKey<ShakeWidgetState>> shakeKey =
       List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Obx(
-      () => controller.isLoading.value
-       ? Center(
-       child: CircularProgressIndicator())
-      :      
-       SafeArea(
+      () => SafeArea(
           child: Padding(
         padding:
             EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier * 4),
@@ -50,7 +45,7 @@ class SakweSakwe extends GetWidget<SakweController> {
               height: SizeConfig.heightMultiplier * 4,
             ),
             Center(
-              child: Text("Choos the right match for ",
+              child: Text("Choose the right match for ",
                   style: TextAppStyles.simpleMediumBoldText),
             ),
             SizedBox(
@@ -58,7 +53,7 @@ class SakweSakwe extends GetWidget<SakweController> {
             ),
             Center(
               child: Text(
-                  "${controller.sakwe2[controller.selectedUpIndex.value].question}",
+                  "${controller.food2[controller.selectedUpIndex.value].text}",
                   style: TextAppStyles.titleBoldText),
             ),
             SizedBox(height: SizeConfig.heightMultiplier * 4),
@@ -67,7 +62,7 @@ class SakweSakwe extends GetWidget<SakweController> {
                   horizontal: SizeConfig.widthMultiplier * 8),
               child: GridView.builder(
                   shrinkWrap: true,
-                  itemCount: controller.sakwes.length,
+                  itemCount: controller.foods.length,
                   physics: NeverScrollableScrollPhysics(),
                   gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
                       mainAxisSpacing: SizeConfig.heightMultiplier * 4,
@@ -77,9 +72,9 @@ class SakweSakwe extends GetWidget<SakweController> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        if (controller.sakwes[index].id !=
+                        if (controller.foods[index].id !=
                             controller
-                                .sakwe2[controller.selectedUpIndex.value].id) {
+                                .food2[controller.selectedUpIndex.value].id) {
                           Get.snackbar('oohps', 'try again',
                               snackPosition: SnackPosition.BOTTOM,
                               backgroundColor: Colors.red,
@@ -128,13 +123,13 @@ class SakweSakwe extends GetWidget<SakweController> {
                                       BorderRadius.all(Radius.circular(20)),
                                 ),
                                 child: Center(
-                                  child:controller.sakwes[index].answer1!.isEmpty?
+                                  child:controller.foods[index].image!.isEmpty?
                                   Text(
-                  "${controller.sakwes[index].answer2}",
+                  "${controller.foods[index].text}",
                   style: TextAppStyles.titleBoldText)
-                                  : Text(
-                                    controller.sakwes[index].correct_answer!,
-                                   
+                                  : SvgPicture.asset(
+                                    controller.foods[index].image!,
+                                    height: SizeConfig.heightMultiplier * 10,
                                   ),
                                 ),
                               ),

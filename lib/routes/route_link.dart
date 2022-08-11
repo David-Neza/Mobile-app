@@ -11,4 +11,6 @@ class RouteLinks {
   static const entertainment = '/Entertainment';
   static const sakwesakwe = '/sakwesakwe';
   static const artifactsPage = '/artifactsPage';
+  static const greetings = '/greetings';
+  static const learnFoods = '/learnFoods';
 }
