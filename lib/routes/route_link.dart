@@ -13,4 +13,7 @@ class RouteLinks {
   static const artifactsPage = '/artifactsPage';
   static const greetings = '/greetings';
   static const learnFoods = '/learnFoods';
+  static const adminPanel = '/admin_panel';
+  static const homeFoodPanel = '/food_panel';
+  static const homeAddFoodPanel = '/food_add_panel';
 }

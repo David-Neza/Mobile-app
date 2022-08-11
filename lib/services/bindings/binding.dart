@@ -7,6 +7,7 @@ import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dar
 import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
 import '../../controllers/food_dashboard_controller/food_dashboard_controller.dart';
 
 class HomeDashboardBinding extends Bindings {
@@ -44,7 +45,8 @@ class SakweSakweBinding extends Bindings {
     Get.lazyPut(() => SakweController());
   }
 }
-  class ArtifactsBinding extends Bindings {
+
+class ArtifactsBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => ArtifactsController());
@@ -62,5 +64,12 @@ class LearnFoodsBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => LearnFoodsController());
+  }
+}
+
+class AdminPanelBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => AdminPanelController());
   }
 }

@@ -18,7 +18,35 @@ class DatabaseService {
         "name": name,
         "doc_id": user.id,
         "email": user.email,
+        "is_Admin": false,
       });
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // create food
+  Future<bool> createNewFood(
+      {required LearnFoodsModel food, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("foods")
+          .doc(uuid)
+          .set({"text": food.text, "image": food.image});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // create food
+  Future<bool> deleteFood({required String uuid}) async {
+    try {
+      await _firestore.collection("foods").doc(uuid).delete();
+
       return true;
     } catch (e) {
       print(e);
@@ -31,18 +59,17 @@ class DatabaseService {
         (event) => UserModel.fromDocumentSnapshot(documentSnapshot: event));
   }
 
-
   List<IbisakuzoModel> _ibisakuzoListFromSnaphot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return IbisakuzoModel.fromDocumentSnapshot(documentSnapshot: doc);
     }).toList();
   }
 
-  Future<List<IbisakuzoModel>> getIbisakuzo() async{
+  Future<List<IbisakuzoModel>> getIbisakuzo() async {
     return await _firestore
-      .collection("IbisakuzoList")
-      .get()
-      .then(_ibisakuzoListFromSnaphot);
+        .collection("IbisakuzoList")
+        .get()
+        .then(_ibisakuzoListFromSnaphot);
   }
 
   List<ArtifactsModel> _artifactsFromSnaphot(QuerySnapshot snapshot) {
@@ -51,11 +78,11 @@ class DatabaseService {
     }).toList();
   }
 
-  Future<List<ArtifactsModel>> getArtifacts() async{
+  Future<List<ArtifactsModel>> getArtifacts() async {
     return await _firestore
-      .collection("artifacts")
-      .get()
-      .then(_artifactsFromSnaphot);
+        .collection("artifacts")
+        .get()
+        .then(_artifactsFromSnaphot);
   }
 
   List<GreetingsModel> _greetingsListFromSnaphot(QuerySnapshot snapshot) {
@@ -64,24 +91,23 @@ class DatabaseService {
     }).toList();
   }
 
-  Future<List<GreetingsModel>> getGreetings() async{
+  Future<List<GreetingsModel>> getGreetings() async {
     return await _firestore
-      .collection("greetings")
-      .get()
-      .then(_greetingsListFromSnaphot);
+        .collection("greetings")
+        .get()
+        .then(_greetingsListFromSnaphot);
   }
 
-   List<LearnFoodsModel> _leanFoodsListFromSnaphot(QuerySnapshot snapshot) {
+  List<LearnFoodsModel> _leanFoodsListFromSnaphot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return LearnFoodsModel.fromDocumentSnapshot(documentSnapshot: doc);
     }).toList();
   }
 
-  Future<List<LearnFoodsModel>> getLearnFoods() async{
+  Future<List<LearnFoodsModel>> getLearnFoods() async {
     return await _firestore
-      .collection("IbisakuzoList")
-      .get()
-      .then(_leanFoodsListFromSnaphot);
+        .collection("foods")
+        .get()
+        .then(_leanFoodsListFromSnaphot);
   }
-
 }

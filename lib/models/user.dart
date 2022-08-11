@@ -4,13 +4,15 @@ class UserModel {
   String? id;
   String? email;
   String? name;
+  bool? isAdmin;
 
-  UserModel({this.id, this.email, this.name});
+  UserModel({this.id, this.email, this.name, this.isAdmin = false});
 
   UserModel.fromDocumentSnapshot({DocumentSnapshot? documentSnapshot}) {
     id = documentSnapshot!.id;
     email = documentSnapshot["email"];
     name = documentSnapshot["name"];
+    isAdmin = documentSnapshot["is_Admin"];
   }
 }
 

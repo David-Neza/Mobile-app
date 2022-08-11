@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -9,8 +7,7 @@ import '../models/response.dart';
 import '../models/user_models.dart';
 
 class DatabaseHelper {
-
- DatabaseHelper._privateConstructor();
+  DatabaseHelper._privateConstructor();
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
 
   static Database? _database;
@@ -31,25 +28,24 @@ class DatabaseHelper {
         password TEXT
       )
     ''');
-  
   }
 
-   // insert into user tbl
-  Future<int> addUser(User user) async {
-    Database db = await instance.database;
-    var io = await db.insert('user', user.toMap());
-    return io;
-  }
- 
-  // get users table
-  Future<List<User>> getUser() async {
-    Database db = await instance.database;
-    var response = await db.query('user', orderBy: 'id');
-    List<User> users = response.isNotEmpty
-        ? response.map((c) => User.fromMap(c)).toList()
-        : [];
-    return users;
-  }
+  //  // insert into user tbl
+  // Future<int> addUser(User user) async {
+  //   Database db = await instance.database;
+  //   var io = await db.insert('user', user.toMap());
+  //   return io;
+  // }
+
+  // // get users table
+  // Future<List<User>> getUser() async {
+  //   Database db = await instance.database;
+  //   var response = await db.query('user', orderBy: 'id');
+  //   List<User> users = response.isNotEmpty
+  //       ? response.map((c) => User.fromMap(c)).toList()
+  //       : [];
+  //   return users;
+  // }
 
   // // drop table
   // drop() async {
