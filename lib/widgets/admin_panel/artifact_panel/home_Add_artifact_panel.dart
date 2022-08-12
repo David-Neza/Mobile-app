@@ -6,8 +6,8 @@ import '../../../constants/sizeConfig.dart';
 import '../../../constants/text_styles.dart';
 import '../../../controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
 
-class HomeAddFoodPanel extends GetWidget<AdminPanelController> {
-  HomeAddFoodPanel({Key? key}) : super(key: key);
+class HomeAddArtifactPanel extends GetWidget<AdminPanelController> {
+  HomeAddArtifactPanel({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class HomeAddFoodPanel extends GetWidget<AdminPanelController> {
                     SizedBox(
                       width: SizeConfig.widthMultiplier * 12,
                     ),
-                    Text("Add Food", style: TextAppStyles.titleBoldText),
+                    Text("Add Artifact", style: TextAppStyles.titleBoldText),
                   ],
                 ),
                 SizedBox(
@@ -124,7 +124,7 @@ class HomeAddFoodPanel extends GetWidget<AdminPanelController> {
                 SizedBox(
                   height: SizeConfig.heightMultiplier * 3,
                 ),
-                controller.isFoodSubmit.value
+                controller.isArtifactSubmit.value
                     ? Center(
                         child: CircularProgressIndicator(),
                       )
@@ -143,9 +143,9 @@ class HomeAddFoodPanel extends GetWidget<AdminPanelController> {
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(
                                           Colors.black)),
-                              child: const Text('Add Food'),
+                              child: const Text('Add Artifact'),
                               onPressed: () =>
-                                  controller.submitFood(key: _formKey)),
+                                  controller.submitArtifact(key: _formKey)),
                         ),
                       ),
               ],

@@ -20,7 +20,10 @@ class Images {
   static const String inkooko = "$baseImages/inkooko.jpg";
   static const String tastyChicken = "$baseImages/tasy-chicken.jpeg";
   static const String dog = "$baseImages/dog.jpeg";
-
+  static const String umuneke = "$baseImages/umuneke.jpeg";
+  static const String avoka = "$baseImages/avocat.jpg";
+  static const String admin = "$baseImages/adminImage.png";
+   static const String inanasi = "$baseImages/pineapple.jpg";
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";
   static const String backIcon = "$baseIcons/Back ICon.svg";

@@ -2,22 +2,21 @@
 
 import 'dart:math';
 import 'package:clds/models/animals_model.dart';
-import 'package:clds/models/artifacts_model.dart';
 import 'package:clds/services/database.dart';
 import 'package:get/get.dart';
 
 
-class ArtifactsController extends GetxController {
-  RxList<ArtifactsModel> allArtifacts = <ArtifactsModel>[].obs;
-  RxList<ArtifactsModel> artifacts = <ArtifactsModel>[].obs;
-  RxList<ArtifactsModel> artifact2 = <ArtifactsModel>[].obs;
+class AnimalsController extends GetxController {
+  RxList<AnimalsModel> allAnimals = <AnimalsModel>[].obs;
+  RxList<AnimalsModel> animals = <AnimalsModel>[].obs;
+  RxList<AnimalsModel> animal2 = <AnimalsModel>[].obs;
   RxInt selectedUpIndex = 0.obs;
   RxBool isLoading = false.obs;
 
 
   final _databaseService = DatabaseService();
 
-  void getArtifacts() async {
+  void getAnimals() async {
     isLoading.value = true;
     Random random = new Random();
     int randomNumber = random.nextInt(4);
@@ -28,14 +27,14 @@ class ArtifactsController extends GetxController {
   //   print("ibisakuzo byacu ${response.length}");
   // }
 
-    List<ArtifactsModel> artifactsResponse = await _databaseService.getArtifacts();
+    List<AnimalsModel> animalsResponse = await _databaseService.getAnimals();
       
-      print("artifacts list --->> ${artifactsResponse.length}");
+      print("animals list --->> ${animalsResponse.length}");
 
-    allArtifacts.value = artifactsResponse;
-    artifacts.value = artifactsResponse.getRange(0, 4).toList();
-    artifacts.shuffle();
-    artifact2.value = artifacts;
+    allAnimals.value = animalsResponse;
+    animals.value = animalsResponse.getRange(0, 4).toList();
+    animals.shuffle();
+    animal2.value = animals;
       isLoading.value = false;
   }
 
@@ -43,14 +42,14 @@ class ArtifactsController extends GetxController {
      Random random = new Random();
     int randomNumber = random.nextInt(3);
     selectedUpIndex.value = randomNumber;
-    artifacts.value = allArtifacts.getRange(4, 8).toList();
-    artifacts.shuffle();
-    artifact2.value = artifacts;
+    animals.value = allAnimals.getRange(4, 8).toList();
+    animals.shuffle();
+    animal2.value = animals;
   }
 
   @override
   void onInit() {
-    getArtifacts();
+    getAnimals();
     super.onInit();
   }
 }

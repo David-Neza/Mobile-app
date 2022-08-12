@@ -3,13 +3,21 @@
 import 'package:clds/routes/route_link.dart';
 import 'package:clds/services/bindings/binding.dart';
 import 'package:clds/services/wrapper.dart';
-import 'package:clds/widgets/Artifacts/artifacts_page.dart';
 import 'package:clds/widgets/Entertainment/entertainment_page.dart';
 import 'package:clds/widgets/Entertainment/sakwesakwe.dart';
+import 'package:clds/widgets/admin_panel/animal_panel%20/home_Add_animal_panel.dart';
+import 'package:clds/widgets/admin_panel/animal_panel%20/home_animal_panel.dart';
+import 'package:clds/widgets/admin_panel/artifact_panel/home_Add_artifact_panel.dart';
+import 'package:clds/widgets/admin_panel/artifact_panel/home_artifact_panel.dart';
+import 'package:clds/widgets/admin_panel/fruit_panel/home_Add_fruit_panel.dart';
+import 'package:clds/widgets/admin_panel/fruit_panel/home_fruit_panel.dart';
 import 'package:clds/widgets/admin_panel/home_admin_panel.dart';
 import 'package:clds/widgets/food_dashboard/food_dashboard.dart';
 import 'package:clds/widgets/home_dashboard/home_dashboard.dart';
+import 'package:clds/widgets/learn_kinyarwanda/animals.dart';
+import 'package:clds/widgets/learn_kinyarwanda/artifacts.dart';
 import 'package:clds/widgets/learn_kinyarwanda/food.dart';
+import 'package:clds/widgets/learn_kinyarwanda/fruits.dart';
 import 'package:clds/widgets/learn_kinyarwanda/greetings.dart';
 import 'package:clds/widgets/login_page/login_page.dart';
 import 'package:clds/widgets/registration_page/register_page.dart';
@@ -58,10 +66,7 @@ class AppRouter {
         binding: SakweSakweBinding(),
         name: RouteLinks.sakwesakwe,
         page: () => SakweSakwe()),
-    GetPage(
-        binding: ArtifactsBinding(),
-        name: RouteLinks.artifactsPage,
-        page: () => ArtifactsPage()),
+
 
     GetPage(
         binding: GreetingsBinding(),
@@ -78,5 +83,31 @@ class AppRouter {
         page: () => HomeAdminPanel()),
     GetPage(name: RouteLinks.homeFoodPanel, page: () => HomeFoodPanel()),
     GetPage(name: RouteLinks.homeAddFoodPanel, page: () => HomeAddFoodPanel()),
+
+    GetPage(name: RouteLinks.homeFruitsPanel, page: () => HomeFruitPanel()),
+    GetPage(name: RouteLinks.homeAddFruitsPanel, page: () => HomeAddFruitPanel()),
+    
+    //Fruits routes
+    GetPage(
+        binding: FruitsBinding(),
+        name: RouteLinks.learnFruits,
+        page: () => LearnFruits()),
+
+    //Fruits routes
+    GetPage(
+        binding: AnimalsBinding(),
+        name: RouteLinks.learnAnimals,
+        page: () => LearnAnimals()),
+    GetPage(name: RouteLinks.homeAnimalsPanel, page: () => HomeAnimalPanel()),
+    GetPage(name: RouteLinks.homeAddAnimalsPanel, page: () => HomeAddAnimalPanel()),
+    
+   GetPage(
+        binding: ArtifactsBinding(),
+        name: RouteLinks.learnArtifacts,
+        page: () => LearnArtifacts()),
+    GetPage(name: RouteLinks.homeArtifactsPanel, page: () => HomeArtifactPanel()),
+    GetPage(name: RouteLinks.homeAddArtifactsPanel, page: () => HomeAddArtifactPanel()),
+    
+
   ];
 }

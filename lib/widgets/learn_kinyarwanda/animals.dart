@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart';
+import 'package:clds/controllers/animals_controller%20/animals_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
@@ -8,8 +8,8 @@ import '../../constants/shake_widget.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
 
-class ArtifactsPage extends GetWidget<ArtifactsController> {
-  ArtifactsPage({Key? key}) : super(key: key);
+class LearnAnimals extends GetWidget<AnimalsController> {
+  LearnAnimals({Key? key}) : super(key: key);
   final List<GlobalKey<ShakeWidgetState>> shakeKey =
       List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
   @override
@@ -48,15 +48,15 @@ class ArtifactsPage extends GetWidget<ArtifactsController> {
                     height: SizeConfig.heightMultiplier * 4,
                   ),
                   Center(
-                    child: Text("Choos the right match for ",
-                        style: TextAppStyles.simpleMediumBoldText),
+                    child: Text("Choose the right match for ",
+                        style: TextAppStyles.dashboardText),
                   ),
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 2,
                   ),
                   Center(
                     child: Text(
-                        "${controller.artifact2[controller.selectedUpIndex.value].question}",
+                        "${controller.animal2[controller.selectedUpIndex.value].text}",
                         style: TextAppStyles.titleBoldText),
                   ),
                   SizedBox(height: SizeConfig.heightMultiplier * 4),
@@ -65,7 +65,7 @@ class ArtifactsPage extends GetWidget<ArtifactsController> {
                         horizontal: SizeConfig.widthMultiplier * 8),
                     child: GridView.builder(
                         shrinkWrap: true,
-                        itemCount: controller.artifacts.length,
+                        itemCount: controller.animals.length,
                         physics: NeverScrollableScrollPhysics(),
                         gridDelegate:
                             new SliverGridDelegateWithFixedCrossAxisCount(
@@ -79,11 +79,10 @@ class ArtifactsPage extends GetWidget<ArtifactsController> {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              if (controller.artifacts[index].id !=
+                              if (controller.animals[index].text !=
                                   controller
-                                      .artifact2[
-                                          controller.selectedUpIndex.value]
-                                      .id) {
+                                      .animal2[controller.selectedUpIndex.value]
+                                      .text) {
                                 Get.snackbar('oohps', 'try again',
                                     snackPosition: SnackPosition.BOTTOM,
                                     backgroundColor: Colors.red,
@@ -135,16 +134,9 @@ class ArtifactsPage extends GetWidget<ArtifactsController> {
                                             Radius.circular(20)),
                                       ),
                                       child: Center(
-                                        child: controller.artifacts[index]
-                                                .answer1!.isEmpty
-                                            ? Text(
-                                                "${controller.artifacts[index].answer2}",
-                                                style:
-                                                    TextAppStyles.titleBoldText)
-                                            : Text(
-                                                controller.artifacts[index]
-                                                    .correctAnswer!,
-                                              ),
+                                        child: Image.network(
+                                          controller.animals[index].image!,
+                                        ),
                                       ),
                                     ),
                                   )

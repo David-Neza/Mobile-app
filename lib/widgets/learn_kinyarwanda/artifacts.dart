@@ -1,16 +1,16 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dart';
+
+import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
 import '../../constants/shake_widget.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
 
-class LearnFoods extends GetWidget<LearnFoodsController> {
-  LearnFoods({Key? key}) : super(key: key);
+class LearnArtifacts extends GetWidget<ArtifactsController> {
+  LearnArtifacts({Key? key}) : super(key: key);
   final List<GlobalKey<ShakeWidgetState>> shakeKey =
       List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
   @override
@@ -57,7 +57,7 @@ class LearnFoods extends GetWidget<LearnFoodsController> {
                   ),
                   Center(
                     child: Text(
-                        "${controller.food2[controller.selectedUpIndex.value].text}",
+                        "${controller.artifact2[controller.selectedUpIndex.value].text}",
                         style: TextAppStyles.titleBoldText),
                   ),
                   SizedBox(height: SizeConfig.heightMultiplier * 4),
@@ -66,7 +66,7 @@ class LearnFoods extends GetWidget<LearnFoodsController> {
                         horizontal: SizeConfig.widthMultiplier * 8),
                     child: GridView.builder(
                         shrinkWrap: true,
-                        itemCount: controller.foods.length,
+                        itemCount: controller.artifacts.length,
                         physics: NeverScrollableScrollPhysics(),
                         gridDelegate:
                             new SliverGridDelegateWithFixedCrossAxisCount(
@@ -80,9 +80,9 @@ class LearnFoods extends GetWidget<LearnFoodsController> {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              if (controller.foods[index].text !=
+                              if (controller.artifacts[index].text !=
                                   controller
-                                      .food2[controller.selectedUpIndex.value]
+                                      .artifact2[controller.selectedUpIndex.value]
                                       .text) {
                                 Get.snackbar('oohps', 'try again',
                                     snackPosition: SnackPosition.BOTTOM,
@@ -136,7 +136,7 @@ class LearnFoods extends GetWidget<LearnFoodsController> {
                                       ),
                                       child: Center(
                                         child: Image.network(
-                                          controller.foods[index].image!,
+                                          controller.artifacts[index].image!,
                                         ),
                                       ),
                                     ),

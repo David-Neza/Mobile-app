@@ -1,4 +1,6 @@
+import 'package:clds/controllers/animals_controller%20/animals_controller.dart';
 import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart';
+import 'package:clds/controllers/fruits_controller/fruits_controller.dart';
 import 'package:clds/controllers/gmae_controllers/game_controller.dart';
 import 'package:clds/controllers/greetings_controller/greetings_controller.dart';
 import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
@@ -46,13 +48,6 @@ class SakweSakweBinding extends Bindings {
   }
 }
 
-class ArtifactsBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => ArtifactsController());
-  }
-}
-
 class GreetingsBinding extends Bindings {
   @override
   void dependencies() {
@@ -64,6 +59,27 @@ class LearnFoodsBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => LearnFoodsController());
+  }
+}
+
+class FruitsBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => FruitsController());
+  }
+}
+
+class AnimalsBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => AnimalsController());
+  }
+}
+
+class ArtifactsBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => ArtifactsController());
   }
 }
 

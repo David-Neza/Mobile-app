@@ -1,4 +1,6 @@
+import 'package:clds/models/animals_model.dart';
 import 'package:clds/models/artifacts_model.dart';
+import 'package:clds/models/fruits_model.dart';
 import 'package:clds/models/greetings_modal.dart';
 import 'package:clds/models/ibisakuzo_model.dart';
 import 'package:clds/models/learnFoods_model.dart';
@@ -72,18 +74,6 @@ class DatabaseService {
         .then(_ibisakuzoListFromSnaphot);
   }
 
-  List<ArtifactsModel> _artifactsFromSnaphot(QuerySnapshot snapshot) {
-    return snapshot.docs.map((doc) {
-      return ArtifactsModel.fromDocumentSnapshot(documentSnapshot: doc);
-    }).toList();
-  }
-
-  Future<List<ArtifactsModel>> getArtifacts() async {
-    return await _firestore
-        .collection("artifacts")
-        .get()
-        .then(_artifactsFromSnaphot);
-  }
 
   List<GreetingsModel> _greetingsListFromSnaphot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
@@ -109,5 +99,134 @@ class DatabaseService {
         .collection("foods")
         .get()
         .then(_leanFoodsListFromSnaphot);
+  }
+
+
+  //Fruits model
+
+   List<FruitsModel> _fruitsListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return FruitsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<FruitsModel>> getFruits() async {
+    return await _firestore
+        .collection("fruits")
+        .get()
+        .then(_fruitsListFromSnaphot);
+  }
+
+  Future<bool> createNewFruit(
+      {required FruitsModel fruits, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("fruits")
+          .doc(uuid)
+          .set({"text": fruits.text, "image": fruits.image});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // create food
+  Future<bool> deleteFruit({required String uuid}) async {
+    try {
+      await _firestore.collection("fruits").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+
+  //Animals model
+
+   List<AnimalsModel> _animalsListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return AnimalsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<AnimalsModel>> getAnimals() async {
+    return await _firestore
+        .collection("animals")
+        .get()
+        .then(_animalsListFromSnaphot);
+  }
+
+
+  Future<bool> createNewAnimal(
+      {required AnimalsModel animals, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("animals")
+          .doc(uuid)
+          .set({"text": animals.text, "image": animals.image});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // create food
+  Future<bool> deleteAnimal({required String uuid}) async {
+    try {
+      await _firestore.collection("animals").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+
+
+  //Artifacts model
+
+   List<ArtifactsModel> _artifactsListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return ArtifactsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<ArtifactsModel>> getArtifacts() async {
+    return await _firestore
+        .collection("artifacts")
+        .get()
+        .then(_artifactsListFromSnaphot);
+  }
+
+
+  Future<bool> createNewArtifact(
+      {required ArtifactsModel artifacts, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("artifacts")
+          .doc(uuid)
+          .set({"text": artifacts.text, "image": artifacts.image});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // create food
+  Future<bool> deleteArtifact({required String uuid}) async {
+    try {
+      await _firestore.collection("artifacts").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
   }
 }

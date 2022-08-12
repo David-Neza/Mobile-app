@@ -5,14 +5,8 @@ const List dashboardCategoriesList = [
   {
     "image": Images.inkinyImage,
     "text_1": "Kinyarwanda",
-    "text_2": "Learn",
+    "text_2": "Learn the words",
     "route": RouteLinks.learnKinyarwandaPage
-  },
-  {
-    "image": Images.inkooko,
-    "text_1": "Artifacts",
-    "text_2": "traditional tools",
-    "route": RouteLinks.artifactsPage
   },
   {
     "image": Images.danceImage,
@@ -34,12 +28,12 @@ const List dashboardCategoriesList = [
   },
   {
     "image": Images.mountains,
-    "text_1": "Historical Places",
-    "text_2": "Sura u Rwanda",
+    "text_1": "Rwanda History",
+    "text_2": "Know Rwanda",
     "route": RouteLinks.visitRwanda
   },
   {
-    "image": Images.mountains,
+    "image": Images.admin,
     "text_1": "Admin",
     "text_2": "Panel",
     "route": RouteLinks.adminPanel
@@ -50,25 +44,19 @@ const List userDashboardCategoriesList = [
   {
     "image": Images.inkinyImage,
     "text_1": "Kinyarwanda",
-    "text_2": "Learn",
+    "text_2": "Learn the words",
     "route": RouteLinks.learnKinyarwandaPage
-  },
-  {
-    "image": Images.inkooko,
-    "text_1": "Artifacts",
-    "text_2": "traditional tools",
-    "route": RouteLinks.artifactsPage
   },
   {
     "image": Images.danceImage,
     "text_1": "Dancing",
     "text_2": "Guhamiriza",
-    "route": ""
+    "route": RouteLinks.homeDancing
   },
   {
     "image": Images.ibihazaImage,
-    "text_1": "Rwandan Foods",
-    "text_2": "Recipes",
+    "text_1": "Learn to Cook",
+    "text_2": "Rwandan Recipes",
     "route": RouteLinks.foodDashboard
   },
   {
@@ -79,8 +67,8 @@ const List userDashboardCategoriesList = [
   },
   {
     "image": Images.mountains,
-    "text_1": "Historical Places",
-    "text_2": "Sura u Rwanda",
+    "text_1": "Rwanda History",
+    "text_2": "Know Rwanda",
     "route": RouteLinks.visitRwanda
   }
 ];

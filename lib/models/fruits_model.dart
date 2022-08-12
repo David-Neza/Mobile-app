@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ArtifactsModel {
+class FruitsModel {
   String? docId;
   String? image;
   String? text;
 
-  ArtifactsModel({
+  FruitsModel({
     this.docId,
     this.image,
     this.text,
   });
 
-  ArtifactsModel.fromDocumentSnapshot({DocumentSnapshot? documentSnapshot}) {
+  FruitsModel.fromDocumentSnapshot({DocumentSnapshot? documentSnapshot}) {
     docId = documentSnapshot!.id;
     image = documentSnapshot["image"];
     text = documentSnapshot["text"];
