@@ -2,13 +2,11 @@
 
 import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
 import '../../constants/shake_widget.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
-import '../../controllers/gmae_controllers/game_controller.dart';
 
 class SakweSakwe extends GetWidget<SakweController> {
   SakweSakwe({Key? key}) : super(key: key);
@@ -18,53 +16,61 @@ class SakweSakwe extends GetWidget<SakweController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Obx(
-      () => controller.isLoading.value
-       ? Center(
-       child: CircularProgressIndicator())
-      :      
-       SafeArea(
-          child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier * 4),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: SizeConfig.heightMultiplier * 4,
-            ),
-            GestureDetector(
-              onTap: () => Get.back(),
-              child: Container(
+        () => controller.isLoading.value
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: SizeConfig.widthMultiplier * 2.5),
-                height: SizeConfig.heightMultiplier * 6,
-                width: SizeConfig.widthMultiplier * 16,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: greyLight,
-                ),
-                child: const Center(child: Icon(Icons.arrow_back_ios)),
-              ),
-            ),
+                    horizontal: SizeConfig.widthMultiplier * 4),
+                child: SafeArea(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: SizeConfig.heightMultiplier * 4,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () => Get.back(),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: SizeConfig.widthMultiplier * 2.5),
+                            height: SizeConfig.heightMultiplier * 6,
+                            width: SizeConfig.widthMultiplier * 16,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: greyLight,
+                            ),
+                            child:
+                                const Center(child: Icon(Icons.arrow_back_ios)),
+                          ),
+                        ),
+                        SizedBox(
+                          width: SizeConfig.widthMultiplier * 12,
+                        ),
+                        Text("Choose the right answer", style: TextAppStyles.dashboardText),
+                      ],
+                    ),
+            
             SizedBox(
               height: SizeConfig.heightMultiplier * 4,
             ),
-            Center(
-              child: Text("Choos the right match for ",
-                  style: TextAppStyles.simpleMediumBoldText),
-            ),
+           
             SizedBox(
               height: SizeConfig.heightMultiplier * 2,
             ),
             Center(
               child: Text(
                   "${controller.sakwe2[controller.selectedUpIndex.value].question}",
-                  style: TextAppStyles.titleBoldText),
+                  style: TextAppStyles.questionText),
             ),
-            SizedBox(height: SizeConfig.heightMultiplier * 4),
+            SizedBox(height: SizeConfig.heightMultiplier * 0.5),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.widthMultiplier * 8),
+                  horizontal: SizeConfig.widthMultiplier * 16),
               child: GridView.builder(
                   shrinkWrap: true,
                   itemCount: controller.sakwes.length,

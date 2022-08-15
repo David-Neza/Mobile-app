@@ -55,6 +55,13 @@ class TextAppStyles {
     fontSize: SizeConfig.textMultiplier * 2,
   );
 
+  static final questionText = TextStyle(
+    fontFamily: 'Muli',
+    color: questionColor,
+    fontWeight: FontWeight.w800,
+    fontSize: SizeConfig.textMultiplier * 2.5,
+  );
+
   static final simpleText = TextStyle(
     fontFamily: 'Muli',
     color: blackColor,

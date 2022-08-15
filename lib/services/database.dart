@@ -2,9 +2,12 @@ import 'package:clds/models/animals_model.dart';
 import 'package:clds/models/artifacts_model.dart';
 import 'package:clds/models/fruits_model.dart';
 import 'package:clds/models/greetings_modal.dart';
+import 'package:clds/models/historical_places.dart';
 import 'package:clds/models/ibisakuzo_model.dart';
 import 'package:clds/models/learnFoods_model.dart';
+import 'package:clds/models/rwanda_kings_model.dart';
 import 'package:clds/widgets/learn_kinyarwanda/food.dart';
+import 'package:clds/widgets/rwanda_history/historical_places.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/user.dart';
@@ -218,10 +221,102 @@ class DatabaseService {
     }
   }
 
-  // create food
+  // Delete Artifact
   Future<bool> deleteArtifact({required String uuid}) async {
     try {
       await _firestore.collection("artifacts").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  ///////////////////////////////////////////////////
+  
+  //Historical Places model
+
+   List<HistoricalPlacesModel> _histroicalPlacesListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return HistoricalPlacesModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  //List Historical Place
+  
+  Future<List<HistoricalPlacesModel>> getHistoricalPlaces() async {
+    return await _firestore
+        .collection("historicalPlaces")
+        .get()
+        .then(_histroicalPlacesListFromSnaphot);
+  }
+
+  //Create Historical Place
+
+  Future<bool> createNewHistoricalPlace(
+      {required HistoricalPlacesModel historicalPlaces, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("historicalPlaces")
+          .doc(uuid)
+          .set({"text": historicalPlaces.text, "image": historicalPlaces.image});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // Delete Historical Place
+  Future<bool> deleteHistoricalPlace({required String uuid}) async {
+    try {
+      await _firestore.collection("historicalPlaces").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+
+  //////////////////Rwanda Kings /////////////////////
+  
+  //Rwanda Kings model
+
+   List<RwandaKingsModel> _rwandaKingsListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return RwandaKingsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<RwandaKingsModel>> getRwandaKings() async {
+    return await _firestore
+        .collection("rwandaKings")
+        .get()
+        .then(_rwandaKingsListFromSnaphot);
+  }
+
+
+  Future<bool> createNewRwandaKing(
+      {required RwandaKingsModel rwandaKings, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("rwandaKings")
+          .doc(uuid)
+          .set({"name": rwandaKings.name, "description": rwandaKings.description, "image": rwandaKings.image});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // Delete Rwanda Kings
+  Future<bool> deleteRwandaKing({required String uuid}) async {
+    try {
+      await _firestore.collection("rwandaKings").doc(uuid).delete();
 
       return true;
     } catch (e) {

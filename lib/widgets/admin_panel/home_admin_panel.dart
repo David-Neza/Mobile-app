@@ -44,12 +44,14 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
               SizedBox(
                 width: SizeConfig.widthMultiplier * 12,
               ),
-              Text("Admin Panel", style: TextAppStyles.titleBoldText),
+              Text("Admin Panel", style: TextAppStyles.dashboardText),
             ],
           ),
+          
           SizedBox(
             height: SizeConfig.heightMultiplier * 2,
           ),
+          
           GestureDetector(
             onTap: () => Get.toNamed(RouteLinks.homeFoodPanel),
             child: Container(
@@ -182,6 +184,39 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
               ),
             ),
           ),
+          SizedBox(
+            height: SizeConfig.heightMultiplier * 2,
+          ),
+          GestureDetector(
+            onTap: () => Get.toNamed(RouteLinks.rwandaHistoryDashboard),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: greyLight, borderRadius: BorderRadius.circular(8)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: SizeConfig.widthMultiplier * 6,
+                        vertical: SizeConfig.heightMultiplier * 1.2),
+                    height: SizeConfig.heightMultiplier * 12,
+                    width: SizeConfig.widthMultiplier * 24,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: AssetImage(Images.ingoro),
+                          fit: BoxFit.fill),
+                    ),
+                  ),
+                  SizedBox(
+                    width: SizeConfig.widthMultiplier * 6,
+                  ),
+                  Text("Rwanda History", style: TextAppStyles.titleBoldText),
+                  
+                ],
+              ),
+            ),
+          ),  
         ],
       ))),
     ));

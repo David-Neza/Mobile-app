@@ -3,9 +3,9 @@ import 'package:clds/routes/route_link.dart';
 
 const List dashboardCategoriesList = [
   {
-    "image": Images.inkinyImage,
+    "image": Images.kiny,
     "text_1": "Kinyarwanda",
-    "text_2": "Learn the words",
+    "text_2": "Learn the basics",
     "route": RouteLinks.learnKinyarwandaPage
   },
   {
@@ -15,9 +15,9 @@ const List dashboardCategoriesList = [
     "route": ""
   },
   {
-    "image": Images.ibihazaImage,
-    "text_1": "Rwandan Foods",
-    "text_2": "Recipes",
+    "image": Images.isombe,
+    "text_1": "Learn to Cook",
+    "text_2": "Rwandan Foods",
     "route": RouteLinks.foodDashboard
   },
   {
@@ -27,10 +27,10 @@ const List dashboardCategoriesList = [
     "route": RouteLinks.entertainment
   },
   {
-    "image": Images.mountains,
-    "text_1": "Rwanda History",
-    "text_2": "Know Rwanda",
-    "route": RouteLinks.visitRwanda
+    "image": Images.king,
+    "text_1": "Historical Culture",
+    "text_2": "know the history",
+    "route": RouteLinks.rwandaHistory
   },
   {
     "image": Images.admin,
@@ -42,9 +42,9 @@ const List dashboardCategoriesList = [
 
 const List userDashboardCategoriesList = [
   {
-    "image": Images.inkinyImage,
+    "image": Images.kiny,
     "text_1": "Kinyarwanda",
-    "text_2": "Learn the words",
+    "text_2": "Learn the basics",
     "route": RouteLinks.learnKinyarwandaPage
   },
   {
@@ -54,9 +54,9 @@ const List userDashboardCategoriesList = [
     "route": RouteLinks.homeDancing
   },
   {
-    "image": Images.ibihazaImage,
+    "image": Images.isombe,
     "text_1": "Learn to Cook",
-    "text_2": "Rwandan Recipes",
+    "text_2": "Rwandan Foods",
     "route": RouteLinks.foodDashboard
   },
   {
@@ -66,9 +66,9 @@ const List userDashboardCategoriesList = [
     "route": RouteLinks.entertainment
   },
   {
-    "image": Images.mountains,
-    "text_1": "Rwanda History",
-    "text_2": "Know Rwanda",
-    "route": RouteLinks.visitRwanda
+    "image": Images.king,
+    "text_1": "Historical Culture",
+    "text_2": "know the history",
+    "route": RouteLinks.rwandaHistory
   }
 ];

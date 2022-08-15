@@ -33,7 +33,7 @@ class ArtifactsController extends GetxController {
       print("artifacts list --->> ${artifactsResponse.length}");
 
     allArtifacts.value = artifactsResponse;
-    artifacts.value = artifactsResponse.getRange(0, 4).toList();
+    artifacts.value = artifactsResponse.toList();
     artifacts.shuffle();
     artifact2.value = artifacts;
       isLoading.value = false;
@@ -43,7 +43,7 @@ class ArtifactsController extends GetxController {
      Random random = new Random();
     int randomNumber = random.nextInt(3);
     selectedUpIndex.value = randomNumber;
-    artifacts.value = allArtifacts.getRange(4, 8).toList();
+    artifacts.value = allArtifacts.toList();
     artifacts.shuffle();
     artifact2.value = artifacts;
   }

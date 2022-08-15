@@ -1,11 +1,14 @@
+import 'package:clds/controllers/admin_panel_dashboard_list.dart';
 import 'package:clds/controllers/animals_controller%20/animals_controller.dart';
 import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart';
 import 'package:clds/controllers/fruits_controller/fruits_controller.dart';
 import 'package:clds/controllers/gmae_controllers/game_controller.dart';
 import 'package:clds/controllers/greetings_controller/greetings_controller.dart';
+import 'package:clds/controllers/historical_place_controller%20/historical_place_controller.dart';
 import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:clds/controllers/home_dashboard/home_dashboard_controller.dart';
 import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dart';
+import 'package:clds/controllers/rwanda_kings_controller%20/rwanda_kings_controller.dart';
 import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
 import 'package:get/get.dart';
 
@@ -83,9 +86,32 @@ class ArtifactsBinding extends Bindings {
   }
 }
 
+class HistoricalPlacesBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => HistoricalPlacesController());
+  }
+}
+
+class RwandaKingsBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => RwandaKingsController());
+  }
+}
+
+ class HomeAdminPanelBinding extends Bindings{
+  @override
+  void dependencies() {
+    Get.lazyPut(() => AdminDashboardPanelListController());
+  }
+ }
+
 class AdminPanelBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => AdminPanelController());
   }
 }
+
+

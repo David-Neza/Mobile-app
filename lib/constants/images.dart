@@ -23,7 +23,15 @@ class Images {
   static const String umuneke = "$baseImages/umuneke.jpeg";
   static const String avoka = "$baseImages/avocat.jpg";
   static const String admin = "$baseImages/adminImage.png";
-   static const String inanasi = "$baseImages/pineapple.jpg";
+  static const String inanasi = "$baseImages/pineapple.jpg";
+  static const String king = "$baseImages/king.jpeg";
+  static const String convention = "$baseImages/convention.jpeg";
+  static const String kiny = "$baseImages/kiny.jpeg";
+  static const String ingoro = "$baseImages/ingoro.jpeg";
+  static const String ubwato = "$baseImages/ubwato.jpeg";
+  static const String ubukwe = "$baseImages/ubukwe.jpeg";
+  static const String isombe = "$baseImages/isombe.jpeg";
+  
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";
   static const String backIcon = "$baseIcons/Back ICon.svg";

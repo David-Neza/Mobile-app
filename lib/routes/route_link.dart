@@ -7,7 +7,10 @@ class RouteLinks {
   static const learnKinyarwandaPage = '/learn_kiny_page';
   static const learnKinyarwandaPage_1 = '/learn_kiny_page_1';
   static const foodDashboard = '/foodDashboard';
-  static const visitRwanda = '/visitRwanda';
+
+  static const rwandaHistory = '/rwandaHistory';
+  
+  
   static const entertainment = '/Entertainment';
   static const sakwesakwe = '/sakwesakwe';
   static const artifactsPage = '/artifactsPage';
@@ -35,4 +38,23 @@ class RouteLinks {
   static const homeAddArtifactsPanel = '/artifact_add_panel';
   static const learnArtifacts = '/learnArtifacts';
    
+
+  //learn historical place
+  static const homeHistoricalPlacePanel = '/homeHistoricalPlacePanel';
+  static const homeAddHistoricalPlacePanel = '/historical_place_add_panel';
+  static const historicalPlaces = '/historicalPlaces';
+
+  //Historical Artifacts
+  static const historicalArtifacts = '/historicalArtifacts';
+
+
+  //Rwanda Kings
+  static const rwandaKings = '/rwandaKings';
+  static const homeRwandaKingPanel = '/homeRwandaKingPanel';
+  static const homeAddRwandanKingsPanel = '/homeAddRwandanKingsPanel';
+
+  static const homeAdminPanel = '/homeAdminPanel';
+
+  ///// Rwanda history dashboard
+  static const rwandaHistoryDashboard = '/rwandaHistoryDashboard';
 }

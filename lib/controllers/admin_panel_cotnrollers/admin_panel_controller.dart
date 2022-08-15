@@ -1,6 +1,8 @@
 import 'package:clds/models/animals_model.dart';
 import 'package:clds/models/artifacts_model.dart';
 import 'package:clds/models/fruits_model.dart';
+import 'package:clds/models/historical_places.dart';
+import 'package:clds/models/rwanda_kings_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
@@ -14,14 +16,19 @@ class AdminPanelController extends GetxController {
   RxList<FruitsModel> fruits = <FruitsModel>[].obs;
   RxList<AnimalsModel> animals = <AnimalsModel>[].obs;
   RxList<ArtifactsModel> artifacts = <ArtifactsModel>[].obs;
+  RxList<HistoricalPlacesModel> historicalPlaces = <HistoricalPlacesModel>[].obs;
+  RxList<RwandaKingsModel> rwandaKings = <RwandaKingsModel>[].obs;
   RxBool isLoading = false.obs;
   RxBool isFoodSubmit = false.obs;
   RxBool isFruitSubmit = false.obs;
   RxBool isAnimalSubmit = false.obs;
   RxBool isArtifactSubmit = false.obs;
+  RxBool isHistoricalPlaceSubmit = false.obs;
+   RxBool isRwandaKingSubmit = false.obs;
 
   Rx<TextEditingController> imageLink = TextEditingController().obs;
   Rx<TextEditingController> name = TextEditingController().obs;
+  Rx<TextEditingController> description = TextEditingController().obs;
 
   void submitFood({required GlobalKey<FormState> key}) async {
     var uuid = Uuid().v4();
@@ -120,6 +127,8 @@ class AdminPanelController extends GetxController {
     isLoading.value = false;
   }
 
+  //Artifacts
+
   void submitArtifact({required GlobalKey<FormState> key}) async {
     var uuid = Uuid().v4();
     isArtifactSubmit.value = true;
@@ -152,6 +161,75 @@ class AdminPanelController extends GetxController {
     isLoading.value = false;
   }
 
+  //Historical Place
+
+  void submitHistoricalPlace({required GlobalKey<FormState> key}) async {
+    var uuid = Uuid().v4();
+    isHistoricalPlaceSubmit.value = true;
+    final isValid = key.currentState!.validate();
+    if (isValid) {
+      var data =
+          HistoricalPlacesModel(image: imageLink.value.text, text: name.value.text);
+      await _databaseService.createNewHistoricalPlace(historicalPlaces: data, uuid: uuid);
+      getHistoricalPlace();
+      Get.snackbar('Successfully', 'Added',
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
+    }
+    isHistoricalPlaceSubmit.value = false;
+    getHistoricalPlace();
+  }
+
+  void deleteHistoricalPlace({required String id}) async {
+    await _databaseService.deleteHistoricalPlace(uuid: id);
+    getHistoricalPlace();
+  }
+
+  getHistoricalPlace() async {
+    isLoading.value = true;
+    var response = await _databaseService.getHistoricalPlaces();
+    historicalPlaces.value = response;
+    isLoading.value = false;
+  }
+
+  ////// Rwanda Kings /////////
+  
+
+  void submitRwandaKing({required GlobalKey<FormState> key}) async {
+    var uuid = Uuid().v4();
+    isRwandaKingSubmit.value = true;
+    final isValid = key.currentState!.validate();
+    if (isValid) {
+      var data =
+          RwandaKingsModel( description: description.value.text, image: imageLink.value.text, name: name.value.text);
+      await _databaseService.createNewRwandaKing(rwandaKings: data, uuid: uuid);
+      getRwandaKings();
+      Get.snackbar('Successfully', 'Added',
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
+    }
+    isRwandaKingSubmit.value = false;
+    getRwandaKings();
+  }
+
+  void deleteRwandaKing({required String id}) async {
+    await _databaseService.deleteRwandaKing(uuid: id);
+    getArtifact();
+  }
+
+  getRwandaKings() async {
+    isLoading.value = true;
+    var response = await _databaseService.getRwandaKings();
+    rwandaKings.value = response;
+    isLoading.value = false;
+  }
+
 
   @override
   void onInit() {
@@ -159,6 +237,8 @@ class AdminPanelController extends GetxController {
     getFruit();
     getAnimal();
     getArtifact();
+    getHistoricalPlace();
+    getRwandaKings();
     super.onInit();
   }
 }
