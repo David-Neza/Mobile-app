@@ -15,6 +15,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
 import '../../controllers/food_dashboard_controller/food_dashboard_controller.dart';
+import '../../controllers/food_dashboard_controller/home_isombe_controller.dart';
 
 class HomeDashboardBinding extends Bindings {
   @override
@@ -107,12 +108,13 @@ class RwandanCeremoniesBinding extends Bindings {
     Get.lazyPut(() => RwandanCeremoniesController());
   }
 }
- class HomeAdminPanelBinding extends Bindings{
+
+class HomeAdminPanelBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => AdminDashboardPanelListController());
   }
- }
+}
 
 class AdminPanelBinding extends Bindings {
   @override
@@ -121,4 +123,9 @@ class AdminPanelBinding extends Bindings {
   }
 }
 
-
+class HomeIsombeBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => HomeIsombeController());
+  }
+}

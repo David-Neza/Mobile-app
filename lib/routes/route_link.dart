@@ -9,13 +9,12 @@ class RouteLinks {
   static const foodDashboard = '/foodDashboard';
 
   static const rwandaHistory = '/rwandaHistory';
-  
-  
+
   static const entertainment = '/Entertainment';
   static const sakwesakwe = '/sakwesakwe';
   static const artifactsPage = '/artifactsPage';
   static const greetings = '/greetings';
-  
+
   static const adminPanel = '/admin_panel';
 
   // learn foods
@@ -30,14 +29,12 @@ class RouteLinks {
   static const homeAnimalsPanel = '/homeAnimalsPanel';
   static const homeAddAnimalsPanel = '/animal_add_panel';
   static const learnFruits = '/learnFruits';
-   static const learnAnimals = '/learnAnimals';
-
+  static const learnAnimals = '/learnAnimals';
 
   //learn artifacts
   static const homeArtifactsPanel = '/homeAttifactsPanel';
   static const homeAddArtifactsPanel = '/artifact_add_panel';
   static const learnArtifacts = '/learnArtifacts';
-   
 
   //learn historical place
   static const homeHistoricalPlacePanel = '/homeHistoricalPlacePanel';
@@ -46,7 +43,6 @@ class RouteLinks {
 
   //Historical Artifacts
   static const historicalArtifacts = '/historicalArtifacts';
-
 
   //Rwanda Kings
   static const rwandaKings = '/rwandaKings';
@@ -63,10 +59,13 @@ class RouteLinks {
   static const homeRwandanCeremoniesPanel = '/homeRwandanCeremoniesPanel';
   static const homeAddRwandanCeremoniesPanel = '/homeAddRwandanCeremoniesPanel';
 
-
   //Rwandan Historical Places
   static const rwandanHistoricalPlaces = '/rwandanHistoricalPlaces';
-  static const homeRwandanHistoricalPlacesPanel = '/homeRwandanHistoricalPlacesPanel';
-  static const homeAddRwandanHistoricalPlacesPanel = '/homeAddRwandanHistoricalPlacesPanel';
-}
+  static const homeRwandanHistoricalPlacesPanel =
+      '/homeRwandanHistoricalPlacesPanel';
+  static const homeAddRwandanHistoricalPlacesPanel =
+      '/homeAddRwandanHistoricalPlacesPanel';
 
+  // videos
+  static const homeIsombe = "/home_isombe";
+}

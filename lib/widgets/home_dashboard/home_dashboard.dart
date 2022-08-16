@@ -119,7 +119,10 @@ class HomeDashboard extends GetWidget<HomeDashboardController> {
                               ),
                             );
                           }),
-                    )
+                    ),
+                    SizedBox(
+                      height: SizeConfig.heightMultiplier * 3,
+                    ),
                   ],
                 ),
               )),

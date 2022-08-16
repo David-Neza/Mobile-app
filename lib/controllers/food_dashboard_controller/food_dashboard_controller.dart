@@ -1,4 +1,5 @@
 import 'package:clds/models/user.dart';
+import 'package:clds/routes/route_link.dart';
 import 'package:clds/services/database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
@@ -40,7 +41,7 @@ class FoodDashboardController extends GetxController {
       "image": Images.inkinyImage,
       "text_1": "Isombe",
       "text_2": "Learn",
-      "route": ""
+      "route": RouteLinks.homeIsombe
     },
     {
       "image": Images.inkonoImage,
@@ -62,10 +63,11 @@ class FoodDashboardController extends GetxController {
     },
   ];
 
-  getIbisakuzo() async{
+  getIbisakuzo() async {
     var response = await _databaseService.getIbisakuzo();
     print("ibisakuzo byacu ${response.length}");
   }
+
   getCAtegories() async {
     // check user position and display categories according to their positions
     List<CategoriesModel> categoriesResponse = foodCategoriesList
