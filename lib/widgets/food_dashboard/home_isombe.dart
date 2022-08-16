@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:video_player/video_player.dart';
+// import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/sizeConfig.dart';
@@ -14,75 +17,116 @@ class HomeIsombe extends StatefulWidget {
 }
 
 class _HomeIsombeState extends State<HomeIsombe> {
-  String youtubeUrl = "https://www.youtube.com/watch?v=CutwYjTVmWI&t=2s";
-  late YoutubePlayerController ytbController;
+  VideoPlayerController? _controller;
+  bool _isLoading = false;
+  String youtubeUrl =
+      "https://firebasestorage.googleapis.com/v0/b/sawa-c4ce2.appspot.com/o/yt5s.com-Burna%20Boy%20-%20Last%20Last%20%5BOfficial%20Music%20Video%5D.mp4?alt=media&token=55374f2b-c286-44d1-93fc-e5d6bce39316";
+  // late YoutubePlayerController ytbController;
   @override
   void initState() {
+    _isLoading = true;
+    _controller = VideoPlayerController.network(youtubeUrl)
+      ..initialize().then((_) {
+        setState(() {
+          _isLoading = true;
+        });
+      });
     super.initState();
-    ytbController = YoutubePlayerController(
-        initialVideoId: YoutubePlayer.convertUrlToId(youtubeUrl)!,
-        flags: const YoutubePlayerFlags(autoPlay: false));
   }
 
-  @override
-  void deactivate() {
-    ytbController.pause();
-    super.deactivate();
-  }
+  // @override
+  // void deactivate() {
+  //   ytbController.pause();
+  //   super.deactivate();
+  // }
 
-  @override
-  void dispose() {
-    ytbController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   ytbController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayerBuilder(
-        player: YoutubePlayer(controller: ytbController),
-        builder: (context, player) {
-          return Scaffold(
-              body: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.widthMultiplier * 4),
-            child: SafeArea(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 4,
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+        body: Padding(
+      padding: EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier * 4),
+      child: SafeArea(
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SizedBox(
+          height: SizeConfig.heightMultiplier * 4,
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () => Get.back(),
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 2.5),
+                height: SizeConfig.heightMultiplier * 6,
+                width: SizeConfig.widthMultiplier * 16,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: greyLight,
+                ),
+                child: const Center(child: Icon(Icons.arrow_back_ios)),
+              ),
+            ),
+            SizedBox(
+              width: SizeConfig.widthMultiplier * 12,
+            ),
+            Text("How to cook isombe", style: TextAppStyles.titleBoldText),
+          ],
+        ),
+        SizedBox(
+          height: SizeConfig.heightMultiplier * 4,
+        ),
+        _isLoading
+            ? Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 4),
+                child: Container(
+                  height: 300,
+                  width: double.infinity,
+                  child: VideoPlayer(_controller!),
+                ),
+              )
+            : Center(
+                child: CircularProgressIndicator(),
+              ),
+        SizedBox(
+          height: SizeConfig.heightMultiplier * 2,
+        ),
+        Center(
+          child: Container(
+            width: size.width * 0.9,
+            height: size.height * 0.07,
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () => Get.back(),
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: SizeConfig.widthMultiplier * 2.5),
-                          height: SizeConfig.heightMultiplier * 6,
-                          width: SizeConfig.widthMultiplier * 16,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: greyLight,
-                          ),
-                          child:
-                              const Center(child: Icon(Icons.arrow_back_ios)),
-                        ),
-                      ),
-                      SizedBox(
-                        width: SizeConfig.widthMultiplier * 12,
-                      ),
-                      Text("How to cook isombe",
-                          style: TextAppStyles.titleBoldText),
-                    ],
-                  ),
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 4,
-                  ),
-                  player,
-                ])),
-          ));
-        });
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.black)),
+              child:
+                  _controller!.value.isPlaying ? Text('Pause') : Text('Play'),
+              onPressed: () {
+                setState(() {
+                  _controller!.value.isPlaying
+                      ? _controller!.pause()
+                      : _controller!.play();
+                });
+              },
+            ),
+          ),
+        )
+      ])),
+    ));
   }
 }
