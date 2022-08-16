@@ -17,9 +17,8 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
         body: Padding(
       padding: EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier * 4),
       child: SafeArea(
-          child: SafeArea(
-              child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
+        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: SizeConfig.heightMultiplier * 4,
@@ -27,24 +26,24 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () => Get.back(),
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.widthMultiplier * 2.5),
-                  height: SizeConfig.heightMultiplier * 6,
-                  width: SizeConfig.widthMultiplier * 16,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: greyLight,
-                  ),
-                  child: const Center(child: Icon(Icons.arrow_back_ios)),
-                ),
+          GestureDetector(
+            onTap: () => Get.back(),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.widthMultiplier * 2.5),
+              height: SizeConfig.heightMultiplier * 6,
+              width: SizeConfig.widthMultiplier * 16,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: greyLight,
               ),
-              SizedBox(
-                width: SizeConfig.widthMultiplier * 12,
-              ),
-              Text("Admin Panel", style: TextAppStyles.dashboardText),
+              child: const Center(child: Icon(Icons.arrow_back_ios)),
+            ),
+          ),
+          SizedBox(
+            width: SizeConfig.widthMultiplier * 12,
+          ),
+          Text("Admin Panel", style: TextAppStyles.dashboardText),
             ],
           ),
           
@@ -55,31 +54,31 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
           GestureDetector(
             onTap: () => Get.toNamed(RouteLinks.homeFoodPanel),
             child: Container(
-              decoration: BoxDecoration(
-                  color: greyLight, borderRadius: BorderRadius.circular(8)),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.widthMultiplier * 6,
-                        vertical: SizeConfig.heightMultiplier * 1.2),
-                    height: SizeConfig.heightMultiplier * 12,
-                    width: SizeConfig.widthMultiplier * 24,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          image: AssetImage(Images.tastyChicken),
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                  SizedBox(
-                    width: SizeConfig.widthMultiplier * 6,
-                  ),
-                  Text("Food", style: TextAppStyles.titleBoldText),
-                  
-                ],
+          decoration: BoxDecoration(
+              color: greyLight, borderRadius: BorderRadius.circular(8)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                height: SizeConfig.heightMultiplier * 12,
+                width: SizeConfig.widthMultiplier * 24,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(Images.tastyChicken),
+                      fit: BoxFit.fill),
+                ),
               ),
+              SizedBox(
+                width: SizeConfig.widthMultiplier * 6,
+              ),
+              Text("Food", style: TextAppStyles.titleBoldText),
+              
+            ],
+          ),
             ),
           ),
            SizedBox(
@@ -88,31 +87,31 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
           GestureDetector(
             onTap: () => Get.toNamed(RouteLinks.homeFruitsPanel),
             child: Container(
-              decoration: BoxDecoration(
-                  color: greyLight, borderRadius: BorderRadius.circular(8)),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.widthMultiplier * 6,
-                        vertical: SizeConfig.heightMultiplier * 1.2),
-                    height: SizeConfig.heightMultiplier * 12,
-                    width: SizeConfig.widthMultiplier * 24,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          image: AssetImage(Images.inanasi),
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                  SizedBox(
-                    width: SizeConfig.widthMultiplier * 6,
-                  ),
-                  Text("Fruits", style: TextAppStyles.titleBoldText),
-                  
-                ],
+          decoration: BoxDecoration(
+              color: greyLight, borderRadius: BorderRadius.circular(8)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                height: SizeConfig.heightMultiplier * 12,
+                width: SizeConfig.widthMultiplier * 24,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(Images.inanasi),
+                      fit: BoxFit.fill),
+                ),
               ),
+              SizedBox(
+                width: SizeConfig.widthMultiplier * 6,
+              ),
+              Text("Fruits", style: TextAppStyles.titleBoldText),
+              
+            ],
+          ),
             ),
           ),
 
@@ -123,31 +122,31 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
           GestureDetector(
             onTap: () => Get.toNamed(RouteLinks.homeAnimalsPanel),
             child: Container(
-              decoration: BoxDecoration(
-                  color: greyLight, borderRadius: BorderRadius.circular(8)),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.widthMultiplier * 6,
-                        vertical: SizeConfig.heightMultiplier * 1.2),
-                    height: SizeConfig.heightMultiplier * 12,
-                    width: SizeConfig.widthMultiplier * 24,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          image: AssetImage(Images.dog),
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                  SizedBox(
-                    width: SizeConfig.widthMultiplier * 6,
-                  ),
-                  Text("Animals", style: TextAppStyles.titleBoldText),
-                  
-                ],
+          decoration: BoxDecoration(
+              color: greyLight, borderRadius: BorderRadius.circular(8)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                height: SizeConfig.heightMultiplier * 12,
+                width: SizeConfig.widthMultiplier * 24,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(Images.dog),
+                      fit: BoxFit.fill),
+                ),
               ),
+              SizedBox(
+                width: SizeConfig.widthMultiplier * 6,
+              ),
+              Text("Animals", style: TextAppStyles.titleBoldText),
+              
+            ],
+          ),
             ),
           ),
 
@@ -157,31 +156,31 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
           GestureDetector(
             onTap: () => Get.toNamed(RouteLinks.homeArtifactsPanel),
             child: Container(
-              decoration: BoxDecoration(
-                  color: greyLight, borderRadius: BorderRadius.circular(8)),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.widthMultiplier * 6,
-                        vertical: SizeConfig.heightMultiplier * 1.2),
-                    height: SizeConfig.heightMultiplier * 12,
-                    width: SizeConfig.widthMultiplier * 24,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          image: AssetImage(Images.inkooko),
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                  SizedBox(
-                    width: SizeConfig.widthMultiplier * 6,
-                  ),
-                  Text("Artifacts", style: TextAppStyles.titleBoldText),
-                  
-                ],
+          decoration: BoxDecoration(
+              color: greyLight, borderRadius: BorderRadius.circular(8)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                height: SizeConfig.heightMultiplier * 12,
+                width: SizeConfig.widthMultiplier * 24,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(Images.inkooko),
+                      fit: BoxFit.fill),
+                ),
               ),
+              SizedBox(
+                width: SizeConfig.widthMultiplier * 6,
+              ),
+              Text("Artifacts", style: TextAppStyles.titleBoldText),
+              
+            ],
+          ),
             ),
           ),
           SizedBox(
@@ -190,35 +189,35 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
           GestureDetector(
             onTap: () => Get.toNamed(RouteLinks.rwandaHistoryDashboard),
             child: Container(
-              decoration: BoxDecoration(
-                  color: greyLight, borderRadius: BorderRadius.circular(8)),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: SizeConfig.widthMultiplier * 6,
-                        vertical: SizeConfig.heightMultiplier * 1.2),
-                    height: SizeConfig.heightMultiplier * 12,
-                    width: SizeConfig.widthMultiplier * 24,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          image: AssetImage(Images.ingoro),
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                  SizedBox(
-                    width: SizeConfig.widthMultiplier * 6,
-                  ),
-                  Text("Rwanda History", style: TextAppStyles.titleBoldText),
-                  
-                ],
+          decoration: BoxDecoration(
+              color: greyLight, borderRadius: BorderRadius.circular(8)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                height: SizeConfig.heightMultiplier * 12,
+                width: SizeConfig.widthMultiplier * 24,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(Images.ingoro),
+                      fit: BoxFit.fill),
+                ),
               ),
+              SizedBox(
+                width: SizeConfig.widthMultiplier * 6,
+              ),
+              Text("Rwandan History", style: TextAppStyles.titleBoldText),
+              
+            ],
+          ),
             ),
           ),  
         ],
-      ))),
+      )),
     ));
   }
 }

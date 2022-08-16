@@ -1,4 +1,4 @@
-import 'package:clds/controllers/rwanda_kings_controller%20/rwanda_kings_controller.dart';
+import 'package:clds/controllers/rwandan_ceremonies_controller%20%20/rwandan_ceremonies_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
@@ -6,36 +6,36 @@ import '../../constants/shake_widget.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
 
-class RwandaKings extends GetWidget<RwandaKingsController> {
+class RwandanCeremonies extends GetWidget<RwandanCeremoniesController> {
 
   Widget buildImageCard() => Card(
-        color: readColor,
-        child: Column(children: [
-          Stack(children: [
-            ClipRRect(
-    borderRadius: BorderRadius.circular(5),
-    child: Image.network(
-        "${controller.rwandaKing2[controller.selectedUpIndex.value].image}",
-        height: 300.0,
-        fit: BoxFit.fill,
-    ),
-    )
-          ]),
+    color: readColor,
+      child: Column(children: [
+        Stack(children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(5),
+            child: Image.network(
+            "${controller.rwandanCeremony2[controller.selectedUpIndex.value].image}",
+            height: 300.0,
+            fit: BoxFit.fill,
+            ),
+          )
+      ]),
          Text(
-            "${controller.rwandaKing2[controller.selectedUpIndex.value].name}",
+            "${controller.rwandanCeremony2[controller.selectedUpIndex.value].name}",
             style: TextAppStyles.dashboardText,
           ),
-        Expanded(child:   
+      Expanded(child:     
           Text(
-           "${controller.rwandaKing2[controller.selectedUpIndex.value].description}",
+           "${controller.rwandanCeremony2[controller.selectedUpIndex.value].description}",
            style: TextAppStyles.titleBoldText),         
-        ),
+      ),
         ]),
         
       );
 
 
-  RwandaKings({Key? key}) : super(key: key);
+  RwandanCeremonies({Key? key}) : super(key: key);
   final List<GlobalKey<ShakeWidgetState>> shakeKey =
       List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
   @override

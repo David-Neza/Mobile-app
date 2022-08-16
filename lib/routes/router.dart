@@ -8,6 +8,10 @@ import 'package:clds/widgets/Entertainment/sakwesakwe.dart';
 import 'package:clds/widgets/admin_panel/Rwanda_history_dashboard_editing/Rwanda_history_dashboard.dart';
 import 'package:clds/widgets/admin_panel/Rwanda_history_dashboard_editing/rwanda_kings_panel/home_Add_rwanda_king_panel.dart';
 import 'package:clds/widgets/admin_panel/Rwanda_history_dashboard_editing/rwanda_kings_panel/home_rwanda_king_panel.dart';
+import 'package:clds/widgets/admin_panel/Rwanda_history_dashboard_editing/rwandan_ceremonies_panel%20/home_Add_rwanda_ceremonies_panel.dart';
+import 'package:clds/widgets/admin_panel/Rwanda_history_dashboard_editing/rwandan_ceremonies_panel%20/home_rwandan_ceremonies_panel.dart';
+import 'package:clds/widgets/admin_panel/Rwanda_history_dashboard_editing/rwandan_historical_places_panel%20%20/home_Add_rwanda_historical_places_panel.dart';
+import 'package:clds/widgets/admin_panel/Rwanda_history_dashboard_editing/rwandan_historical_places_panel%20%20/home_rwandan_ceremonies_panel.dart';
 import 'package:clds/widgets/admin_panel/animal_panel%20/home_Add_animal_panel.dart';
 import 'package:clds/widgets/admin_panel/animal_panel%20/home_animal_panel.dart';
 import 'package:clds/widgets/admin_panel/artifact_panel/home_Add_artifact_panel.dart';
@@ -30,6 +34,7 @@ import 'package:clds/widgets/rwanda_history/historical_artifacts.dart';
 import 'package:clds/widgets/rwanda_history/historical_places.dart';
 import 'package:clds/widgets/rwanda_history/rwanda_history.dart';
 import 'package:clds/widgets/rwanda_history/rwanda_kings.dart';
+import 'package:clds/widgets/rwanda_history/rwandan_ceremonies.dart';
 import 'package:get/get.dart';
 
 import '../widgets/admin_panel/food_panel/home_add_food_panel.dart';
@@ -115,18 +120,12 @@ class AppRouter {
     GetPage(name: RouteLinks.homeAddArtifactsPanel, page: () => HomeAddArtifactPanel()),
     
     GetPage(
-      binding: HistoricalPlacesBinding(),
+      binding: RwandanHistoricalPlacesBinding(),
       name: RouteLinks.rwandaHistory, 
       page: () => RwandaHistory()),
     GetPage(name: RouteLinks.homeHistoricalPlacePanel, page: () => HomeHistoricalPlacePanel()),
     GetPage(name: RouteLinks.homeAddHistoricalPlacePanel, page: () => HomeAddHistoricalPlacePanel()),
     
-    GetPage(
-      binding: HistoricalPlacesBinding(),
-      name: RouteLinks.historicalPlaces, 
-      page: () => HistoricalPlaces()),
-
-
     GetPage(
         binding: ArtifactsBinding(),
         name: RouteLinks.historicalArtifacts,
@@ -140,6 +139,15 @@ class AppRouter {
     GetPage(name: RouteLinks.homeRwandaKingPanel, page: () => HomeRwandaKingPanel()),
      GetPage(name: RouteLinks.homeAddRwandanKingsPanel, page: () => HomeAddRwandaKingsPanel()),
 
+     //Rwandan Ceremonies
+    GetPage(
+        binding: RwandanCeremoniesBinding(),
+        name: RouteLinks.rwandanCeremonies,
+        page: () => RwandanCeremonies()),
+    GetPage(name: RouteLinks.homeRwandanCeremoniesPanel, page: () => HomeRwandanCeremoniesPanel()),
+     GetPage(name: RouteLinks.homeAddRwandanCeremoniesPanel, page: () => HomeAddRwandanCeremoniesPanel()),
+
+
 
     GetPage(name: RouteLinks.homeArtifactsPanel, page: () => HomeArtifactPanel()),
     GetPage(name: RouteLinks.homeAddArtifactsPanel, page: () => HomeAddArtifactPanel()),
@@ -147,6 +155,14 @@ class AppRouter {
   //Rwanda history dashboard
   GetPage(name: RouteLinks.rwandaHistoryDashboard, page: () => RwandaHistoryDashboard()),
      
+
+   //Rwandan Historical Places
+    GetPage(
+        binding: RwandanHistoricalPlacesBinding(),
+        name: RouteLinks.rwandanHistoricalPlaces,
+        page: () => RwandanHistoricalPlaces()),
+    GetPage(name: RouteLinks.homeRwandanHistoricalPlacesPanel, page: () => HomeRwandanHistoricalPlacesPanel()),
+     GetPage(name: RouteLinks.homeAddRwandanHistoricalPlacesPanel, page: () => HomeAddRwandanHistoricalPlacesPanel()),
 
   ];
 }

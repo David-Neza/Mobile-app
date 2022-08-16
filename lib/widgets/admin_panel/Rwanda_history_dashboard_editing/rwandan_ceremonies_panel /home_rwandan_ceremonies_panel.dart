@@ -1,14 +1,14 @@
+import 'package:clds/constants/colors.dart';
+import 'package:clds/constants/sizeConfig.dart';
+import 'package:clds/constants/text_styles.dart';
+import 'package:clds/controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
+import 'package:clds/routes/route_link.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../constants/colors.dart';
-import '../../../constants/sizeConfig.dart';
-import '../../../constants/text_styles.dart';
-import '../../../controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
-import '../../../routes/route_link.dart';
 
-class HomeHistoricalPlacePanel extends GetWidget<AdminPanelController> {
-  const HomeHistoricalPlacePanel({Key? key}) : super(key: key);
+class HomeRwandanCeremoniesPanel extends GetWidget<AdminPanelController> {
+  const HomeRwandanCeremoniesPanel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class HomeHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                         SizedBox(
                           width: SizeConfig.widthMultiplier * 12,
                         ),
-                        Text("Historical Places Panel", style: TextAppStyles.dashboardText),
+                        Text("Rwandan Ceremonies Panel", style: TextAppStyles.dashboardText),
                       ],
                     ),
                     SizedBox(
@@ -62,23 +62,23 @@ class HomeHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Historical Place',
+                            'Ceremonies',
                             style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold),
                           ),
                           GestureDetector(
                             onTap: () =>
-                                Get.toNamed(RouteLinks.homeAddHistoricalPlacePanel),
+                                Get.toNamed(RouteLinks.homeAddRwandanCeremoniesPanel),
                             child: Text(
-                              'Add Historical Place',
+                              'Add Ceremony',
                               style: TextStyle(
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
                           Text(
-                            '(${controller.historicalPlaces.length})',
+                            '(${controller.rwandanCeremonies.length})',
                             style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold),
@@ -95,7 +95,7 @@ class HomeHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                     ),
                     Expanded(
                         child: ListView.builder(
-                            itemCount: controller.historicalPlaces.length,
+                            itemCount: controller.rwandanCeremonies.length,
                             itemBuilder: (context, index) {
                               return Padding(
                                 padding: EdgeInsets.symmetric(
@@ -104,7 +104,7 @@ class HomeHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                                         SizeConfig.heightMultiplier * 1.2),
                                 child: GestureDetector(
                                   onTap: () =>
-                                      Get.toNamed(RouteLinks.homeHistoricalPlacePanel),
+                                      Get.toNamed(RouteLinks.homeAddRwandanCeremoniesPanel),
                                   child: Container(
                                     decoration: BoxDecoration(
                                         color: greyLight,
@@ -133,7 +133,7 @@ class HomeHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Image.network(controller
-                                                  .historicalPlaces[index].image!),
+                                                  .rwandanCeremonies[index].image!),
                                             ),
                                             SizedBox(
                                               width:
@@ -141,9 +141,9 @@ class HomeHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                                                       6,
                                             ),
                                             Text(
-                                                "${controller.historicalPlaces[index].text}",
+                                                "${controller.rwandanCeremonies[index].name}",
                                                 style: TextAppStyles
-                                                    .titleBoldText),
+                                                    .titleBoldText),       
                                           ],
                                         ),
                                         Positioned(
@@ -151,9 +151,9 @@ class HomeHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                                               SizeConfig.heightMultiplier * 1.5,
                                           right: SizeConfig.widthMultiplier * 2,
                                           child: GestureDetector(
-                                            onTap: () => controller.deleteRwandanHistoricalPlace(
+                                            onTap: () => controller.deleteRwandanCeremony(
                                                 id: controller
-                                                    .historicalPlaces[index].docId!),
+                                                    .rwandanCeremonies[index].docId!),
                                             child: Container(
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: SizeConfig

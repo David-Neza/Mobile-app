@@ -3,6 +3,8 @@ import 'package:clds/models/artifacts_model.dart';
 import 'package:clds/models/fruits_model.dart';
 import 'package:clds/models/historical_places.dart';
 import 'package:clds/models/rwanda_kings_model.dart';
+import 'package:clds/models/rwandan_ceremonies_model.dart';
+import 'package:clds/models/rwandan_historical_places_model%20.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
@@ -18,13 +20,19 @@ class AdminPanelController extends GetxController {
   RxList<ArtifactsModel> artifacts = <ArtifactsModel>[].obs;
   RxList<HistoricalPlacesModel> historicalPlaces = <HistoricalPlacesModel>[].obs;
   RxList<RwandaKingsModel> rwandaKings = <RwandaKingsModel>[].obs;
+  RxList<RwandanCeremoniesModel> rwandanCeremonies = <RwandanCeremoniesModel>[].obs;
+  RxList<RwandanHistoricalPlacesModel> rwandanHistoricalPlaces = <RwandanHistoricalPlacesModel>[].obs;
+  
   RxBool isLoading = false.obs;
   RxBool isFoodSubmit = false.obs;
   RxBool isFruitSubmit = false.obs;
   RxBool isAnimalSubmit = false.obs;
   RxBool isArtifactSubmit = false.obs;
   RxBool isHistoricalPlaceSubmit = false.obs;
-   RxBool isRwandaKingSubmit = false.obs;
+  RxBool isRwandaKingSubmit = false.obs;
+  RxBool isRwandanCeremonySubmit = false.obs;
+  RxBool isRwandanHistoricalPlaceSubmit = false.obs;
+
 
   Rx<TextEditingController> imageLink = TextEditingController().obs;
   Rx<TextEditingController> name = TextEditingController().obs;
@@ -161,40 +169,6 @@ class AdminPanelController extends GetxController {
     isLoading.value = false;
   }
 
-  //Historical Place
-
-  void submitHistoricalPlace({required GlobalKey<FormState> key}) async {
-    var uuid = Uuid().v4();
-    isHistoricalPlaceSubmit.value = true;
-    final isValid = key.currentState!.validate();
-    if (isValid) {
-      var data =
-          HistoricalPlacesModel(image: imageLink.value.text, text: name.value.text);
-      await _databaseService.createNewHistoricalPlace(historicalPlaces: data, uuid: uuid);
-      getHistoricalPlace();
-      Get.snackbar('Successfully', 'Added',
-          snackPosition: SnackPosition.TOP,
-          backgroundColor: Colors.green,
-          colorText: Colors.white,
-          borderRadius: 10,
-          margin: EdgeInsets.all(10));
-    }
-    isHistoricalPlaceSubmit.value = false;
-    getHistoricalPlace();
-  }
-
-  void deleteHistoricalPlace({required String id}) async {
-    await _databaseService.deleteHistoricalPlace(uuid: id);
-    getHistoricalPlace();
-  }
-
-  getHistoricalPlace() async {
-    isLoading.value = true;
-    var response = await _databaseService.getHistoricalPlaces();
-    historicalPlaces.value = response;
-    isLoading.value = false;
-  }
-
   ////// Rwanda Kings /////////
   
 
@@ -220,13 +194,83 @@ class AdminPanelController extends GetxController {
 
   void deleteRwandaKing({required String id}) async {
     await _databaseService.deleteRwandaKing(uuid: id);
-    getArtifact();
+    getRwandaKings();
   }
 
   getRwandaKings() async {
     isLoading.value = true;
     var response = await _databaseService.getRwandaKings();
     rwandaKings.value = response;
+    isLoading.value = false;
+  }
+
+  ////// Rwandan Ceremonies /////////
+  
+
+  void submitRwandanCeremonies({required GlobalKey<FormState> key}) async {
+    var uuid = Uuid().v4();
+    isRwandanCeremonySubmit.value = true;
+    final isValid = key.currentState!.validate();
+    if (isValid) {
+      var data =
+          RwandanCeremoniesModel( description: description.value.text, image: imageLink.value.text, name: name.value.text);
+      await _databaseService.createNewRwandanCeremony(rwandanCeremonies: data, uuid: uuid);
+      getRwandanCeremonies();
+      Get.snackbar('Successfully', 'Added',
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
+    }
+    isRwandanCeremonySubmit.value = false;
+    getRwandanCeremonies();
+  }
+
+  void deleteRwandanCeremony({required String id}) async {
+    await _databaseService.deleteRwandanCeremony(uuid: id);
+    getRwandanCeremonies();
+  }
+
+  getRwandanCeremonies() async {
+    isLoading.value = true;
+    var response = await _databaseService.getRwandanCeremonies();
+    rwandanCeremonies.value = response;
+    isLoading.value = false;
+  }
+
+////// Rwandan Historical Places /////////
+  
+
+  void submitRwandanHistoricalPlaces({required GlobalKey<FormState> key}) async {
+    var uuid = Uuid().v4();
+    isRwandanHistoricalPlaceSubmit.value = true;
+    final isValid = key.currentState!.validate();
+    if (isValid) {
+      var data =
+          RwandanHistoricalPlacesModel( description: description.value.text, image: imageLink.value.text, name: name.value.text);
+      await _databaseService.createNewRwandanHistoricalPlace(rwandanHistoricalPlaces: data, uuid: uuid);
+      getRwandanHistoricalPlaces();
+      Get.snackbar('Successfully', 'Added',
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
+    }
+    isRwandanHistoricalPlaceSubmit.value = false;
+    getRwandanHistoricalPlaces();
+  }
+
+  void deleteRwandanHistoricalPlace({required String id}) async {
+    await _databaseService.deleteRwandanHistoricalPlace(uuid: id);
+    getRwandanHistoricalPlaces();
+  }
+
+  getRwandanHistoricalPlaces() async {
+    isLoading.value = true;
+    var response = await _databaseService.getRwandanHistoricalPlaces();
+    rwandanHistoricalPlaces.value = response;
     isLoading.value = false;
   }
 
@@ -237,8 +281,9 @@ class AdminPanelController extends GetxController {
     getFruit();
     getAnimal();
     getArtifact();
-    getHistoricalPlace();
+    getRwandanHistoricalPlaces();
     getRwandaKings();
+    getRwandanCeremonies();
     super.onInit();
   }
 }

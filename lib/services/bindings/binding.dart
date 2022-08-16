@@ -4,11 +4,12 @@ import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart'
 import 'package:clds/controllers/fruits_controller/fruits_controller.dart';
 import 'package:clds/controllers/gmae_controllers/game_controller.dart';
 import 'package:clds/controllers/greetings_controller/greetings_controller.dart';
-import 'package:clds/controllers/historical_place_controller%20/historical_place_controller.dart';
 import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:clds/controllers/home_dashboard/home_dashboard_controller.dart';
 import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dart';
+import 'package:clds/controllers/rwanda_historical_places_controller%20/rwanda_historical_places_controller.dart';
 import 'package:clds/controllers/rwanda_kings_controller%20/rwanda_kings_controller.dart';
+import 'package:clds/controllers/rwandan_ceremonies_controller%20%20/rwandan_ceremonies_controller.dart';
 import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
 import 'package:get/get.dart';
 
@@ -86,10 +87,10 @@ class ArtifactsBinding extends Bindings {
   }
 }
 
-class HistoricalPlacesBinding extends Bindings {
+class RwandanHistoricalPlacesBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => HistoricalPlacesController());
+    Get.lazyPut(() => RwandanHistoricalPlacesController());
   }
 }
 
@@ -100,6 +101,12 @@ class RwandaKingsBinding extends Bindings {
   }
 }
 
+class RwandanCeremoniesBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => RwandanCeremoniesController());
+  }
+}
  class HomeAdminPanelBinding extends Bindings{
   @override
   void dependencies() {

@@ -6,6 +6,8 @@ import 'package:clds/models/historical_places.dart';
 import 'package:clds/models/ibisakuzo_model.dart';
 import 'package:clds/models/learnFoods_model.dart';
 import 'package:clds/models/rwanda_kings_model.dart';
+import 'package:clds/models/rwandan_ceremonies_model.dart';
+import 'package:clds/models/rwandan_historical_places_model%20.dart';
 import 'package:clds/widgets/learn_kinyarwanda/food.dart';
 import 'package:clds/widgets/rwanda_history/historical_places.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -317,6 +319,95 @@ class DatabaseService {
   Future<bool> deleteRwandaKing({required String uuid}) async {
     try {
       await _firestore.collection("rwandaKings").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  //////////////////Rwandan Ceremonies /////////////////////
+  
+  //Rwandan Ceremonies model
+
+   List<RwandanCeremoniesModel> _rwandanCeremoniesListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return RwandanCeremoniesModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<RwandanCeremoniesModel>> getRwandanCeremonies() async {
+    return await _firestore
+        .collection("rwandanCeremonies")
+        .get()
+        .then(_rwandanCeremoniesListFromSnaphot);
+  }
+
+
+  Future<bool> createNewRwandanCeremony(
+      {required RwandanCeremoniesModel rwandanCeremonies, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("rwandanCeremonies")
+          .doc(uuid)
+          .set({"name": rwandanCeremonies.name, "description": rwandanCeremonies.description, "image": rwandanCeremonies.image});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // Delete Rwanda Kings
+  Future<bool> deleteRwandanCeremony({required String uuid}) async {
+    try {
+      await _firestore.collection("rwandanCeremonies").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+
+  //////////////////Rwandan Ceremonies /////////////////////
+  
+  //Rwandan Ceremonies model
+
+   List<RwandanHistoricalPlacesModel> _rwandanHistoricalPlacesListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return RwandanHistoricalPlacesModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<RwandanHistoricalPlacesModel>> getRwandanHistoricalPlaces() async {
+    return await _firestore
+        .collection("rwandanHistoricalPlaces")
+        .get()
+        .then(_rwandanHistoricalPlacesListFromSnaphot);
+  }
+
+
+  Future<bool> createNewRwandanHistoricalPlace(
+      {required RwandanHistoricalPlacesModel  rwandanHistoricalPlaces, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("rwandanHistoricalPlaces")
+          .doc(uuid)
+          .set({"name": rwandanHistoricalPlaces.name, "description":  rwandanHistoricalPlaces.description, "image": rwandanHistoricalPlaces.image});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // Delete Rwandan Historical Places
+  Future<bool> deleteRwandanHistoricalPlace({required String uuid}) async {
+    try {
+      await _firestore.collection("rwandanHistoricalPlaces").doc(uuid).delete();
 
       return true;
     } catch (e) {

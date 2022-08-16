@@ -57,4 +57,16 @@ class RouteLinks {
 
   ///// Rwanda history dashboard
   static const rwandaHistoryDashboard = '/rwandaHistoryDashboard';
+
+  //Rwandan Ceremonies
+  static const rwandanCeremonies = '/rwandanCeremonies';
+  static const homeRwandanCeremoniesPanel = '/homeRwandanCeremoniesPanel';
+  static const homeAddRwandanCeremoniesPanel = '/homeAddRwandanCeremoniesPanel';
+
+
+  //Rwandan Historical Places
+  static const rwandanHistoricalPlaces = '/rwandanHistoricalPlaces';
+  static const homeRwandanHistoricalPlacesPanel = '/homeRwandanHistoricalPlacesPanel';
+  static const homeAddRwandanHistoricalPlacesPanel = '/homeAddRwandanHistoricalPlacesPanel';
 }
+

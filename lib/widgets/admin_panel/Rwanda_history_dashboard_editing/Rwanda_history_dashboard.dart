@@ -45,7 +45,7 @@ class RwandaHistoryDashboard extends GetWidget<AdminPanelController> {
               SizedBox(
                 width: SizeConfig.widthMultiplier * 12,
               ),
-              Text("Rwanda History", style: TextAppStyles.dashboardText),
+              Text("Rwandan History", style: TextAppStyles.dashboardText),
             ],
           ),
           
@@ -78,6 +78,75 @@ class RwandaHistoryDashboard extends GetWidget<AdminPanelController> {
                     width: SizeConfig.widthMultiplier * 6,
                   ),
                   Text("Rwandan Kings", style: TextAppStyles.titleBoldText),
+                  
+                ],
+              ),
+            ),
+          ),
+
+          SizedBox(
+            height: SizeConfig.heightMultiplier * 2,
+          ),
+          
+          GestureDetector(
+            onTap: () => Get.toNamed(RouteLinks.homeRwandanCeremoniesPanel),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: greyLight, borderRadius: BorderRadius.circular(8)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                    height: SizeConfig.heightMultiplier * 12,
+                    width: SizeConfig.widthMultiplier * 24,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: AssetImage(Images.ubukwe),
+                          fit: BoxFit.fill),
+                    ),
+                  ),
+                  SizedBox(
+                    width: SizeConfig.widthMultiplier * 6,
+                  ),
+                  Text("Rwandan Ceremonies", style: TextAppStyles.titleBoldText),
+                  
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: SizeConfig.heightMultiplier * 2,
+          ),
+          
+          GestureDetector(
+            onTap: () => Get.toNamed(RouteLinks.homeRwandanHistoricalPlacesPanel),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: greyLight, borderRadius: BorderRadius.circular(8)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                    height: SizeConfig.heightMultiplier * 12,
+                    width: SizeConfig.widthMultiplier * 24,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: AssetImage(Images.ingoro),
+                          fit: BoxFit.fill),
+                    ),
+                  ),
+                  SizedBox(
+                    width: SizeConfig.widthMultiplier * 6,
+                  ),
+                  Text("Rwandan Historical Places", style: TextAppStyles.titleBoldText),
                   
                 ],
               ),

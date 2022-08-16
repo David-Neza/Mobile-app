@@ -1,13 +1,14 @@
+import 'package:clds/constants/colors.dart';
+import 'package:clds/constants/sizeConfig.dart';
+import 'package:clds/constants/text_styles.dart';
+import 'package:clds/controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../constants/colors.dart';
-import '../../../constants/sizeConfig.dart';
-import '../../../constants/text_styles.dart';
-import '../../../controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
 
-class HomeAddHistoricalPlacePanel extends GetWidget<AdminPanelController> {
-  HomeAddHistoricalPlacePanel({Key? key}) : super(key: key);
+
+class HomeAddRwandanCeremoniesPanel extends GetWidget<AdminPanelController> {
+  HomeAddRwandanCeremoniesPanel({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,8 @@ class HomeAddHistoricalPlacePanel extends GetWidget<AdminPanelController> {
           child: Form(
             key: _formKey,
             child: SafeArea(
-                child: ListView(
-              // crossAxisAlignment: CrossAxisAlignment.start,
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   height: SizeConfig.heightMultiplier * 4,
@@ -46,7 +47,7 @@ class HomeAddHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                     SizedBox(
                       width: SizeConfig.widthMultiplier * 12,
                     ),
-                    Text("Add Historical Place", style: TextAppStyles.titleBoldText),
+                    Text("Add Ceremony", style: TextAppStyles.dashboardText),
                   ],
                 ),
                 SizedBox(
@@ -111,7 +112,43 @@ class HomeAddHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                     ),
                     fillColor: blueLight,
                     filled: true,
-                    hintText: "INsert Image Link",
+                    hintText: "Insert Image Link",
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                    hintStyle: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Muli",
+                    ),
+                  ),
+                ),
+                 SizedBox(
+                  height: SizeConfig.heightMultiplier * 3,
+                ),
+                Text(
+                  "Description",
+                  style: TextAppStyles.simpleMediumText,
+                ),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 1.2,
+                ),
+                TextFormField(
+                  controller: controller.description.value,
+                  keyboardType: TextInputType.name,
+                  validator: (value) => controller.description.value.text.isEmpty
+                      ? "Insert description"
+                      : null,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        width: 0,
+                        style: BorderStyle.none,
+                      ),
+                    ),
+                    fillColor: blueLight,
+                    filled: true,
+                    hintText: "Insert description Link",
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 12, horizontal: 10),
                     hintStyle: const TextStyle(
@@ -124,7 +161,7 @@ class HomeAddHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                 SizedBox(
                   height: SizeConfig.heightMultiplier * 3,
                 ),
-                controller.isFoodSubmit.value
+                controller.isRwandaKingSubmit.value
                     ? Center(
                         child: CircularProgressIndicator(),
                       )
@@ -143,9 +180,9 @@ class HomeAddHistoricalPlacePanel extends GetWidget<AdminPanelController> {
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(
                                           Colors.black)),
-                              child: const Text('Add Food'),
+                              child: const Text('Add Ceremony'),
                               onPressed: () =>
-                                  controller.submitRwandanHistoricalPlaces(key: _formKey)),
+                                  controller.submitRwandanCeremonies(key: _formKey)),
                         ),
                       ),
               ],

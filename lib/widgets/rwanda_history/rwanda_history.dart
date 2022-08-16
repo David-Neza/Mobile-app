@@ -78,7 +78,7 @@ class RwandaHistory extends StatelessWidget {
 
            Spacer(),
               GestureDetector(
-                onTap: ()=>Get.toNamed(RouteLinks.greetings),
+                onTap: ()=>Get.toNamed(RouteLinks.rwandanCeremonies),
                 child: Container(
                   decoration: BoxDecoration(
                  color: greyLight,
@@ -141,7 +141,7 @@ class RwandaHistory extends StatelessWidget {
               ),
                   Spacer(),
               GestureDetector(
-                onTap: ()=>Get.toNamed(RouteLinks.historicalPlaces),
+                onTap: ()=>Get.toNamed(RouteLinks.rwandanHistoricalPlaces),
                 child: Container(
                   decoration: BoxDecoration(
                  color: greyLight,
