@@ -12,7 +12,7 @@ const List dashboardCategoriesList = [
     "image": Images.danceImage,
     "text_1": "Dancing",
     "text_2": "Guhamiriza",
-    "route": ""
+    "route": RouteLinks.dancingDashboard
   },
   {
     "image": Images.isombe,
@@ -51,7 +51,7 @@ const List userDashboardCategoriesList = [
     "image": Images.danceImage,
     "text_1": "Dancing",
     "text_2": "Guhamiriza",
-    "route": RouteLinks.homeDancing
+    "route": RouteLinks.dancingDashboard
   },
   {
     "image": Images.isombe,

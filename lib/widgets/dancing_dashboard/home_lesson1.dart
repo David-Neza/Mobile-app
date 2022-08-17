@@ -9,14 +9,14 @@ import '../../constants/colors.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
 
-class HomeIsombe extends StatefulWidget {
-  const HomeIsombe({Key? key}) : super(key: key);
+class HomeLesson1 extends StatefulWidget {
+  const HomeLesson1({Key? key}) : super(key: key);
 
   @override
-  State<HomeIsombe> createState() => _HomeIsombeState();
+  State<HomeLesson1> createState() => _HomeLesson1State();
 }
 
-class _HomeIsombeState extends State<HomeIsombe> {
+class _HomeLesson1State extends State<HomeLesson1> {
   VideoPlayerController? _controller;
   bool _isLoading = false;
   String youtubeUrl =
@@ -78,7 +78,7 @@ class _HomeIsombeState extends State<HomeIsombe> {
             SizedBox(
               width: SizeConfig.widthMultiplier * 12,
             ),
-            Text("How to cook isombe", style: TextAppStyles.titleBoldText),
+            Text("Learn to dance", style: TextAppStyles.titleBoldText),
           ],
         ),
         SizedBox(

@@ -21,6 +21,9 @@ import 'package:clds/widgets/admin_panel/fruit_panel/home_fruit_panel.dart';
 import 'package:clds/widgets/admin_panel/historical_place_panel%20/home_add_historical_places_panel.dart';
 import 'package:clds/widgets/admin_panel/historical_place_panel%20/home_historical_places_panel.dart';
 import 'package:clds/widgets/admin_panel/home_admin_panel.dart';
+import 'package:clds/widgets/dancing_dashboard/dancing_dashboard.dart';
+import 'package:clds/widgets/dancing_dashboard/home_lesson1.dart';
+import 'package:clds/widgets/dancing_dashboard/home_lesson2.dart';
 import 'package:clds/widgets/food_dashboard/food_dashboard.dart';
 import 'package:clds/widgets/food_dashboard/home_isombe.dart';
 import 'package:clds/widgets/home_dashboard/home_dashboard.dart';
@@ -187,9 +190,30 @@ class AppRouter {
         name: RouteLinks.homeAddRwandanHistoricalPlacesPanel,
         page: () => HomeAddRwandanHistoricalPlacesPanel()),
 
+
+    /////Videos 
     GetPage(
-        // binding: HomeIsombeBinding(),
+        binding: HomeIsombeBinding(),
         name: RouteLinks.homeIsombe,
         page: () => HomeIsombe()),
+      //-----Dancning ------///
+     GetPage(
+        binding: HomeDancingBinding(),
+        name: RouteLinks.dancingDashboard,
+        page: () => DancingDashboard()),
+
+     GetPage(
+        binding: HomeLesson1Binding(),
+        name: RouteLinks.homeLesson1,
+        page: () => HomeLesson1()),
+
+     GetPage(
+        binding: HomeLesson2Binding(),
+        name: RouteLinks.homeLesson2,
+        page: () => HomeLesson2()),
+
+
+
+
   ];
 }

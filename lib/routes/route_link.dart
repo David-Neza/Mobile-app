@@ -68,4 +68,9 @@ class RouteLinks {
 
   // videos
   static const homeIsombe = "/home_isombe";
+
+  ////---Dancing ----
+  static const dancingDashboard = '/dancingDashboard';
+  static const homeLesson1 = "/home_lesson1";
+  static const homeLesson2 = "/home_lesson2";
 }

@@ -1,6 +1,9 @@
 import 'package:clds/controllers/admin_panel_dashboard_list.dart';
 import 'package:clds/controllers/animals_controller%20/animals_controller.dart';
 import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart';
+import 'package:clds/controllers/dancing_dashboard_controller%20/dancing_dashboard_controller.dart';
+import 'package:clds/controllers/dancing_dashboard_controller%20/home_lesson1_controller.dart';
+import 'package:clds/controllers/dancing_dashboard_controller%20/home_lesson2_controller.dart';
 import 'package:clds/controllers/fruits_controller/fruits_controller.dart';
 import 'package:clds/controllers/gmae_controllers/game_controller.dart';
 import 'package:clds/controllers/greetings_controller/greetings_controller.dart';
@@ -127,5 +130,27 @@ class HomeIsombeBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => HomeIsombeController());
+  }
+}  
+
+///Dancing -----
+class HomeDancingBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => DancingDashboardController());
+  }
+}
+
+class HomeLesson1Binding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => HomeLesson1Controller());
+  }
+}
+
+class HomeLesson2Binding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => HomeLesson2Controller());
   }
 }
