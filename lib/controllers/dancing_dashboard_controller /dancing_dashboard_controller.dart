@@ -47,7 +47,7 @@ class DancingDashboardController extends GetxController {
       "image": Images.danceImage,
       "text_1": "Lesson",
       "text_2": "Women's dance",
-      "route": RouteLinks.homeLesson1
+      "route": RouteLinks.homeLesson2
     },
   ];
 

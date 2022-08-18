@@ -25,6 +25,7 @@ import 'package:clds/widgets/dancing_dashboard/dancing_dashboard.dart';
 import 'package:clds/widgets/dancing_dashboard/home_lesson1.dart';
 import 'package:clds/widgets/dancing_dashboard/home_lesson2.dart';
 import 'package:clds/widgets/food_dashboard/food_dashboard.dart';
+import 'package:clds/widgets/food_dashboard/home_imvange.dart';
 import 'package:clds/widgets/food_dashboard/home_isombe.dart';
 import 'package:clds/widgets/home_dashboard/home_dashboard.dart';
 import 'package:clds/widgets/learn_kinyarwanda/animals.dart';
@@ -211,6 +212,12 @@ class AppRouter {
         binding: HomeLesson2Binding(),
         name: RouteLinks.homeLesson2,
         page: () => HomeLesson2()),
+
+   ///----- imvange
+   GetPage(
+        name: RouteLinks.homeImvange,
+        page: () => HomeImvange()),
+    
 
 
 

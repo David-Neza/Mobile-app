@@ -73,4 +73,5 @@ class RouteLinks {
   static const dancingDashboard = '/dancingDashboard';
   static const homeLesson1 = "/home_lesson1";
   static const homeLesson2 = "/home_lesson2";
+  static const homeImvange = "/home_imvange";
 }

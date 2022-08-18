@@ -41,7 +41,7 @@ class DatabaseService {
       await _firestore
           .collection("foods")
           .doc(uuid)
-          .set({"text": food.text, "image": food.image});
+          .set({"text": food.text, "image": food.image, "audio": food.audio});
       return true;
     } catch (e) {
       print(e);
@@ -128,7 +128,7 @@ class DatabaseService {
       await _firestore
           .collection("fruits")
           .doc(uuid)
-          .set({"text": fruits.text, "image": fruits.image});
+          .set({"text": fruits.text, "image": fruits.image, "audio": fruits.audio});
       return true;
     } catch (e) {
       print(e);
@@ -171,7 +171,7 @@ class DatabaseService {
       await _firestore
           .collection("animals")
           .doc(uuid)
-          .set({"text": animals.text, "image": animals.image});
+          .set({"text": animals.text, "image": animals.image, "audio": animals.audio});
       return true;
     } catch (e) {
       print(e);
@@ -215,7 +215,7 @@ class DatabaseService {
       await _firestore
           .collection("artifacts")
           .doc(uuid)
-          .set({"text": artifacts.text, "image": artifacts.image});
+          .set({"text": artifacts.text, "image": artifacts.image, "audio": artifacts.audio});
       return true;
     } catch (e) {
       print(e);

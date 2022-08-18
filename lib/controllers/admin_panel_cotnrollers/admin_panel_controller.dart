@@ -36,6 +36,7 @@ class AdminPanelController extends GetxController {
 
   Rx<TextEditingController> imageLink = TextEditingController().obs;
   Rx<TextEditingController> name = TextEditingController().obs;
+  Rx<TextEditingController> audio = TextEditingController().obs;
   Rx<TextEditingController> description = TextEditingController().obs;
 
   void submitFood({required GlobalKey<FormState> key}) async {
@@ -44,7 +45,7 @@ class AdminPanelController extends GetxController {
     final isValid = key.currentState!.validate();
     if (isValid) {
       var data =
-          LearnFoodsModel(image: imageLink.value.text, text: name.value.text);
+          LearnFoodsModel(image: imageLink.value.text, text: name.value.text, audio: audio.value.text);
       await _databaseService.createNewFood(food: data, uuid: uuid);
       getFood();
       Get.snackbar('Successfully', 'Added',
@@ -77,7 +78,7 @@ class AdminPanelController extends GetxController {
     final isValid = key.currentState!.validate();
     if (isValid) {
       var data =
-          FruitsModel(image: imageLink.value.text, text: name.value.text);
+          FruitsModel(image: imageLink.value.text, text: name.value.text, audio: audio.value.text);
       await _databaseService.createNewFruit(fruits: data, uuid: uuid);
       getFruit();
       Get.snackbar('Successfully', 'Added',
@@ -109,7 +110,7 @@ class AdminPanelController extends GetxController {
     final isValid = key.currentState!.validate();
     if (isValid) {
       var data =
-          AnimalsModel(image: imageLink.value.text, text: name.value.text);
+          AnimalsModel(image: imageLink.value.text, text: name.value.text, audio: audio.value.text);
       await _databaseService.createNewAnimal(animals: data, uuid: uuid);
       getAnimal();
       Get.snackbar('Successfully', 'Added',
@@ -143,7 +144,7 @@ class AdminPanelController extends GetxController {
     final isValid = key.currentState!.validate();
     if (isValid) {
       var data =
-          ArtifactsModel(image: imageLink.value.text, text: name.value.text);
+          ArtifactsModel(image: imageLink.value.text, text: name.value.text, audio: audio.value.text);
       await _databaseService.createNewArtifact(artifacts: data, uuid: uuid);
       getArtifact();
       Get.snackbar('Successfully', 'Added',

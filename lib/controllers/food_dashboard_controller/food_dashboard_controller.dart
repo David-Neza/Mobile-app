@@ -38,28 +38,16 @@ class FoodDashboardController extends GetxController {
 
   static const List foodCategoriesList = [
     {
-      "image": Images.inkinyImage,
+      "image": Images.isombe,
       "text_1": "Isombe",
       "text_2": "Learn",
       "route": RouteLinks.homeIsombe
     },
     {
-      "image": Images.inkonoImage,
+      "image": Images.imvange,
       "text_1": "Imvange",
       "text_2": "pots,baskets ..",
-      "route": ""
-    },
-    {
-      "image": Images.danceImage,
-      "text_1": "Dancing",
-      "text_2": "Guhamiriza",
-      "route": ""
-    },
-    {
-      "image": Images.ibihazaImage,
-      "text_1": "Rwandan Foods",
-      "text_2": "Recipes",
-      "route": ""
+      "route": RouteLinks.homeImvange
     },
   ];
 

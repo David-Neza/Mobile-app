@@ -12,7 +12,7 @@ const List foodCategoriesList = [
   {
     "image": Images.inkonoImage,
     "text_1": "Imvange",
-    "text_2": "pots,baskets ..",
+    "text_2": "irish potatoes mixed with beans",
     "route": ""
   },
   {

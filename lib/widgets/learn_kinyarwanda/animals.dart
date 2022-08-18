@@ -3,6 +3,7 @@
 import 'package:clds/controllers/animals_controller%20/animals_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:just_audio/just_audio.dart';
 import '../../constants/colors.dart';
 import '../../constants/shake_widget.dart';
 import '../../constants/sizeConfig.dart';
@@ -12,6 +13,9 @@ class LearnAnimals extends GetWidget<AnimalsController> {
   LearnAnimals({Key? key}) : super(key: key);
   final List<GlobalKey<ShakeWidgetState>> shakeKey =
       List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
+
+  final player = AudioPlayer();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,10 +58,19 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 2,
                   ),
-                  Center(
-                    child: Text(
-                        "${controller.animal2[controller.selectedUpIndex.value].text}",
-                        style: TextAppStyles.titleBoldText),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                          "${controller.animal2[controller.selectedUpIndex.value].text}",
+                          style: TextAppStyles.titleBoldText),
+                          SizedBox(width: SizeConfig.heightMultiplier * 2,),
+                          IconButton(onPressed: () async{
+                            await player.setUrl(controller.animal2[controller.selectedUpIndex.value].audio!);
+                            await player.play();
+                          }, icon: Icon(Icons.customSpeaker))
+                    ],
                   ),
                   SizedBox(height: SizeConfig.heightMultiplier * 4),
                   Padding(
@@ -82,7 +95,8 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                               if (controller.animals[index].text !=
                                   controller
                                       .animal2[controller.selectedUpIndex.value]
-                                      .text) {
+                                      .text) 
+                              {      
                                 Get.snackbar('oohps', 'try again',
                                     snackPosition: SnackPosition.BOTTOM,
                                     backgroundColor: Colors.red,
@@ -92,6 +106,10 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                                     margin: EdgeInsets.all(10));
                                 return shakeKey[index].currentState?.shake();
                               } else {
+                                () async{
+                                        await player.setUrl(controller.animal2[controller.selectedUpIndex.value].audio!);
+                                        await player.play();
+                                      }; 
                                 Get.snackbar('wow nice', 'proceed',
                                     snackPosition: SnackPosition.BOTTOM,
                                     duration: Duration(seconds: 1),

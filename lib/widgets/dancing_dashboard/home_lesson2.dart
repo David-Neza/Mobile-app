@@ -20,7 +20,7 @@ class _HomeLesson2State extends State<HomeLesson2> {
   VideoPlayerController? _controller;
   bool _isLoading = false;
   String youtubeUrl =
-      "https://firebasestorage.googleapis.com/v0/b/mobile-64269.appspot.com/o/yt5s.com-GUTEKA%20ISOMBE%20ZIRYOSHYE%20__%20MENYA%20IBANGA%20KUGIRANGO%20ZIMERE%20NKIZO%20MU%20ISEKURU_%20RWANDAN%20FOOD(360p).mp4?alt=media&token=d8e09198-9cf9-4d29-affa-e738175e683e";
+      "https://firebasestorage.googleapis.com/v0/b/mobile-64269.appspot.com/o/yt5s.com-Rwandan%20DANCE%20TUTORIAL%20for%20beginners..mp4?alt=media&token=4c4a89b4-4278-4705-8c20-12cfe78b0775";
   // late YoutubePlayerController ytbController;
   @override
   void initState() {
@@ -78,7 +78,7 @@ class _HomeLesson2State extends State<HomeLesson2> {
             SizedBox(
               width: SizeConfig.widthMultiplier * 12,
             ),
-            Text("Learn to dance", style: TextAppStyles.titleBoldText),
+            Text("Women's dance", style: TextAppStyles.titleBoldText),
           ],
         ),
         SizedBox(

@@ -9,18 +9,18 @@ import '../../constants/colors.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
 
-class HomeLesson1 extends StatefulWidget {
-  const HomeLesson1({Key? key}) : super(key: key);
+class HomeImvange extends StatefulWidget {
+  const HomeImvange({Key? key}) : super(key: key);
 
   @override
-  State<HomeLesson1> createState() => _HomeLesson1State();
+  State<HomeImvange> createState() => _HomeImvangeState();
 }
 
-class _HomeLesson1State extends State<HomeLesson1> {
+class _HomeImvangeState extends State<HomeImvange> {
   VideoPlayerController? _controller;
   bool _isLoading = false;
   String youtubeUrl =
-      "https://firebasestorage.googleapis.com/v0/b/mobile-64269.appspot.com/o/yt5s.com-Rwandan%20DANCE%20TUTORIAL%20for%20Beginners.%203%20Easy%20Steps.mp4?alt=media&token=cce8c1a2-4a93-4f22-9dc6-4d614a3fc545";
+      "https://firebasestorage.googleapis.com/v0/b/mobile-64269.appspot.com/o/yt5s.com-How%20to%20cook%20African's%20patatoes%20_%20uko%20wateka%20imvange%20iryoshye.mp4?alt=media&token=b1af99e7-fe22-4245-8415-a07acf75b8bb";
   // late YoutubePlayerController ytbController;
   @override
   void initState() {
@@ -78,7 +78,7 @@ class _HomeLesson1State extends State<HomeLesson1> {
             SizedBox(
               width: SizeConfig.widthMultiplier * 12,
             ),
-            Text("Men's dance", style: TextAppStyles.titleBoldText),
+            Text("How to cook isombe", style: TextAppStyles.titleBoldText),
           ],
         ),
         SizedBox(

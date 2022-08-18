@@ -31,6 +31,8 @@ class Images {
   static const String ubwato = "$baseImages/ubwato.jpeg";
   static const String ubukwe = "$baseImages/ubukwe.jpeg";
   static const String isombe = "$baseImages/isombe.jpeg";
+  static const String imvange = "$baseImages/imvang.jpeg";
+  
   
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";
@@ -40,4 +42,5 @@ class Images {
   static const String chickenIcon = "$baseIcons/chicken.svg";
   static const String closedbookIcon = "$baseIcons/closed_book.svg";
   static const String logout = "$baseIcons/Log out.svg";
+  static const String speaker = "$baseIcons/Speaker_Icon.svg";
 }

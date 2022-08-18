@@ -20,8 +20,7 @@ class HomeAddFruitPanel extends GetWidget<AdminPanelController> {
           child: Form(
             key: _formKey,
             child: SafeArea(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+                child: ListView(
               children: [
                 SizedBox(
                   height: SizeConfig.heightMultiplier * 4,
@@ -46,7 +45,7 @@ class HomeAddFruitPanel extends GetWidget<AdminPanelController> {
                     SizedBox(
                       width: SizeConfig.widthMultiplier * 12,
                     ),
-                    Text("Add Fruit", style: TextAppStyles.titleBoldText),
+                    Text("Add Fruit", style: TextAppStyles.dashboardText),
                   ],
                 ),
                 SizedBox(
@@ -111,7 +110,43 @@ class HomeAddFruitPanel extends GetWidget<AdminPanelController> {
                     ),
                     fillColor: blueLight,
                     filled: true,
-                    hintText: "INsert Image Link",
+                    hintText: "Insert Image Link",
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                    hintStyle: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Muli",
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 3,
+                ),
+                Text(
+                  "Audio",
+                  style: TextAppStyles.simpleMediumText,
+                ),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 1.2,
+                ),
+                TextFormField(
+                  controller: controller.audio.value,
+                  keyboardType: TextInputType.name,
+                  validator: (value) => controller.audio.value.text.isEmpty
+                      ? "Insert audio "
+                      : null,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        width: 0,
+                        style: BorderStyle.none,
+                      ),
+                    ),
+                    fillColor: blueLight,
+                    filled: true,
+                    hintText: "Enter audio link",
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 12, horizontal: 10),
                     hintStyle: const TextStyle(
