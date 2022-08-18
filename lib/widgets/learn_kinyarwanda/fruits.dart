@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
 import 'package:clds/controllers/fruits_controller/fruits_controller.dart';
-import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
 import '../../constants/shake_widget.dart';
@@ -12,8 +10,8 @@ import '../../constants/text_styles.dart';
 
 class LearnFruits extends GetWidget<FruitsController> {
   LearnFruits({Key? key}) : super(key: key);
-  final List<GlobalKey<ShakeWidgetState>> shakeKey =
-      List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
+  // final List<GlobalKey<ShakeWidgetState>> shakeKey =
+  //     List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +90,8 @@ class LearnFruits extends GetWidget<FruitsController> {
                                     colorText: Colors.white,
                                     borderRadius: 10,
                                     margin: EdgeInsets.all(10));
-                                return shakeKey[index].currentState?.shake();
+                                return controller.shakeKey[index].currentState
+                                    ?.shake();
                               } else {
                                 Get.snackbar('wow nice', 'proceed',
                                     snackPosition: SnackPosition.BOTTOM,
@@ -105,7 +104,7 @@ class LearnFruits extends GetWidget<FruitsController> {
                               }
                             },
                             child: ShakeWidget(
-                              key: shakeKey[index],
+                              key: controller.shakeKey[index],
                               shakeCount: 3,
                               shakeOffset: 10,
                               shakeDuration: Duration(milliseconds: 500),

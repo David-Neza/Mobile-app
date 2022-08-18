@@ -65,11 +65,17 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                       Text(
                           "${controller.animal2[controller.selectedUpIndex.value].text}",
                           style: TextAppStyles.titleBoldText),
-                          SizedBox(width: SizeConfig.heightMultiplier * 2,),
-                          IconButton(onPressed: () async{
-                            await player.setUrl(controller.animal2[controller.selectedUpIndex.value].audio!);
+                      SizedBox(
+                        width: SizeConfig.heightMultiplier * 2,
+                      ),
+                      IconButton(
+                          onPressed: () async {
+                            await player.setUrl(controller
+                                .animal2[controller.selectedUpIndex.value]
+                                .audio!);
                             await player.play();
-                          }, icon: Icon(Icons.customSpeaker))
+                          },
+                          icon: Icon(Icons.play_arrow))
                     ],
                   ),
                   SizedBox(height: SizeConfig.heightMultiplier * 4),
@@ -95,8 +101,7 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                               if (controller.animals[index].text !=
                                   controller
                                       .animal2[controller.selectedUpIndex.value]
-                                      .text) 
-                              {      
+                                      .text) {
                                 Get.snackbar('oohps', 'try again',
                                     snackPosition: SnackPosition.BOTTOM,
                                     backgroundColor: Colors.red,
@@ -106,10 +111,12 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                                     margin: EdgeInsets.all(10));
                                 return shakeKey[index].currentState?.shake();
                               } else {
-                                () async{
-                                        await player.setUrl(controller.animal2[controller.selectedUpIndex.value].audio!);
-                                        await player.play();
-                                      }; 
+                                () async {
+                                  await player.setUrl(controller
+                                      .animal2[controller.selectedUpIndex.value]
+                                      .audio!);
+                                  await player.play();
+                                };
                                 Get.snackbar('wow nice', 'proceed',
                                     snackPosition: SnackPosition.BOTTOM,
                                     duration: Duration(seconds: 1),
