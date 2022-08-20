@@ -22,8 +22,7 @@ class HomeOnBoarding extends StatelessWidget {
           SizedBox(height: SizeConfig.heightMultiplier * 4),
           Container(
             child: Column(
-              children: 
-              [
+              children: [
                 CircleAvatar(
                   radius: SizeConfig.widthMultiplier * 6,
                   backgroundImage: const AssetImage(Images.flagImage),
@@ -69,7 +68,7 @@ class HomeOnBoarding extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                   GestureDetector(
+                    GestureDetector(
                       onTap: () => Get.toNamed(RouteLinks.loginPage),
                       child: Text("Login",
                           textAlign: TextAlign.center,

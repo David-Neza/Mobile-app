@@ -1,6 +1,5 @@
+import 'package:clds/models/user.dart';
 import 'package:equatable/equatable.dart';
-
-import '../../models/user_models.dart';
 
 class AuthenticationState extends Equatable {
   const AuthenticationState();
@@ -14,7 +13,7 @@ class AuthenticationLoading extends AuthenticationState {}
 class UnAuthenticated extends AuthenticationState {}
 
 class Authenticated extends AuthenticationState {
-  final User user;
+  final UserModel user;
 
   const Authenticated({required this.user});
 

@@ -40,13 +40,13 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                       ),
                     ),
             SizedBox(width: SizeConfig.widthMultiplier*12,),
-                  Text("Learn kinyarwanda",
-                      style: TextAppStyles.titleBoldText),
+                  Text("Learn Kinyarwanda",
+                      style: TextAppStyles.dashboardText),
                 ],
               ),
            Spacer(),
               GestureDetector(
-                onTap: ()=>Get.toNamed(RouteLinks.learnKinyarwandaPage_1),
+                onTap: ()=>Get.toNamed(RouteLinks.greetings),
                 child: Container(
                   decoration: BoxDecoration(
                  color: greyLight,
@@ -63,47 +63,146 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image: AssetImage(
-                                          Images.grammarImage),
+                                          Images.greeting),
                                       fit: BoxFit.fill),
                                 
                                 ),
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
-                              Text("Vocabulary & Grammar",
-                        style: TextAppStyles.titleBoldText), 
+                              Text("Greetings",
+                        style: TextAppStyles.menuText), 
+                    ],
+                  ),
+                ),
+              ),
+              
+            Spacer(),
+              GestureDetector(
+                onTap: ()=>Get.toNamed(RouteLinks.learnFoods),
+                child: Container(
+                  decoration: BoxDecoration(
+                 color: greyLight,
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*6,vertical: SizeConfig.heightMultiplier*1.2),
+                                height: SizeConfig.heightMultiplier * 12,
+                                width: SizeConfig.widthMultiplier * 24,
+                                decoration:const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          Images.tastyChicken),
+                                      fit: BoxFit.fill),
+                                
+                                ),
+                              ),
+                            SizedBox(width: SizeConfig.widthMultiplier*6,),   
+                              Text("Meals",
+                        style: TextAppStyles.menuText), 
+                    ],
+                  ),
+                ),
+              ),
+                  Spacer(),
+              GestureDetector(
+                onTap: ()=>Get.toNamed(RouteLinks.learnAnimals),
+                child: Container(
+                  decoration: BoxDecoration(
+                 color: greyLight,
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*6,vertical: SizeConfig.heightMultiplier*1.2),
+                                height: SizeConfig.heightMultiplier * 12,
+                                width: SizeConfig.widthMultiplier * 24,
+                                decoration:const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          Images.dog),
+                                      fit: BoxFit.fill),
+                                
+                                ),
+                              ),
+                            SizedBox(width: SizeConfig.widthMultiplier*6,),   
+                              Text("Animals",
+                        style: TextAppStyles.menuText), 
+                    ],
+                  ),
+                ),
+              ),
+               SizedBox(
+                height: SizeConfig.heightMultiplier * 2,
+              ),
+              GestureDetector(
+                onTap: ()=>Get.toNamed(RouteLinks.learnFruits),
+                child: Container(
+                  decoration: BoxDecoration(
+                 color: greyLight,
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*6,vertical: SizeConfig.heightMultiplier*1.2),
+                                height: SizeConfig.heightMultiplier * 12,
+                                width: SizeConfig.widthMultiplier * 24,
+                                decoration:const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          Images.inanasi),
+                                      fit: BoxFit.fill),
+                                
+                                ),
+                              ),
+                            SizedBox(width: SizeConfig.widthMultiplier*6,),   
+                              Text("Fruits",
+                        style: TextAppStyles.menuText), 
                     ],
                   ),
                 ),
               ),
 
-                  SizedBox(
-                height: SizeConfig.heightMultiplier * 6,
+               SizedBox(
+                height: SizeConfig.heightMultiplier * 2,
               ),
-                       Container(
-                decoration: BoxDecoration(
-               color: greyLight,
-                  borderRadius: BorderRadius.circular(8)
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*6,vertical: SizeConfig.heightMultiplier*1.2),
-                              height: SizeConfig.heightMultiplier * 12,
-                              width: SizeConfig.widthMultiplier * 24,
-                              decoration:const BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                        Images.oderImage),
-                                    fit: BoxFit.fill),
-                              
+              GestureDetector(
+                onTap: ()=>Get.toNamed(RouteLinks.learnTools),
+                child: Container(
+                  decoration: BoxDecoration(
+                 color: greyLight,
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: SizeConfig.widthMultiplier*6,vertical: SizeConfig.heightMultiplier*1.2),
+                                height: SizeConfig.heightMultiplier * 12,
+                                width: SizeConfig.widthMultiplier * 24,
+                                decoration:const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          Images.plate),
+                                      fit: BoxFit.fill),
+                                
+                                ),
                               ),
-                            ),
-                          SizedBox(width: SizeConfig.widthMultiplier*6,),   
-                            Text("Conversation",
-                      style: TextAppStyles.titleBoldText), 
-                  ],
+                            SizedBox(width: SizeConfig.widthMultiplier*6,),   
+                              Text("Tools",
+                        style: TextAppStyles.menuText), 
+                    ],
+                  ),
                 ),
               ),
 

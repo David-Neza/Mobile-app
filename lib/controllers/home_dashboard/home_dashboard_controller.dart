@@ -1,17 +1,35 @@
+import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:get/get.dart';
 
 import '../../models/new_models.dart';
+import '../../services/database.dart';
 import '../../utils/lists_consts.dart';
 
 class HomeDashboardController extends GetxController {
+  final _authController = Get.find<AuthenticationController>();
+  final _dbService = DatabaseService();
   RxList<CategoriesModel> categories = <CategoriesModel>[].obs;
+  RxBool isLoading = false.obs;
 
   void getCAtegories() async {
-    // check user position and display categories according to their positions
-    List<CategoriesModel> categoriesResponse = dashboardCategoriesList
-        .map((item) => CategoriesModel.fromJson(item))
-        .toList();
-    categories.value = categoriesResponse;
+    isLoading.value = true;
+    var user =
+        await _dbService.getUser(uid: _authController.userr.value.uid).first;
+
+    if (user.isAdmin!) {
+      print("is Adminnnnnnn");
+      List<CategoriesModel> categoriesResponse = dashboardCategoriesList
+          .map((item) => CategoriesModel.fromJson(item))
+          .toList();
+      categories.value = categoriesResponse;
+    } else {
+      print("is nottttttttttttt Adminnnnnnn");
+      List<CategoriesModel> categoriesResponse = userDashboardCategoriesList
+          .map((item) => CategoriesModel.fromJson(item))
+          .toList();
+      categories.value = categoriesResponse;
+    }
+    isLoading.value = false;
   }
 
   @override

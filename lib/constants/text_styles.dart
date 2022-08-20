@@ -52,7 +52,20 @@ class TextAppStyles {
     fontFamily: 'Muli',
     color: blackColor,
     fontWeight: FontWeight.w800,
-    fontSize: SizeConfig.textMultiplier * 1.8,
+    fontSize: SizeConfig.textMultiplier * 2,
+  );
+
+  static final menuText = TextStyle(
+    fontFamily: 'Muli',
+    color: blackColor,
+    fontWeight: FontWeight.w800,
+    fontSize: SizeConfig.textMultiplier * 2.5,
+  );
+  static final questionText = TextStyle(
+    fontFamily: 'Muli',
+    color: questionColor,
+    fontWeight: FontWeight.w800,
+    fontSize: SizeConfig.textMultiplier * 2.5,
   );
 
   static final simpleText = TextStyle(
@@ -60,5 +73,19 @@ class TextAppStyles {
     color: blackColor,
     fontSize: SizeConfig.textMultiplier * 1.5,
     fontWeight: FontWeight.w800,
+  );
+
+   static final dashboardText = TextStyle(
+    fontFamily: 'Muli',
+    color: dashColor,
+    fontWeight: FontWeight.w600,
+    fontSize: SizeConfig.textMultiplier * 2,
+  );
+
+   static final dashboardSubText = TextStyle(
+    fontFamily: 'Muli',
+    color: blackColor,
+    fontWeight: FontWeight.w600,
+    fontSize: SizeConfig.textMultiplier * 1.8,
   );
 }
