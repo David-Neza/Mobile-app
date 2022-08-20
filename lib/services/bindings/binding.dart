@@ -10,10 +10,13 @@ import 'package:clds/controllers/greetings_controller/greetings_controller.dart'
 import 'package:clds/controllers/home_dashboard/authentication_Controller.dart';
 import 'package:clds/controllers/home_dashboard/home_dashboard_controller.dart';
 import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dart';
+import 'package:clds/controllers/music_dashboard_controller/home_tarihinda_controller.dart';
 import 'package:clds/controllers/rwanda_historical_places_controller%20/rwanda_historical_places_controller.dart';
 import 'package:clds/controllers/rwanda_kings_controller%20/rwanda_kings_controller.dart';
 import 'package:clds/controllers/rwandan_ceremonies_controller%20%20/rwandan_ceremonies_controller.dart';
 import 'package:clds/controllers/sakwe_controllers/sakwe_controller.dart';
+import 'package:clds/controllers/tools_controller%20/tools_controller.dart';
+import 'package:clds/widgets/Entertainment/music/home_tarihinda.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
@@ -74,6 +77,13 @@ class FruitsBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => FruitsController());
+  }
+}
+
+class ToolsBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => ToolsController());
   }
 }
 
@@ -154,3 +164,11 @@ class HomeLesson2Binding extends Bindings {
     Get.lazyPut(() => HomeLesson2Controller());
   }
 }
+
+
+class HomeTarihindaBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => HomeTarihindaController());
+  }
+}  

@@ -11,11 +11,10 @@ import '../../constants/text_styles.dart';
 
 class LearnAnimals extends GetWidget<AnimalsController> {
   LearnAnimals({Key? key}) : super(key: key);
-  final List<GlobalKey<ShakeWidgetState>> shakeKey =
-      List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
 
   final player = AudioPlayer();
-
+  // final List<GlobalKey<ShakeWidgetState>> shakeKey =
+  //     List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,28 +33,34 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 4,
                   ),
-                  GestureDetector(
-                    onTap: () => Get.back(),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: SizeConfig.widthMultiplier * 2.5),
-                      height: SizeConfig.heightMultiplier * 6,
-                      width: SizeConfig.widthMultiplier * 16,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: greyLight,
-                      ),
-                      child: const Center(child: Icon(Icons.arrow_back_ios)),
-                    ),
-                  ),
+                    Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+          GestureDetector(
+            onTap: () => Get.back(),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.widthMultiplier * 2.5),
+              height: SizeConfig.heightMultiplier * 6,
+              width: SizeConfig.widthMultiplier * 16,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: greyLight,
+              ),
+              child: const Center(child: Icon(Icons.arrow_back_ios)),
+            ),
+          ),
+          SizedBox(
+            width: SizeConfig.widthMultiplier * 12,
+          ),
+          Text("Animals", style: TextAppStyles.dashboardText),
+            ],
+          ),
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 4,
                   ),
-                  Center(
-                    child: Text("Choose the right match for ",
-                        style: TextAppStyles.dashboardText),
-                  ),
-                  SizedBox(
+                 
+                 SizedBox(
                     height: SizeConfig.heightMultiplier * 2,
                   ),
                   Row(
@@ -75,7 +80,7 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                                 .audio!);
                             await player.play();
                           },
-                          icon: Icon(Icons.play_arrow))
+                          icon: Icon(Icons.volume_up))
                     ],
                   ),
                   SizedBox(height: SizeConfig.heightMultiplier * 4),
@@ -109,14 +114,9 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                                     colorText: Colors.white,
                                     borderRadius: 10,
                                     margin: EdgeInsets.all(10));
-                                return shakeKey[index].currentState?.shake();
+                                return controller.shakeKey[index].currentState
+                                    ?.shake();
                               } else {
-                                () async {
-                                  await player.setUrl(controller
-                                      .animal2[controller.selectedUpIndex.value]
-                                      .audio!);
-                                  await player.play();
-                                };
                                 Get.snackbar('wow nice', 'proceed',
                                     snackPosition: SnackPosition.BOTTOM,
                                     duration: Duration(seconds: 1),
@@ -128,7 +128,7 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                               }
                             },
                             child: ShakeWidget(
-                              key: shakeKey[index],
+                              key: controller.shakeKey[index],
                               shakeCount: 3,
                               shakeOffset: 10,
                               shakeDuration: Duration(milliseconds: 500),

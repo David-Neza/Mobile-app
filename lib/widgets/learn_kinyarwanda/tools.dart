@@ -1,18 +1,20 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-
-import 'package:clds/controllers/artifacts_controller/artifacts_controller.dart';
+import 'package:clds/controllers/tools_controller%20/tools_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:just_audio/just_audio.dart';
 import '../../constants/colors.dart';
 import '../../constants/shake_widget.dart';
 import '../../constants/sizeConfig.dart';
 import '../../constants/text_styles.dart';
 
-class LearnArtifacts extends GetWidget<ArtifactsController> {
-  LearnArtifacts({Key? key}) : super(key: key);
-  final List<GlobalKey<ShakeWidgetState>> shakeKey =
-      List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
+class LearnTools extends GetWidget<ToolsController> {
+  LearnTools({Key? key}) : super(key: key);
+
+  final player = AudioPlayer();
+  // final List<GlobalKey<ShakeWidgetState>> shakeKey =
+  //     List.generate(4, (index) => GlobalKey<ShakeWidgetState>());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,34 +33,55 @@ class LearnArtifacts extends GetWidget<ArtifactsController> {
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 4,
                   ),
-                  GestureDetector(
-                    onTap: () => Get.back(),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: SizeConfig.widthMultiplier * 2.5),
-                      height: SizeConfig.heightMultiplier * 6,
-                      width: SizeConfig.widthMultiplier * 16,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: greyLight,
-                      ),
-                      child: const Center(child: Icon(Icons.arrow_back_ios)),
-                    ),
-                  ),
+                    Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+          GestureDetector(
+            onTap: () => Get.back(),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.widthMultiplier * 2.5),
+              height: SizeConfig.heightMultiplier * 6,
+              width: SizeConfig.widthMultiplier * 16,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: greyLight,
+              ),
+              child: const Center(child: Icon(Icons.arrow_back_ios)),
+            ),
+          ),
+          SizedBox(
+            width: SizeConfig.widthMultiplier * 12,
+          ),
+          Text("Tools", style: TextAppStyles.dashboardText),
+            ],
+          ),
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 4,
                   ),
-                  Center(
-                    child: Text("Choose the right match for ",
-                        style: TextAppStyles.dashboardText),
-                  ),
-                  SizedBox(
+                 
+                 SizedBox(
                     height: SizeConfig.heightMultiplier * 2,
                   ),
-                  Center(
-                    child: Text(
-                        "${controller.artifact2[controller.selectedUpIndex.value].text}",
-                        style: TextAppStyles.titleBoldText),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                          "${controller.tool2[controller.selectedUpIndex.value].text}",
+                          style: TextAppStyles.titleBoldText),
+                      SizedBox(
+                        width: SizeConfig.heightMultiplier * 2,
+                      ),
+                      IconButton(
+                          onPressed: () async {
+                            await player.setUrl(controller
+                                .tool2[controller.selectedUpIndex.value]
+                                .audio!);
+                            await player.play();
+                          },
+                          icon: Icon(Icons.volume_up))
+                    ],
                   ),
                   SizedBox(height: SizeConfig.heightMultiplier * 4),
                   Padding(
@@ -66,7 +89,7 @@ class LearnArtifacts extends GetWidget<ArtifactsController> {
                         horizontal: SizeConfig.widthMultiplier * 8),
                     child: GridView.builder(
                         shrinkWrap: true,
-                        itemCount: controller.artifacts.length,
+                        itemCount: controller.tools.length,
                         physics: NeverScrollableScrollPhysics(),
                         gridDelegate:
                             new SliverGridDelegateWithFixedCrossAxisCount(
@@ -80,9 +103,9 @@ class LearnArtifacts extends GetWidget<ArtifactsController> {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              if (controller.artifacts[index].text !=
+                              if (controller.tools[index].text !=
                                   controller
-                                      .artifact2[controller.selectedUpIndex.value]
+                                      .tool2[controller.selectedUpIndex.value]
                                       .text) {
                                 Get.snackbar('oohps', 'try again',
                                     snackPosition: SnackPosition.BOTTOM,
@@ -91,7 +114,8 @@ class LearnArtifacts extends GetWidget<ArtifactsController> {
                                     colorText: Colors.white,
                                     borderRadius: 10,
                                     margin: EdgeInsets.all(10));
-                                return shakeKey[index].currentState?.shake();
+                                return controller.shakeKey[index].currentState
+                                    ?.shake();
                               } else {
                                 Get.snackbar('wow nice', 'proceed',
                                     snackPosition: SnackPosition.BOTTOM,
@@ -104,7 +128,7 @@ class LearnArtifacts extends GetWidget<ArtifactsController> {
                               }
                             },
                             child: ShakeWidget(
-                              key: shakeKey[index],
+                              key: controller.shakeKey[index],
                               shakeCount: 3,
                               shakeOffset: 10,
                               shakeDuration: Duration(milliseconds: 500),
@@ -136,7 +160,7 @@ class LearnArtifacts extends GetWidget<ArtifactsController> {
                                       ),
                                       child: Center(
                                         child: Image.network(
-                                          controller.artifacts[index].image!,
+                                          controller.tools[index].image!,
                                         ),
                                       ),
                                     ),

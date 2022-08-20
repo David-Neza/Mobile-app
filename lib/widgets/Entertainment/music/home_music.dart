@@ -2,14 +2,14 @@ import 'package:clds/routes/route_link.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../constants/colors.dart';
-import '../../constants/images.dart';
-import '../../constants/sizeConfig.dart';
-import '../../constants/text_styles.dart';
+import '../../../constants/colors.dart';
+import '../../../constants/images.dart';
+import '../../../constants/sizeConfig.dart';
+import '../../../constants/text_styles.dart';
 
 
-class EntertainmentPage extends StatelessWidget {
-  const EntertainmentPage({ Key? key }) : super(key: key);
+class HomeMusic extends StatelessWidget {
+  const HomeMusic({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +40,12 @@ class EntertainmentPage extends StatelessWidget {
                       ),
                     ),
             SizedBox(width: SizeConfig.widthMultiplier*12,),
-                  Text("Entertainment",
+                  Text("Music",
                       style: TextAppStyles.dashboardText),
                 ],
               ),
               GestureDetector(
-                onTap: ()=>Get.toNamed(RouteLinks.sakwesakwe),
+                onTap: ()=>Get.toNamed(RouteLinks.homeTarihinda),
                 child: Container(
                   decoration: BoxDecoration(
                  color: greyLight,
@@ -62,13 +62,13 @@ class EntertainmentPage extends StatelessWidget {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image: AssetImage(
-                                          Images.sakwesakwe),
+                                          Images.cecile),
                                       fit: BoxFit.fill),
                                 
                                 ),
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
-                              Text("Sakwe sakwe",
+                              Text("Cecile Kayirebwa -Tarihinda",
                         style: TextAppStyles.titleBoldText), 
                     ],
                   ),
@@ -79,7 +79,7 @@ class EntertainmentPage extends StatelessWidget {
                 height: SizeConfig.heightMultiplier * 6,
               ),
                GestureDetector(
-                onTap: ()=>Get.toNamed(RouteLinks.homeMusic),
+                onTap: ()=>Get.toNamed(RouteLinks.homeZirikana),
                 child: Container(
                   decoration: BoxDecoration(
                  color: greyLight,
@@ -96,13 +96,13 @@ class EntertainmentPage extends StatelessWidget {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image: AssetImage(
-                                          Images.igitaramo),
+                                          Images.philemon),
                                       fit: BoxFit.fill),
                                 
                                 ),
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
-                              Text("Music",
+                              Text("Philemon -Zirikana",
                         style: TextAppStyles.titleBoldText), 
                     ],
                   ),

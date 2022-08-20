@@ -55,6 +55,12 @@ class TextAppStyles {
     fontSize: SizeConfig.textMultiplier * 2,
   );
 
+  static final menuText = TextStyle(
+    fontFamily: 'Muli',
+    color: blackColor,
+    fontWeight: FontWeight.w800,
+    fontSize: SizeConfig.textMultiplier * 2.5,
+  );
   static final questionText = TextStyle(
     fontFamily: 'Muli',
     color: questionColor,

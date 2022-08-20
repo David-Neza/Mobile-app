@@ -1,18 +1,17 @@
 // ignore_for_file: unnecessary_new
 
 import 'dart:math';
-import 'package:clds/models/fruits_model.dart';
-import 'package:clds/models/learnFoods_model.dart';
+import 'package:clds/models/tools_model.dart';
 import 'package:clds/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/shake_widget.dart';
 
-class LearnFoodsController extends GetxController {
-  RxList<LearnFoodsModel> allFoods = <LearnFoodsModel>[].obs;
-  RxList<LearnFoodsModel> foods = <LearnFoodsModel>[].obs;
-  RxList<LearnFoodsModel> food2 = <LearnFoodsModel>[].obs;
+class ToolsController extends GetxController {
+  RxList<ToolsModel> allTools = <ToolsModel>[].obs;
+  RxList<ToolsModel> tools = <ToolsModel>[].obs;
+  RxList<ToolsModel> tool2 = <ToolsModel>[].obs;
   RxInt selectedUpIndex = 0.obs;
   RxBool isLoading = false.obs;
   RxList<GlobalKey<ShakeWidgetState>> shakeKey =
@@ -20,7 +19,7 @@ class LearnFoodsController extends GetxController {
 
   final _databaseService = DatabaseService();
 
-  void getFoods() async {
+  void getTools() async {
     isLoading.value = true;
 
     // getIbisakuzo() async{
@@ -28,18 +27,18 @@ class LearnFoodsController extends GetxController {
     //   print("ibisakuzo byacu ${response.length}");
     // }
 
-    List<LearnFoodsModel> foodsResponse = await _databaseService.getLearnFoods();
-    print("length =========> ${foodsResponse.length}");
-    allFoods.value = foodsResponse;
-    foods.value = foodsResponse.getRange(0, 4).toList();
-    foods.shuffle();
-    food2.value = foods;
+    List<ToolsModel> toolsResponse = await _databaseService.getTools();
+    print("tools length =========> ${toolsResponse.length}");
+    allTools.value = toolsResponse;
+    tools.value = toolsResponse.getRange(0, 4).toList();
+    tools.shuffle();
+    tool2.value = tools;
 
     shakeKey.value =
-        List.generate(foods.length, (index) => GlobalKey<ShakeWidgetState>());
+        List.generate(tools.length, (index) => GlobalKey<ShakeWidgetState>());
 
     Random random = new Random();
-    int randomNumber = random.nextInt(foods.length);
+    int randomNumber = random.nextInt(tools.length);
     selectedUpIndex.value = randomNumber;
 
     isLoading.value = false;
@@ -49,15 +48,15 @@ class LearnFoodsController extends GetxController {
     Random random = new Random();
     int randomNumber = random.nextInt(3);
     selectedUpIndex.value = randomNumber;
-    allFoods.shuffle();
-    foods.value = allFoods.getRange(4, 8).toList();
-    foods.shuffle();
-    food2.value = foods;
+    allTools.shuffle();
+    tools.value = allTools.getRange(4, 8).toList();
+    tools.shuffle();
+    tool2.value = tools;
   }
 
   @override
   void onInit() {
-    getFoods();
+    getTools();
     super.onInit();
   }
 }

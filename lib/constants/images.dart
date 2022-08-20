@@ -32,8 +32,12 @@ class Images {
   static const String ubukwe = "$baseImages/ubukwe.jpeg";
   static const String isombe = "$baseImages/isombe.jpeg";
   static const String imvange = "$baseImages/imvang.jpeg";
-  
-  
+  static const String greeting = "$baseImages/greeting.jpg";
+   static const String plate = "$baseImages/plate.jpeg";
+  static const String igitaramo = "$baseImages/igitaramo.jpeg";
+  static const String cecile = "$baseImages/cecile-ka.jpeg";
+  static const String philemon = "$baseImages/philome.jpeg";
+ 
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";
   static const String backIcon = "$baseIcons/Back ICon.svg";

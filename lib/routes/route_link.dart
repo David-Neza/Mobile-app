@@ -13,7 +13,7 @@ class RouteLinks {
   static const entertainment = '/Entertainment';
   static const sakwesakwe = '/sakwesakwe';
   static const artifactsPage = '/artifactsPage';
-  static const greetings = '/greetings';
+  
 
   static const adminPanel = '/admin_panel';
 
@@ -40,6 +40,18 @@ class RouteLinks {
   static const homeHistoricalPlacePanel = '/homeHistoricalPlacePanel';
   static const homeAddHistoricalPlacePanel = '/historical_place_add_panel';
   static const historicalPlaces = '/historicalPlaces';
+
+  //learn tools
+  static const learnATools= '/learnTools';
+  static const homeToolsPanel = '/homeToolsPanel';
+  static const homeAddToolsPanel = '/tool_add_panel';
+  static const learnTools = '/learnTools';
+
+   //learn greetings
+  static const learnGreetings= '/learnGreetings';
+  static const homeGreetingsPanel = '/homeGreetingsPanel';
+  static const homeAddGreetingsPanel = '/greeting_add_panel';
+  static const greetings = '/greetings';
 
   //Historical Artifacts
   static const historicalArtifacts = '/historicalArtifacts';
@@ -74,4 +86,9 @@ class RouteLinks {
   static const homeLesson1 = "/home_lesson1";
   static const homeLesson2 = "/home_lesson2";
   static const homeImvange = "/home_imvange";
+
+  //---music
+  static const homeMusic= '/homeMusic';
+  static const homeTarihinda = "/home_tarihinda";
+  static const homeZirikana = "/home_zirikana";
 }

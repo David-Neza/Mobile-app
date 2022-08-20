@@ -1,15 +1,14 @@
 import 'package:clds/models/animals_model.dart';
 import 'package:clds/models/artifacts_model.dart';
 import 'package:clds/models/fruits_model.dart';
-import 'package:clds/models/greetings_modal.dart';
+import 'package:clds/models/greetings_model.dart';
 import 'package:clds/models/historical_places.dart';
 import 'package:clds/models/ibisakuzo_model.dart';
 import 'package:clds/models/learnFoods_model.dart';
 import 'package:clds/models/rwanda_kings_model.dart';
 import 'package:clds/models/rwandan_ceremonies_model.dart';
 import 'package:clds/models/rwandan_historical_places_model%20.dart';
-import 'package:clds/widgets/learn_kinyarwanda/food.dart';
-import 'package:clds/widgets/rwanda_history/historical_places.dart';
+import 'package:clds/models/tools_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/user.dart';
@@ -77,20 +76,6 @@ class DatabaseService {
         .collection("IbisakuzoList")
         .get()
         .then(_ibisakuzoListFromSnaphot);
-  }
-
-
-  List<GreetingsModel> _greetingsListFromSnaphot(QuerySnapshot snapshot) {
-    return snapshot.docs.map((doc) {
-      return GreetingsModel.fromDocumentSnapshot(documentSnapshot: doc);
-    }).toList();
-  }
-
-  Future<List<GreetingsModel>> getGreetings() async {
-    return await _firestore
-        .collection("greetings")
-        .get()
-        .then(_greetingsListFromSnaphot);
   }
 
   List<LearnFoodsModel> _leanFoodsListFromSnaphot(QuerySnapshot snapshot) {
@@ -408,6 +393,91 @@ class DatabaseService {
   Future<bool> deleteRwandanHistoricalPlace({required String uuid}) async {
     try {
       await _firestore.collection("rwandanHistoricalPlaces").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+
+   //Tools model
+
+   List<ToolsModel> _toolsListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return ToolsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<ToolsModel>> getTools() async {
+    return await _firestore
+        .collection("tools")
+        .get()
+        .then(_toolsListFromSnaphot);
+  }
+
+  Future<bool> createNewTool(
+      {required ToolsModel tools, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("tools")
+          .doc(uuid)
+          .set({"text": tools.text, "image": tools.image, "audio": tools.audio});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // delete food
+  Future<bool> deleteTool({required String uuid}) async {
+    try {
+      await _firestore.collection("tools").doc(uuid).delete();
+
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+
+
+   //Greetings model
+
+   List<GreetingsModel> _greetingsListFromSnaphot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return GreetingsModel.fromDocumentSnapshot(documentSnapshot: doc);
+    }).toList();
+  }
+
+  Future<List<GreetingsModel>> getGreetings() async {
+    return await _firestore
+        .collection("greetings")
+        .get()
+        .then(_greetingsListFromSnaphot);
+  }
+
+  Future<bool> createNewGreeting(
+      {required GreetingsModel greetings, required String uuid}) async {
+    try {
+      await _firestore
+          .collection("greetings")
+          .doc(uuid)
+          .set({"textKinyarwanda": greetings.textKinyarwanda,"textEnglish": greetings.textEnglish,  "audio": greetings.audio});
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // delete greeting
+  Future<bool> deleteGreeting({required String uuid}) async {
+    try {
+      await _firestore.collection("greetings").doc(uuid).delete();
 
       return true;
     } catch (e) {

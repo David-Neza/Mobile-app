@@ -63,14 +63,14 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image: AssetImage(
-                                          Images.grammarImage),
+                                          Images.greeting),
                                       fit: BoxFit.fill),
                                 
                                 ),
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
                               Text("Greetings",
-                        style: TextAppStyles.titleBoldText), 
+                        style: TextAppStyles.menuText), 
                     ],
                   ),
                 ),
@@ -102,7 +102,7 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
                               Text("Meals",
-                        style: TextAppStyles.titleBoldText), 
+                        style: TextAppStyles.menuText), 
                     ],
                   ),
                 ),
@@ -133,13 +133,13 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
                               Text("Animals",
-                        style: TextAppStyles.titleBoldText), 
+                        style: TextAppStyles.menuText), 
                     ],
                   ),
                 ),
               ),
                SizedBox(
-                height: SizeConfig.heightMultiplier * 6,
+                height: SizeConfig.heightMultiplier * 2,
               ),
               GestureDetector(
                 onTap: ()=>Get.toNamed(RouteLinks.learnFruits),
@@ -166,17 +166,17 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
                               Text("Fruits",
-                        style: TextAppStyles.titleBoldText), 
+                        style: TextAppStyles.menuText), 
                     ],
                   ),
                 ),
               ),
 
                SizedBox(
-                height: SizeConfig.heightMultiplier * 6,
+                height: SizeConfig.heightMultiplier * 2,
               ),
               GestureDetector(
-                onTap: ()=>Get.toNamed(RouteLinks.learnArtifacts),
+                onTap: ()=>Get.toNamed(RouteLinks.learnTools),
                 child: Container(
                   decoration: BoxDecoration(
                  color: greyLight,
@@ -193,14 +193,14 @@ class HomeLearnKinyarwanda extends StatelessWidget {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                       image: AssetImage(
-                                          Images.inkooko),
+                                          Images.plate),
                                       fit: BoxFit.fill),
                                 
                                 ),
                               ),
                             SizedBox(width: SizeConfig.widthMultiplier*6,),   
-                              Text("Artifacts",
-                        style: TextAppStyles.titleBoldText), 
+                              Text("Tools",
+                        style: TextAppStyles.menuText), 
                     ],
                   ),
                 ),

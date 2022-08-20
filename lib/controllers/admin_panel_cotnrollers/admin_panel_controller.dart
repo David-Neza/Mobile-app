@@ -1,10 +1,12 @@
 import 'package:clds/models/animals_model.dart';
 import 'package:clds/models/artifacts_model.dart';
 import 'package:clds/models/fruits_model.dart';
+import 'package:clds/models/greetings_model.dart';
 import 'package:clds/models/historical_places.dart';
 import 'package:clds/models/rwanda_kings_model.dart';
 import 'package:clds/models/rwandan_ceremonies_model.dart';
 import 'package:clds/models/rwandan_historical_places_model%20.dart';
+import 'package:clds/models/tools_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
@@ -22,23 +24,28 @@ class AdminPanelController extends GetxController {
   RxList<RwandaKingsModel> rwandaKings = <RwandaKingsModel>[].obs;
   RxList<RwandanCeremoniesModel> rwandanCeremonies = <RwandanCeremoniesModel>[].obs;
   RxList<RwandanHistoricalPlacesModel> rwandanHistoricalPlaces = <RwandanHistoricalPlacesModel>[].obs;
+  RxList<ToolsModel> tools = <ToolsModel>[].obs;
+  RxList<GreetingsModel> greetings = <GreetingsModel>[].obs;
   
   RxBool isLoading = false.obs;
   RxBool isFoodSubmit = false.obs;
   RxBool isFruitSubmit = false.obs;
   RxBool isAnimalSubmit = false.obs;
   RxBool isArtifactSubmit = false.obs;
+  RxBool isToolSubmit = false.obs;
   RxBool isHistoricalPlaceSubmit = false.obs;
   RxBool isRwandaKingSubmit = false.obs;
   RxBool isRwandanCeremonySubmit = false.obs;
   RxBool isRwandanHistoricalPlaceSubmit = false.obs;
+  RxBool isGreetingSubmit = false.obs;
 
 
   Rx<TextEditingController> imageLink = TextEditingController().obs;
   Rx<TextEditingController> name = TextEditingController().obs;
   Rx<TextEditingController> audio = TextEditingController().obs;
   Rx<TextEditingController> description = TextEditingController().obs;
-
+  Rx<TextEditingController> textEnglish = TextEditingController().obs; 
+  Rx<TextEditingController> textKinyarwanda = TextEditingController().obs;
   void submitFood({required GlobalKey<FormState> key}) async {
     var uuid = Uuid().v4();
     isFoodSubmit.value = true;
@@ -72,6 +79,7 @@ class AdminPanelController extends GetxController {
   }
 
 
+  //fruits
   void submitFruit({required GlobalKey<FormState> key}) async {
     var uuid = Uuid().v4();
     isFruitSubmit.value = true;
@@ -275,16 +283,83 @@ class AdminPanelController extends GetxController {
     isLoading.value = false;
   }
 
+  //tools
+  void submitTool({required GlobalKey<FormState> key}) async {
+    var uuid = Uuid().v4();
+    isToolSubmit.value = true;
+    final isValid = key.currentState!.validate();
+    if (isValid) {
+      var data =
+          ToolsModel(image: imageLink.value.text, text: name.value.text, audio: audio.value.text);
+      await _databaseService.createNewTool(tools: data, uuid: uuid);
+      getTool();
+      Get.snackbar('Successfully', 'Added',
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
+    }
+    isToolSubmit.value = false;
+    getTool();
+  }
+
+  void deleteTool({required String id}) async {
+    await _databaseService.deleteTool(uuid: id);
+    getTool();
+  }
+
+  getTool() async {
+    isLoading.value = true;
+    var response = await _databaseService.getTools();
+    tools.value = response;
+    isLoading.value = false;
+  }
+
+  //grreting
+  void submitGreeting({required GlobalKey<FormState> key}) async {
+    var uuid = Uuid().v4();
+    isGreetingSubmit.value = true;
+    final isValid = key.currentState!.validate();
+    if (isValid) {
+      var data =
+          GreetingsModel(textKinyarwanda: textKinyarwanda.value.text, textEnglish: textEnglish.value.text, audio: audio.value.text);
+      await _databaseService.createNewGreeting(greetings: data, uuid: uuid);
+      getTool();
+      Get.snackbar('Successfully', 'Added',
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
+    }
+    isGreetingSubmit.value = false;
+    getGreeting();
+  }
+
+  void deleteGreeting({required String id}) async {
+    await _databaseService.deleteGreeting(uuid: id);
+    getGreeting();
+  }
+
+  getGreeting() async {
+    isLoading.value = true;
+    var response = await _databaseService.getGreetings();
+    greetings.value = response;
+    isLoading.value = false;
+  }
 
   @override
   void onInit() {
     getFood();
     getFruit();
+    getTool();
     getAnimal();
     getArtifact();
     getRwandanHistoricalPlaces();
     getRwandaKings();
     getRwandanCeremonies();
+    getGreeting();
     super.onInit();
   }
 }

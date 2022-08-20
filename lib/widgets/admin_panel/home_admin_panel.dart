@@ -183,6 +183,73 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
           ),
             ),
           ),
+
+           SizedBox(
+            height: SizeConfig.heightMultiplier * 2,
+          ),
+          GestureDetector(
+            onTap: () => Get.toNamed(RouteLinks.homeToolsPanel),
+            child: Container(
+          decoration: BoxDecoration(
+              color: greyLight, borderRadius: BorderRadius.circular(8)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                height: SizeConfig.heightMultiplier * 12,
+                width: SizeConfig.widthMultiplier * 24,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(Images.plate),
+                      fit: BoxFit.fill),
+                ),
+              ),
+              SizedBox(
+                width: SizeConfig.widthMultiplier * 6,
+              ),
+              Text("Tools", style: TextAppStyles.titleBoldText),
+              
+            ],
+          ),
+            ),
+          ),
+           SizedBox(
+            height: SizeConfig.heightMultiplier * 2,
+          ),
+          GestureDetector(
+            onTap: () => Get.toNamed(RouteLinks.homeGreetingsPanel),
+            child: Container(
+          decoration: BoxDecoration(
+              color: greyLight, borderRadius: BorderRadius.circular(8)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 6,
+                    vertical: SizeConfig.heightMultiplier * 1.2),
+                height: SizeConfig.heightMultiplier * 12,
+                width: SizeConfig.widthMultiplier * 24,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(Images.greeting),
+                      fit: BoxFit.fill),
+                ),
+              ),
+              SizedBox(
+                width: SizeConfig.widthMultiplier * 6,
+              ),
+              Text("Greetings", style: TextAppStyles.titleBoldText),
+              
+            ],
+          ),
+            ),
+          ),
           SizedBox(
             height: SizeConfig.heightMultiplier * 2,
           ),
@@ -210,8 +277,7 @@ class HomeAdminPanel extends GetWidget<AdminPanelController> {
               SizedBox(
                 width: SizeConfig.widthMultiplier * 6,
               ),
-              Text("Rwandan History", style: TextAppStyles.titleBoldText),
-              
+              Text("Rwandan History", style: TextAppStyles.titleBoldText), 
             ],
           ),
             ),
