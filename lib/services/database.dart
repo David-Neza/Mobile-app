@@ -73,7 +73,7 @@ class DatabaseService {
 
   Future<List<IbisakuzoModel>> getIbisakuzo() async {
     return await _firestore
-        .collection("IbisakuzoList")
+        .collection("ibisakuzo")
         .get()
         .then(_ibisakuzoListFromSnaphot);
   }
