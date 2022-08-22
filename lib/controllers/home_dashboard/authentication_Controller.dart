@@ -16,6 +16,7 @@ class AuthenticationController extends GetxController {
   Rx<TextEditingController> username = TextEditingController().obs;
   Rx<TextEditingController> email = TextEditingController().obs;
   Rx<TextEditingController> password = TextEditingController().obs;
+  Rx<TextEditingController> confirmPassword = TextEditingController().obs;
   RxBool obscure = true.obs;
   RxBool isLoading = false.obs;
   RxBool isRegistering = false.obs;
@@ -88,6 +89,13 @@ class AuthenticationController extends GetxController {
   String? passwordValidator(String value) {
     if (value.isEmpty) {
       return 'Please, Input a password';
+    }
+    return null;
+  }
+
+  String? confirmPasswordValidator(String value) {
+    if (value.isEmpty) {
+      return 'Please confirm password';
     }
     return null;
   }
@@ -237,9 +245,11 @@ class AuthenticationController extends GetxController {
   Future signUpWithEmailAndPassword(
       {required String email,
       required String password,
+      required String confirmPassword,
       required GlobalKey<FormState> key}) async {
     isRegistering.value = true;
     final isValid = key.currentState!.validate();
+    if(password == confirmPassword){
     if (isValid) {
       try {
         UserCredential result = await _auth.createUserWithEmailAndPassword(
@@ -260,6 +270,14 @@ class AuthenticationController extends GetxController {
         Get.snackbar('Error', e.toString(),
             snackPosition: SnackPosition.BOTTOM);
       }
+    }
+    }else{
+      Get.snackbar('Passwords should match', 'Confirm password',
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
     }
     isRegistering.value = false;
   }

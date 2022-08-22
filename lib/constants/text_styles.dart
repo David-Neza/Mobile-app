@@ -15,6 +15,13 @@ class TextAppStyles {
     fontSize: SizeConfig.textMultiplier * 1.5,
   );
 
+  static final simpleOnBoardingMediumText = TextStyle(
+    fontFamily: 'Muli',
+    color: blackColor,
+    fontWeight: FontWeight.w800,
+    fontSize: SizeConfig.textMultiplier * 2,
+  );
+
   static final simpleMediumBoldText = TextStyle(
     fontFamily: 'Muli',
     color: blackColor,

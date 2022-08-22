@@ -158,7 +158,40 @@ class RegisterPage extends GetWidget<AuthenticationController> {
                 ),
               ),
               SizedBox(
-                height: SizeConfig.heightMultiplier * 6,
+                height: SizeConfig.heightMultiplier * 4,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeConfig.widthMultiplier * 8),
+                child: TextFormField(
+                  controller: controller.confirmPassword.value,
+                  validator: (value) => controller.confirmPasswordValidator(value!),
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: "Confirm password",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        width: 0,
+                        style: BorderStyle.none,
+                      ),
+                    ),
+                    fillColor: const Color(0xfff5f6fa),
+                    filled: true,
+                    contentPadding: EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: SizeConfig.widthMultiplier * 4),
+                    hintStyle: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Muli",
+                    ),
+                    disabledBorder: InputBorder.none,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: SizeConfig.heightMultiplier * 2,
               ),
               controller.isRegistering.value
                   ? Center(child: CircularProgressIndicator())
@@ -179,6 +212,7 @@ class RegisterPage extends GetWidget<AuthenticationController> {
                         onPressed: () => controller.signUpWithEmailAndPassword(
                             email: controller.email.value.text,
                             key: _formKey,
+                            confirmPassword: controller.confirmPassword.value.text,
                             password: controller.password.value.text),
                         // onPressed: ()=> controller.submitRegister(key: _formKey),
                       ),
