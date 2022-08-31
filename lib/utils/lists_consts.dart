@@ -4,14 +4,14 @@ import 'package:clds/routes/route_link.dart';
 const List dashboardCategoriesList = [
   {
     "image": Images.kiny,
-    "text_1": "Kinyarwanda",
-    "text_2": "Learn the basics",
+    "text_1": "Learn",
+    "text_2": "Basic Kinyarwanda",
     "route": RouteLinks.learnKinyarwandaPage
   },
   {
     "image": Images.danceImage,
-    "text_1": "Dancing",
-    "text_2": "Guhamiriza",
+    "text_1": "Learn",
+    "text_2": "Dancing",
     "route": RouteLinks.dancingDashboard
   },
   {
@@ -28,8 +28,8 @@ const List dashboardCategoriesList = [
   },
   {
     "image": Images.king,
-    "text_1": "Historical Culture",
-    "text_2": "know the history",
+    "text_1": "Learn",
+    "text_2": "Historical Culture",
     "route": RouteLinks.rwandaHistory
   },
   {
@@ -43,14 +43,14 @@ const List dashboardCategoriesList = [
 const List userDashboardCategoriesList = [
   {
     "image": Images.kiny,
-    "text_1": "Kinyarwanda",
-    "text_2": "Learn the basics",
+    "text_1": "Learn",
+    "text_2": "Basic Kinyarwanda",
     "route": RouteLinks.learnKinyarwandaPage
   },
   {
     "image": Images.danceImage,
-    "text_1": "Dancing",
-    "text_2": "Guhamiriza",
+    "text_1": "Learn",
+    "text_2": "Dancing",
     "route": RouteLinks.dancingDashboard
   },
   {
@@ -67,8 +67,8 @@ const List userDashboardCategoriesList = [
   },
   {
     "image": Images.king,
-    "text_1": "Historical Culture",
-    "text_2": "know the history",
+    "text_1": "Learn",
+    "text_2": "Historical Culture",
     "route": RouteLinks.rwandaHistory
   }
 ];

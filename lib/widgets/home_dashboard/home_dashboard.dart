@@ -39,7 +39,7 @@ class HomeDashboard extends GetWidget<HomeDashboardController> {
                           backgroundImage: const AssetImage(Images.flagImage),
                         ),
                         Text(DateFormat('EEEE, d MMM').format(DateTime.now()),
-                            style: TextAppStyles.titleBoldText),
+                            style: TextAppStyles.musicSectionText),
                         GestureDetector(
                           onTap: () => authenticationController.signOut(),
                           child: Container(

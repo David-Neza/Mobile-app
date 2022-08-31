@@ -41,9 +41,10 @@ class EntertainmentPage extends StatelessWidget {
                     ),
             SizedBox(width: SizeConfig.widthMultiplier*12,),
                   Text("Entertainment",
-                      style: TextAppStyles.dashboardText),
+                      style: TextAppStyles.musicSectionText),
                 ],
               ),
+               SizedBox(height: SizeConfig.heightMultiplier* 6,),
               GestureDetector(
                 onTap: ()=>Get.toNamed(RouteLinks.sakwesakwe),
                 child: Container(

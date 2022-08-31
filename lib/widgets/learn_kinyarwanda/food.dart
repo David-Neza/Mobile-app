@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-import 'package:clds/controllers/fruits_controller/fruits_controller.dart';
 import 'package:clds/controllers/learnFoods_controller/learnFoods_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -54,7 +53,7 @@ class LearnFoods extends GetWidget<LearnFoodsController> {
           SizedBox(
             width: SizeConfig.widthMultiplier * 12,
           ),
-          Text("Foods", style: TextAppStyles.dashboardText),
+          Text("Foods", style: TextAppStyles.musicSectionText),
             ],
           ),
                   SizedBox(
@@ -70,7 +69,7 @@ class LearnFoods extends GetWidget<LearnFoodsController> {
                     children: [
                       Text(
                           "${controller.food2[controller.selectedUpIndex.value].text}",
-                          style: TextAppStyles.titleBoldText),
+                          style: TextAppStyles.musicSectionText),
                       SizedBox(
                         width: SizeConfig.heightMultiplier * 2,
                       ),

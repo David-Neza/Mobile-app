@@ -20,7 +20,7 @@ class _HomeTarihindaState extends State<HomeTarihinda> {
   VideoPlayerController? _controller;
   bool _isLoading = false;
   String youtubeUrl =
-      "https://firebasestorage.googleapis.com/v0/b/mobile-64269.appspot.com/o/yt5s.com-C%C3%A9cile%20Kayirebwa-%20Tarihinda-(480p).mp4?alt=media&token=45ec67b3-3637-4c9c-90a1-b5e4a1f77f56";
+      "https://firebasestorage.googleapis.com/v0/b/mobile-64269.appspot.com/o/yt5s.com-Umunezero%20-%20C%C3%A9cile%20Kayirebwa-(480p).mp4?alt=media&token=32eb0af2-f811-4128-930b-e77aabaab4d7";
   // late YoutubePlayerController ytbController;
   @override
   void initState() {
@@ -33,6 +33,8 @@ class _HomeTarihindaState extends State<HomeTarihinda> {
       });
     super.initState();
   }
+
+  
 
   // @override
   // void deactivate() {
@@ -76,9 +78,9 @@ class _HomeTarihindaState extends State<HomeTarihinda> {
               ),
             ),
             SizedBox(
-              width: SizeConfig.widthMultiplier * 12,
+              width: SizeConfig.widthMultiplier * 1,
             ),
-            Text("Cecile Kayirebwa -Tarihinda", style: TextAppStyles.titleBoldText),
+            Text("Cecile Kayirebwa -Umunezero", style: TextAppStyles.songTitle),
           ],
         ),
         SizedBox(
@@ -100,33 +102,59 @@ class _HomeTarihindaState extends State<HomeTarihinda> {
         SizedBox(
           height: SizeConfig.heightMultiplier * 2,
         ),
-        Center(
-          child: Container(
-            width: size.width * 0.9,
-            height: size.height * 0.07,
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black)),
-              child:
-                  _controller!.value.isPlaying ? Text('Pause') : Text('Play'),
+        Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+           ElevatedButton.icon(
               onPressed: () {
+                Duration currentPosition = _controller!.value.position;
+                Duration targetPostion = currentPosition - const Duration(seconds: 30);
+                _controller?.seekTo(targetPostion);
+
+              },
+              icon: Icon( // <-- Icon
+                Icons.fast_rewind,
+                size: 40.0,
+              ),
+              label: Text(''), // <-- Text
+            ),
+             SizedBox(
+              width: SizeConfig.heightMultiplier * 4,
+            ),
+             ElevatedButton.icon(
+             onPressed: () {
                 setState(() {
                   _controller!.value.isPlaying
                       ? _controller!.pause()
                       : _controller!.play();
                 });
               },
+              icon: Icon( // <-- Icon
+                Icons.play_arrow,
+                size: 40.0,
+              ),
+              label: Text(''), // <-- Text
             ),
-          ),
-        )
-      ])),
+             SizedBox(
+              width: SizeConfig.heightMultiplier * 4,
+            ),
+             ElevatedButton.icon(
+               onPressed: () {
+                Duration currentPosition = _controller!.value.position;
+                Duration targetPostion = currentPosition + const Duration(seconds: 30);
+                _controller?.seekTo(targetPostion);
+
+              },
+              icon: Icon( // <-- Icon
+                Icons.fast_forward,
+                size: 40.0,
+              ),
+              label: Text(''), // <-- Text
+            ),
+        ],
+      )
+      ]
+      )),
     ));
   }
 }

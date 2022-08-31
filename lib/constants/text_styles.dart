@@ -61,7 +61,12 @@ class TextAppStyles {
     fontWeight: FontWeight.w800,
     fontSize: SizeConfig.textMultiplier * 2,
   );
-
+  static final songTitle = TextStyle(
+    fontFamily: 'Muli',
+    color: blackColor,
+    fontWeight: FontWeight.w800,
+    fontSize: SizeConfig.textMultiplier * 2.5,
+  );
   static final menuText = TextStyle(
     fontFamily: 'Muli',
     color: blackColor,
@@ -83,6 +88,18 @@ class TextAppStyles {
   );
 
    static final dashboardText = TextStyle(
+    fontFamily: 'Muli',
+    color: dashColor,
+    fontWeight: FontWeight.w600,
+    fontSize: SizeConfig.textMultiplier * 2,
+  );
+  static final musicSectionText = TextStyle(
+    fontFamily: 'Muli',
+    color: blackColor,
+    fontWeight: FontWeight.w600,
+    fontSize: SizeConfig.textMultiplier * 3,
+  );
+   static final songTitleText = TextStyle(
     fontFamily: 'Muli',
     color: dashColor,
     fontWeight: FontWeight.w600,
