@@ -57,7 +57,6 @@ class RwandaKings extends GetWidget<RwandaKingsController> {
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 4,
                   ),
-                  
                   GestureDetector(
                     onTap: () => Get.back(),
                     child: Container(
@@ -75,8 +74,6 @@ class RwandaKings extends GetWidget<RwandaKingsController> {
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 4,
                   ),
-                  
-                  SizedBox(height: SizeConfig.heightMultiplier * 4),
                   Expanded(child:
                   buildImageCard(),
                   ),

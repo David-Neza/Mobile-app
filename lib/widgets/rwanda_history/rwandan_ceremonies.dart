@@ -75,8 +75,6 @@ class RwandanCeremonies extends GetWidget<RwandanCeremoniesController> {
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 4,
                   ),
-                  
-                  SizedBox(height: SizeConfig.heightMultiplier * 4),
                   Expanded(child:
                   buildImageCard(),
                   ),

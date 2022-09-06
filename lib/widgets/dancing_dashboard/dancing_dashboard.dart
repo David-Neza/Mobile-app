@@ -53,6 +53,9 @@ class DancingDashboard extends GetWidget<DancingDashboardController> {
                               style: TextAppStyles.dashboardText),
                         ],
                       ),
+                       SizedBox(
+                            height: SizeConfig.heightMultiplier * 4,
+                          ),
                       Expanded(
                         child: ListView.builder(
                             itemCount: controller.categories.length,

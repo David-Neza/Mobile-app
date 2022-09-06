@@ -53,7 +53,7 @@ class LearnAnimals extends GetWidget<AnimalsController> {
           SizedBox(
             width: SizeConfig.widthMultiplier * 12,
           ),
-          Text("Animals", style: TextAppStyles.dashboardText),
+          Text("Animals", style: TextAppStyles.songTitle),
             ],
           ),
                   SizedBox(
@@ -69,7 +69,7 @@ class LearnAnimals extends GetWidget<AnimalsController> {
                     children: [
                       Text(
                           "${controller.animal2[controller.selectedUpIndex.value].text}",
-                          style: TextAppStyles.titleBoldText),
+                          style: TextAppStyles.songTitle),
                       SizedBox(
                         width: SizeConfig.heightMultiplier * 2,
                       ),

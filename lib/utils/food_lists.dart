@@ -1,6 +1,5 @@
 import 'package:clds/constants/images.dart';
 import 'package:clds/routes/route_link.dart';
-import 'package:flutter/material.dart';
 
 const List foodCategoriesList = [
   {

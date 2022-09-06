@@ -54,7 +54,7 @@ class Greetings extends GetWidget<GreetingsController> {
           SizedBox(
             width: SizeConfig.widthMultiplier * 12,
           ),
-          Text("Greetings", style: TextAppStyles.dashboardText),
+          Text("Greetings", style: TextAppStyles.songTitle),
             ],
           ),
                   SizedBox(
@@ -70,7 +70,7 @@ class Greetings extends GetWidget<GreetingsController> {
                     children: [
                       Text(
                           "${controller.greeting2[controller.selectedUpIndex.value].textKinyarwanda}",
-                          style: TextAppStyles.titleBoldText),
+                          style: TextAppStyles.songTitle),
                       SizedBox(
                         width: SizeConfig.heightMultiplier * 2,
                       ),

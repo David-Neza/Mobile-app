@@ -51,9 +51,9 @@ class LearnTools extends GetWidget<ToolsController> {
             ),
           ),
           SizedBox(
-            width: SizeConfig.widthMultiplier * 12,
+            width: SizeConfig.widthMultiplier * 24,
           ),
-          Text("Tools", style: TextAppStyles.dashboardText),
+          Text("Tools", style: TextAppStyles.songTitle),
             ],
           ),
                   SizedBox(
@@ -69,7 +69,7 @@ class LearnTools extends GetWidget<ToolsController> {
                     children: [
                       Text(
                           "${controller.tool2[controller.selectedUpIndex.value].text}",
-                          style: TextAppStyles.titleBoldText),
+                          style: TextAppStyles.songTitle),
                       SizedBox(
                         width: SizeConfig.heightMultiplier * 2,
                       ),

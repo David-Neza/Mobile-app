@@ -78,7 +78,7 @@ class _HomeImvangeState extends State<HomeImvange> {
             SizedBox(
               width: SizeConfig.widthMultiplier * 12,
             ),
-            Text("How to cook isombe", style: TextAppStyles.titleBoldText),
+            Text("How to cook imvange", style: TextAppStyles.songTitle),
           ],
         ),
         SizedBox(
@@ -100,32 +100,60 @@ class _HomeImvangeState extends State<HomeImvange> {
         SizedBox(
           height: SizeConfig.heightMultiplier * 2,
         ),
-        Center(
-          child: Container(
-            width: size.width * 0.9,
-            height: size.height * 0.07,
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black)),
-              child:
-                  _controller!.value.isPlaying ? Text('Pause') : Text('Play'),
+         SizedBox(
+          height: SizeConfig.heightMultiplier * 2,
+        ),
+        Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+           ElevatedButton.icon(
               onPressed: () {
+                Duration currentPosition = _controller!.value.position;
+                Duration targetPostion = currentPosition - const Duration(seconds: 30);
+                _controller?.seekTo(targetPostion);
+
+              },
+              icon: Icon( // <-- Icon
+                Icons.fast_rewind,
+                size: 40.0,
+              ),
+              label: Text(''), // <-- Text
+            ),
+             SizedBox(
+              width: SizeConfig.heightMultiplier * 4,
+            ),
+             ElevatedButton.icon(
+             onPressed: () {
                 setState(() {
                   _controller!.value.isPlaying
                       ? _controller!.pause()
                       : _controller!.play();
                 });
               },
+              icon: Icon( // <-- Icon
+                Icons.play_arrow,
+                size: 40.0,
+              ),
+              label: Text(''), // <-- Text
             ),
-          ),
-        )
+             SizedBox(
+              width: SizeConfig.heightMultiplier * 4,
+            ),
+             ElevatedButton.icon(
+               onPressed: () {
+                Duration currentPosition = _controller!.value.position;
+                Duration targetPostion = currentPosition + const Duration(seconds: 30);
+                _controller?.seekTo(targetPostion);
+
+              },
+              icon: Icon( // <-- Icon
+                Icons.fast_forward,
+                size: 40.0,
+              ),
+              label: Text(''), // <-- Text
+            ),
+        ],
+      )
       ])),
     ));
   }

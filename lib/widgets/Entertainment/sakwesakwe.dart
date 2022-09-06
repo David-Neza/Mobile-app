@@ -57,15 +57,12 @@ class SakweSakwe extends GetWidget<SakweController> {
                     SizedBox(
                       height: SizeConfig.heightMultiplier * 4,
                     ),
-                    SizedBox(
-                      height: SizeConfig.heightMultiplier * 2,
-                    ),
                     Center(
                       child: Text(
                           "${controller.sakwe2[controller.selectedUpIndex.value].igisakuzo}",
                           style: TextAppStyles.questionText),
                     ),
-                    SizedBox(height: SizeConfig.heightMultiplier * 0.5),
+                    SizedBox(height: SizeConfig.heightMultiplier * 4),
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: SizeConfig.widthMultiplier * 16),

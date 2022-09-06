@@ -15,7 +15,7 @@ const List dashboardCategoriesList = [
     "route": RouteLinks.dancingDashboard
   },
   {
-    "image": Images.isombe,
+    "image": Images.igitok,
     "text_1": "Learn to Cook",
     "text_2": "Rwandan Foods",
     "route": RouteLinks.foodDashboard
@@ -54,7 +54,7 @@ const List userDashboardCategoriesList = [
     "route": RouteLinks.dancingDashboard
   },
   {
-    "image": Images.isombe,
+    "image": Images.igitok,
     "text_1": "Learn to Cook",
     "text_2": "Rwandan Foods",
     "route": RouteLinks.foodDashboard

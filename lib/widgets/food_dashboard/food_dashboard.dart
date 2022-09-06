@@ -50,9 +50,12 @@ class FoodDashboard extends GetWidget<FoodDashboardController> {
                             width: SizeConfig.widthMultiplier * 12,
                           ),
                           Text("Rwandan Foods",
-                              style: TextAppStyles.titleBoldText),
+                              style: TextAppStyles.songTitle),
                         ],
                       ),
+                        SizedBox(
+                            height: SizeConfig.heightMultiplier * 4,
+                          ),
                       Expanded(
                         child: ListView.builder(
                             itemCount: controller.categories.length,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../constants/colors.dart';
-import '../../../constants/images.dart';
 import '../../../constants/sizeConfig.dart';
 import '../../../constants/text_styles.dart';
 import '../../../controllers/admin_panel_cotnrollers/admin_panel_controller.dart';
@@ -50,7 +49,7 @@ class HomeFoodPanel extends GetWidget<AdminPanelController> {
                         SizedBox(
                           width: SizeConfig.widthMultiplier * 12,
                         ),
-                        Text("Food Panel", style: TextAppStyles.titleBoldText),
+                        Text("Food Panel", style: TextAppStyles.songTitle),
                       ],
                     ),
                     SizedBox(

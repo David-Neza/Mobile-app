@@ -51,9 +51,9 @@ class LearnFruits extends GetWidget<FruitsController> {
             ),
           ),
           SizedBox(
-            width: SizeConfig.widthMultiplier * 12,
+            width: SizeConfig.widthMultiplier * 16,
           ),
-          Text("Fruits", style: TextAppStyles.dashboardText),
+          Text("Fruits", style: TextAppStyles.songTitle),
             ],
           ),
                   SizedBox(
@@ -69,7 +69,7 @@ class LearnFruits extends GetWidget<FruitsController> {
                     children: [
                       Text(
                           "${controller.fruit2[controller.selectedUpIndex.value].text}",
-                          style: TextAppStyles.titleBoldText),
+                          style: TextAppStyles.songTitle),
                       SizedBox(
                         width: SizeConfig.heightMultiplier * 2,
                       ),

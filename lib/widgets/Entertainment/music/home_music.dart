@@ -68,7 +68,7 @@ class HomeMusic extends StatelessWidget {
                                 
                                 ),
                               ),
-                            SizedBox(width: SizeConfig.widthMultiplier*6,),   
+                            SizedBox(width: SizeConfig.widthMultiplier*1.5,),   
                               Text("Cecile Kayirebwa -Umunezero",
                         style: TextAppStyles.titleBoldText), 
                     ],

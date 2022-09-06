@@ -76,8 +76,6 @@ class RwandanHistoricalPlaces extends GetWidget<RwandanHistoricalPlacesControlle
                   SizedBox(
                     height: SizeConfig.heightMultiplier * 4,
                   ),
-                  
-                  SizedBox(height: SizeConfig.heightMultiplier * 4),
                   Expanded(child: 
                   buildImageCard(),
                   ),

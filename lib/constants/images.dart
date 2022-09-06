@@ -37,6 +37,7 @@ class Images {
   static const String igitaramo = "$baseImages/igitaramo.jpeg";
   static const String cecile = "$baseImages/cecile-ka.jpeg";
   static const String philemon = "$baseImages/philome.jpeg";
+  static const String igitok = "$baseImages/igitok.jpeg";
  
   // icons
   static const String bellIcon = "$baseIcons/Bell.svg";
