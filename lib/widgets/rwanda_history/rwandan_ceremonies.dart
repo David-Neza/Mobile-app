@@ -25,14 +25,22 @@ class RwandanCeremonies extends GetWidget<RwandanCeremoniesController> {
             "${controller.rwandanCeremony2[controller.selectedUpIndex.value].name}",
             style: TextAppStyles.dashboardText,
           ),
-      Expanded(child:     
-          Text(
-           "${controller.rwandanCeremony2[controller.selectedUpIndex.value].description}",
-           style: TextAppStyles.titleBoldText),         
-      ),
-        ]),
+      new Expanded(
+        flex: 1,
+        child: new SingleChildScrollView( 
+          scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
         
-      );
+              Padding(padding: EdgeInsets.all(10),
+              child: Text(
+                "${controller.rwandanCeremony2[controller.selectedUpIndex.value].description}",
+                style: TextAppStyles.titleBoldText),         
+              ),
+         ]),
+          ),
+      ),]
+      ));
 
 
   RwandanCeremonies({Key? key}) : super(key: key);

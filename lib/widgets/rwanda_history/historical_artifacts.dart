@@ -11,6 +11,9 @@ import '../../constants/text_styles.dart';
 
 class HistoricalArtifacts extends GetWidget<ArtifactsController> {
 
+  static const ikibindiDescription = "Rwandan traditional tool to keep of fetch water or make traditional beer ( Ikigage)";
+  static const agasekeDescription = "Agaseke is a hand-woven basket made from and sisal plant, “imigwegwe” (sweetgrass), or even papyrus. Requiring a lot of precision and patience, these baskets are traditionally made by women and have been part of the Rwandan culture for centuries";
+
   Widget buildImageCard() => Card(
         color: readColor,
         child: Column(children: [
@@ -19,8 +22,7 @@ class HistoricalArtifacts extends GetWidget<ArtifactsController> {
     borderRadius: BorderRadius.circular(30),
     child: Image.network(
         "${controller.artifact2[controller.selectedUpIndex.value].image}",
-        height: 200.0,
-        width: 500.0,
+        height: 400.0,
     ),
     )
           ]),
@@ -28,12 +30,28 @@ class HistoricalArtifacts extends GetWidget<ArtifactsController> {
             "${controller.artifact2[controller.selectedUpIndex.value].text}",
             style: TextAppStyles.dashboardText,
           ),
-          Expanded(child: 
-          Text(
-            "A reconstruction of the traditional royal residence, the King’s Palace is a beautifully-crafted thatched dwelling shaped like a beehive In olden times, Nyanza was the heart of Rwanda. According to oral tradition, it was the site of battles and power struggles For a long time, the monarchy was mobile, moving the court between various locations. When it eventually settled in one place, Nyanza was the obvious choice. The capital of the kingdom had as many as 2,000 inhabitants, and huts built with the same methods as seen here",
-            style: TextAppStyles.titleBoldText), 
-          ),         
-        ]),
+            new Expanded(
+        flex: 1,
+        child: new SingleChildScrollView( 
+          scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+        
+              Padding(padding: EdgeInsets.all(10),
+              child: Text(
+                        "",
+                style: TextAppStyles.titleBoldText),         
+              ),
+         ]),
+          ),
+      ),]
+      )        
+        //   Expanded(child: 
+        //   Text(
+        //     "A reconstruction of the traditional royal residence, the King’s Palace is a beautifully-crafted thatched dwelling shaped like a beehive In olden times, Nyanza was the heart of Rwanda. According to oral tradition, it was the site of battles and power struggles For a long time, the monarchy was mobile, moving the court between various locations. When it eventually settled in one place, Nyanza was the obvious choice. The capital of the kingdom had as many as 2,000 inhabitants, and huts built with the same methods as seen here",
+        //     style: TextAppStyles.titleBoldText), 
+        //   ),         
+        // ]),
         
       );
 
