@@ -235,8 +235,12 @@ class AuthenticationController extends GetxController {
         _setInitialScreen(_firebaseUser.value);
         return _userFromFirebase(user);
       } catch (e) {
-        Get.snackbar('Error', e.toString(),
-            snackPosition: SnackPosition.BOTTOM);
+        Get.snackbar('Incorrect Email or Password', '',
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          borderRadius: 10,
+          margin: EdgeInsets.all(10));
       }
     }
     isLoginLoading.value = false;

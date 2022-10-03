@@ -200,7 +200,7 @@ class DatabaseService {
       await _firestore
           .collection("artifacts")
           .doc(uuid)
-          .set({"text": artifacts.text, "image": artifacts.image, "audio": artifacts.audio});
+          .set({"text": artifacts.text, "image": artifacts.image, "description":artifacts.description, "audio": artifacts.audio});
       return true;
     } catch (e) {
       print(e);

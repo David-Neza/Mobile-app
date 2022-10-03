@@ -152,7 +152,7 @@ class AdminPanelController extends GetxController {
     final isValid = key.currentState!.validate();
     if (isValid) {
       var data =
-          ArtifactsModel(image: imageLink.value.text, text: name.value.text, audio: audio.value.text);
+          ArtifactsModel(image: imageLink.value.text, text: name.value.text, description: description.value.text, audio: audio.value.text);
       await _databaseService.createNewArtifact(artifacts: data, uuid: uuid);
       getArtifact();
       Get.snackbar('Successfully', 'Added',

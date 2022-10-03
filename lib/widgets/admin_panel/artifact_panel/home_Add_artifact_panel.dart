@@ -20,8 +20,7 @@ class HomeAddArtifactPanel extends GetWidget<AdminPanelController> {
           child: Form(
             key: _formKey,
             child: SafeArea(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+                child: ListView(
               children: [
                 SizedBox(
                   height: SizeConfig.heightMultiplier * 4,
@@ -112,6 +111,42 @@ class HomeAddArtifactPanel extends GetWidget<AdminPanelController> {
                     fillColor: blueLight,
                     filled: true,
                     hintText: "INsert Image Link",
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                    hintStyle: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Muli",
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 3,
+                ),
+                Text(
+                  "Description",
+                  style: TextAppStyles.simpleMediumText,
+                ),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 1.2,
+                ),
+                TextFormField(
+                  controller: controller.description.value,
+                  keyboardType: TextInputType.name,
+                  validator: (value) => controller.description.value.text.isEmpty
+                      ? "Insert description"
+                      : null,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(
+                        width: 0,
+                        style: BorderStyle.none,
+                      ),
+                    ),
+                    fillColor: blueLight,
+                    filled: true,
+                    hintText: "Insert description",
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 12, horizontal: 10),
                     hintStyle: const TextStyle(

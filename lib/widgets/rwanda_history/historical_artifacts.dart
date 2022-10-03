@@ -39,7 +39,7 @@ class HistoricalArtifacts extends GetWidget<ArtifactsController> {
         
               Padding(padding: EdgeInsets.all(10),
               child: Text(
-                        "",
+                        "${controller.artifact2[controller.selectedUpIndex.value].description}",
                 style: TextAppStyles.titleBoldText),         
               ),
          ]),

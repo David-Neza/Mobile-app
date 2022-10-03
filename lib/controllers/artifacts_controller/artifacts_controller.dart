@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_new
 
 import 'dart:math';
-import 'package:clds/models/animals_model.dart';
 import 'package:clds/models/artifacts_model.dart';
 import 'package:clds/services/database.dart';
 import 'package:get/get.dart';
